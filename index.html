@@ -1,0 +1,1684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NQHQMH35');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8" />
+  <title>Rei do Box Sinop - Vidraçaria e Box para Banheiro</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Website institucional para a Rei do Box Sinop, especialista em box para banheiro, espelhos e vidros personalizados. Oferecemos instalação rápida, garantia e as melhores condições de pagamento em Sinop-MT.">
+  <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/nrLD4ZGg/Favicon-Reido-Box.png" />
+  
+  <!-- Preload critical images -->
+  <link rel="preload" as="image" href="https://i.postimg.cc/vBHHC4Dr/Estoque-Reidobox-Sinop-2026.png" media="(max-width: 767px)">
+  <link rel="preload" as="image" href="https://i.postimg.cc/k7stdYyg/Untitled-3-copy.jpg" media="(min-width: 768px)">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    /* Custom Styles */
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      scroll-behavior: smooth; 
+      background-color: #f9fafb; /* bg-gray-50 */
+      color: #1f2937; /* text-gray-800 */
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700 !important;
+    }
+
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease-out;
+    }
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+      }
+    }
+    #preloader img {
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    /* Hero Slideshow Simple Fade Transition */
+    .hero-slide-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hero-slide-img.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    /* Slideshow Dots */
+    .hero-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+    .hero-dot.active {
+      background-color: #ef4444; /* red-500 */
+      transform: scale(1.2);
+    }
+
+    .text-shadow {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Hero Text Animation */
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes fadeIn-subtle {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .slide-in {
+      opacity: 0; /* Start hidden before animation begins */
+      animation-name: slideInLeft;
+      animation-duration: 0.8s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards; /* Keep the 'to' state */
+    }
+
+    #hero-title.slide-in, #desktop-hero-title.slide-in {
+      animation-delay: 1s;
+    }
+
+    #hero-subtitle.slide-in, #desktop-hero-subtitle.slide-in {
+      animation-delay: 1.2s;
+    }
+    
+    .hero-stat {
+        opacity: 0;
+        animation-name: fadeIn-subtle;
+        animation-duration: 0.8s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+    }
+
+    #hero-stats .hero-stat:nth-child(1), #desktop-hero-stats .hero-stat:nth-child(1) { animation-delay: 1.4s; }
+    #hero-stats .hero-stat:nth-child(2), #desktop-hero-stats .hero-stat:nth-child(2) { animation-delay: 1.5s; }
+    #hero-stats .hero-stat:nth-child(3), #desktop-hero-stats .hero-stat:nth-child(3) { animation-delay: 1.6s; }
+
+
+    /* Lightbox Image Transition */
+    #lightbox-image {
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    /* Scroll Animation */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .scroll-animate.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Feature Card Content Animation */
+    .feature-icon {
+      opacity: 0;
+      transform: scale(0.8) rotate(-15deg);
+      filter: brightness(0); /* Start with 0 brightness */
+      transition: opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                  transform 0.1s ease-out,
+                  filter 0.1s ease-out;
+    }
+
+    /* Effect on hover */
+    .scroll-animate:hover .feature-icon {
+        transform: scale(1.2); /* Faster and more pronounced growth */
+        filter: brightness(1.1) drop-shadow(0 0 10px rgba(220, 38, 38, 0.7)); /* Add a red glow */
+    }
+
+    .feature-title, .feature-subtitle {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .scroll-animate.is-visible .feature-icon {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+      filter: brightness(1); /* Go to 100% brightness */
+      transition-delay: 0.2s;
+    }
+    .scroll-animate.is-visible .feature-title {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.3s;
+    }
+    .scroll-animate.is-visible .feature-subtitle {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.4s;
+    }
+    
+    /* Card Slideshow */
+     .card-slide-image {
+        transition: opacity 0.4s ease-in-out;
+    }
+    .card-slide-nav {
+        background-color: rgba(0,0,0,0.3);
+        color: white;
+        border-radius: 9999px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s, opacity 0.3s;
+        opacity: 0;
+    }
+    .card-slideshow-container:hover .card-slide-nav {
+        opacity: 1;
+    }
+    .card-slide-nav:hover {
+        background-color: rgba(0,0,0,0.6);
+    }
+    .card-slide-dot {
+        box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    }
+
+
+    /* Subtle Bounce for FAB */
+    @keyframes bounce-subtle {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-15px); }
+      60% { transform: translateY(-7px); }
+    }
+    .animate-bounce-subtle {
+      animation: bounce-subtle 2.5s infinite;
+    }
+
+    /* Green Pulse Animation for CTA */
+    @keyframes pulse-green {
+      0%, 100% {
+        background-color: #22c55e; /* green-500 */
+      }
+      50% {
+        background-color: #16a34a; /* green-600 */
+      }
+    }
+    .animate-pulse-green {
+      animation: pulse-green 2s infinite ease-in-out;
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+    
+    /* FAQ Open/Close Transition */
+    .faq-answer-inner {
+        transform: scale(0.95) translateY(10px);
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        opacity: 0;
+    }
+    .faq-item.open .faq-answer-inner {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-item.open .faq-answer {
+        max-height: 800px;
+    }
+    .faq-item.open .faq-icon-plus {
+        transform: rotate(45deg);
+        color: #dc2626;
+    }
+    .faq-item.open {
+        background-color: #ffffff;
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+        border-color: transparent;
+        z-index: 10;
+    }
+    .faq-item {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-bottom: 1px solid #f3f4f6;
+        position: relative;
+    }
+    .faq-item:last-child {
+        border-bottom: none;
+    }
+    .faq-item:hover:not(.open) {
+        background-color: #fafafa;
+    }
+    .faq-item button {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    /* FAQ Number Badge */
+    .faq-number-badge {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #f3f4f6;
+        color: #9ca3af;
+        font-weight: 700;
+        font-size: 0.875rem;
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+    }
+    .faq-item.open .faq-number-badge {
+        background-color: #dc2626;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1), 0 10px 20px -5px rgba(220, 38, 38, 0.4);
+    }
+    .faq-item.open .faq-number-badge::after {
+        content: '';
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 2px solid rgba(220, 38, 38, 0.3);
+        animation: faq-pulse 2s infinite;
+    }
+    @keyframes faq-pulse {
+        0% { transform: scale(1); opacity: 0.8; }
+        100% { transform: scale(1.5); opacity: 0; }
+    }
+    
+
+    /* Logo transition */
+    .logo-image {
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+    .logo-image.active {
+      opacity: 1;
+    }
+
+
+
+    /* Custom container width for desktop */
+    @media (min-width: 1024px) {
+      .container {
+        max-width: 1280px; /* Wide layout */
+      }
+    }
+
+    /* Testimonial card hover effect */
+    .testimonial-card {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+    @media (min-width: 768px) {
+      .testimonial-card:hover {
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      }
+    }
+
+    /* Remove italic from blockquote in testimonials */
+    .testimonial-card blockquote {
+      font-style: normal;
+    }
+
+    /* Adjust spacing in testimonial card */
+    .testimonial-card .flex-col {
+      padding: 1rem; /* Adjust padding to reduce white space */
+    }
+
+    /* Pagination dots for testimonials */
+    .pagination-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #fca5a5; /* red-300 */
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .pagination-dot.active {
+      background-color: #dc2626; /* red-600 */
+      transform: scale(1.1);
+    }
+
+    /* ===============================================================
+       NOVO BOTÃO WHATSAPP (DO ZERO)
+       =============================================================== */
+    .wa-float-new {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid #fff;
+    }
+
+    .wa-float-new i {
+      font-size: 32px;
+    }
+
+    .wa-float-new:hover {
+      transform: scale(1.1) rotate(10deg);
+      background-color: #128c7e;
+    }
+
+    /* Pulse Effect */
+    .wa-float-new::before {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      background-color: #25d366;
+      opacity: 0.5;
+      z-index: -1;
+      animation: wa-pulse-new 2s infinite;
+    }
+
+    @keyframes wa-pulse-new {
+      0% { transform: scale(1); opacity: 0.5; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    /* Tooltip Desktop */
+    .wa-tooltip-new {
+      position: absolute;
+      right: 75px;
+      background: #333;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: bold;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .wa-float-new:hover .wa-tooltip-new {
+      opacity: 1;
+      visibility: visible;
+      right: 80px;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 767px) {
+      .wa-float-new {
+        width: 56px;
+        height: 56px;
+        bottom: 85px; /* Posição elevada para evitar barras do navegador e home indicator */
+        right: 20px;
+      }
+      .wa-float-new i {
+        font-size: 28px;
+      }
+      .wa-tooltip-new {
+        display: none; /* Esconde tooltip no mobile */
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQHQMH35"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="https://i.postimg.cc/631DHmzx/Logotipo-Reido-Box2.png" alt="Rei do Box Sinop Logo" class="w-48 h-auto">
+  </div>
+
+  <!-- Header -->
+  <header class="bg-white text-gray-800 shadow-lg sticky top-0 z-40">
+    <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+      <!-- Left Side: Logo -->
+      <a href="#" onclick="showPage('main-content'); return false;" class="cursor-pointer relative h-10 md:h-12 flex-shrink-0">
+        <!-- Invisible image to set the container width based on aspect ratio -->
+        <img src="https://i.postimg.cc/8PDd5Qv4/Logotipo-Reido-Box2.png"
+             alt=""
+             aria-hidden="true"
+             class="h-full w-auto invisible">
+        <!-- The actual visible, transitioning images -->
+        <img src="https://i.postimg.cc/8PDd5Qv4/Logotipo-Reido-Box2.png"
+             alt="Rei do Box Sinop Logo"
+             id="logo-image-1"
+             class="logo-image active absolute top-0 left-0 h-full w-auto">
+        <img src="https://i.postimg.cc/kX9N43Sf/Logotipo-Reido-Box3.png"
+             alt="Rei do Box Sinop Logo Alternativo"
+             id="logo-image-2"
+             class="logo-image absolute top-0 left-0 h-full w-auto">
+      </a>
+      
+      <!-- Right Side Actions -->
+      <div class="flex items-center gap-2">
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex md:space-x-6 items-center">
+          <a href="#services" onclick="showPage('main-content')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">Vidraçaria</a>
+          <a href="#testimonials" onclick="showPage('main-content')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">Depoimentos</a>
+          <a href="#faq" onclick="showPage('main-content')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">FAQ</a>
+          <button onclick="openWhatsAppDirectly()" class="animate-pulse-green inline-flex items-center justify-center text-white py-[7px] px-[22px] rounded-full shadow-md text-sm whitespace-nowrap">
+            <span class="font-bold">ORÇAMENTO RÁPIDO</span>
+            <i class="fa-brands fa-whatsapp ml-2 text-[22px]"></i>
+          </button>
+        </nav>
+        
+        <!-- Mobile Button -->
+        <button onclick="openWhatsAppDirectly()" class="animate-pulse-green inline-flex items-center justify-center text-white py-[5px] px-[14px] rounded-full shadow-sm text-xs md:hidden whitespace-nowrap flex-shrink-0">
+            <span class="font-bold">ORÇAMENTO</span>
+            <i class="fa-brands fa-whatsapp ml-2 text-[20px]"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+  
+
+
+  <main class="relative">
+    <div id="main-content">
+      <!-- Hero Section -->
+      <section class="relative bg-gray-900 text-white overflow-hidden">
+        <!-- Mobile Slideshow -->
+        <div id="mobile-hero-section" class="relative block md:hidden">
+            <div id="mobile-hero-container" class="w-full relative overflow-hidden bg-black"></div>
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 z-10">
+                <div class="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-black/40 to-transparent"></div>
+                <div class="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-black/40 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/75 to-transparent"></div>
+            </div>
+            
+            <!-- Mobile Hero Text Content Removed as requested -->
+            
+            <div id="mobile-hero-dots" class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col space-y-2 z-20">
+                <!-- Dots will be injected here by JS -->
+            </div>
+        </div>
+        
+        <!-- Desktop Slideshow -->
+        <div id="desktop-hero-section" class="hidden md:block relative">
+            <div id="desktop-hero-container" class="w-full relative overflow-hidden bg-black">
+                <!-- JS will inject spacer and images here -->
+            </div>
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 z-10">
+                <div class="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-black/80 to-transparent"></div>
+                <div class="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-black/50 to-transparent"></div>
+            </div>
+            
+            <!-- Desktop Hero Text Content -->
+            <div class="absolute inset-0 z-20 flex flex-col justify-center px-12 lg:px-24">
+                <h1 id="desktop-hero-title" class="text-3xl lg:text-4xl font-bold text-white text-shadow slide-in max-w-2xl">REI DO BOX SINOP</h1>
+                <p id="desktop-hero-subtitle" class="text-sm lg:text-base text-white text-shadow mt-4 slide-in max-w-xl">Especialista em Box para Banheiro, Espelhos e Vidros em Sinop-MT</p>
+                <div id="desktop-hero-stats" class="flex gap-8 mt-8">
+                    <div class="hero-stat">
+                        <p class="text-red-600 font-bold text-xl">+2.700</p>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-300">Clientes Satisfeitos</p>
+                    </div>
+                    <div class="hero-stat">
+                        <p class="text-red-600 font-bold text-xl">+4.300</p>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-300">Projetos Instalados</p>
+                    </div>
+                    <div class="hero-stat">
+                        <p class="text-red-600 font-bold text-xl">+5 Anos</p>
+                        <p class="text-[10px] uppercase tracking-widest text-gray-300">De Experiência</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="desktop-hero-dots" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
+                <!-- Dots will be injected here by JS -->
+            </div>
+        </div>
+
+      </section>
+
+      <!-- Features & Services Section -->
+      <section class="relative z-10 -mt-2 md:-mt-1 pb-2 md:pb-4">
+
+        <!-- Executed Services Section -->
+        <div id="executed-services" class="container mx-auto px-2 md:px-6 pt-4 md:pt-6">
+            <div id="stats-header-container" class="grid grid-cols-1 md:grid-cols-2 items-center gap-6 mb-2 md:mb-4 scroll-animate">
+                
+                <!-- Col 1: Title & Subtitle -->
+                <div class="text-center md:text-left">
+                    <h2 class="text-lg md:text-2xl font-bold text-red-600 inline-flex items-center gap-x-3">
+                        <i class="fa-solid fa-ruler-combined text-red-600 md:text-red-600"></i>
+                        <span class="uppercase md:normal-case">CONFIRA NOSSOS TRABALHOS</span>
+                    </h2>
+                    <p class="text-xs md:text-sm text-gray-600 mt-0 font-bold uppercase tracking-wide">UMA LINHA COMPLETA EM SERVIÇOS DE VIDRAÇARIA PROFISSIONAL, PRIORIZANDO ENTREGA E QUALIDADE.</p>
+                </div>
+                
+                <!-- Col 2: Merged Stats & Partners Card -->
+                <div class="hidden md:flex justify-center md:justify-end">
+                    <div class="flex items-center md:divide-x-2 divide-gray-300 bg-white p-4 rounded-lg shadow-md">
+                        <div class="hidden md:block px-3 text-center">
+                            <div class="h-6 flex items-center justify-center">
+                                <span id="stats-clients" class="text-lg font-bold text-red-600">0</span>
+                            </div>
+                            <h3 class="font-bold text-[11px] text-gray-500 whitespace-nowrap uppercase tracking-tight">CLIENTES SATISFEITOS</h3>
+                        </div>
+                        <div class="hidden md:block px-3 text-center">
+                            <div class="h-6 flex items-center justify-center">
+                                <span id="stats-projects" class="text-lg font-bold text-red-600">0</span>
+                            </div>
+                            <h3 class="font-bold text-[11px] text-gray-500 whitespace-nowrap uppercase tracking-tight">PROJETOS INSTALADOS</h3>
+                        </div>
+                        <div class="hidden md:block px-3 text-center">
+                            <div class="h-6 flex items-center justify-center">
+                                <span id="stats-experience" class="text-lg font-bold text-red-600">0</span>
+                            </div>
+                            <h3 class="font-bold text-[11px] text-gray-500 whitespace-nowrap uppercase tracking-tight">DE EXPERIÊNCIA</h3>
+                        </div>
+                        <div class="px-3 text-center">
+                            <div class="h-6 flex items-center justify-center gap-x-2">
+                                <img src="https://i.postimg.cc/XJppZhDZ/Reido-Box-Blindex-Paceiro.png" alt="Marca Parceira Blindex" class="max-h-5 w-auto opacity-70">
+                                <img src="https://i.postimg.cc/PJ7sFVdB/Reido-Box-Amazon-Paceiro.png" alt="Marca Parceira Amazon" class="max-h-5 w-auto opacity-70">
+                                <img src="https://i.postimg.cc/050CdKVL/Reido-Box-Delta-Paceiro.png" alt="Marca Parceira Delta" class="max-h-5 w-auto opacity-70">
+                                <img src="https://i.postimg.cc/kGRq9PY9/Reido-Box-Gruapore-Paceiro.png" alt="Marca Parceira Guaporé" class="max-h-5 w-auto opacity-70">
+                            </div>
+                            <h3 class="font-bold text-[11px] text-gray-500 whitespace-nowrap uppercase tracking-tight">Marcas Parceiras</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <div id="executed-services-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
+            <!-- Executed services will be injected here by JS -->
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- Static Testimonials Section -->
+      <section id="static-testimonials" class="pt-4 pb-2 md:pt-6 md:pb-2 bg-white">
+        <div class="container mx-auto px-6">
+          <div class="text-center md:text-left mb-2 md:mb-4 scroll-animate">
+            <h2 class="text-lg md:text-2xl font-bold text-red-600 inline-flex items-center gap-x-3">
+              <i class="fa-solid fa-users text-red-600 md:text-red-600"></i>
+              <span class="uppercase md:normal-case">DEPOIMENTO DE CLIENTES</span>
+            </h2>
+            <p class="text-xs md:text-sm text-gray-600 mt-0 font-bold uppercase tracking-wide">CONFIRA O QUE DIZEM NOSSOS CLIENTES SOBRE A QUALIDADE E AGILIDADE DA NOSSA EMPRESA.</p>
+          </div>
+          <div id="static-testimonials-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-4">
+            <!-- Static testimonials will be injected here by JS -->
+          </div>
+          <!-- Pagination Dots -->
+          <div id="testimonial-pagination" class="flex justify-center gap-4 mt-4">
+            <!-- Dots injected by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Divider -->
+      <div class="container mx-auto px-6">
+        <div class="border-t border-gray-100 w-full"></div>
+      </div>
+
+      <!-- FAQ Section -->
+      <section id="faq" class="pt-6 pb-12 md:pt-8 md:pb-16 bg-white">
+        <div class="container mx-auto px-6">
+          <div class="text-center md:text-left mb-8 md:mb-10 scroll-animate">
+            <h2 class="text-lg md:text-2xl font-bold text-red-600 inline-flex items-center gap-x-3">
+              <i class="fa-solid fa-circle-question text-red-600 md:text-red-600"></i>
+              <span class="uppercase md:normal-case">PERGUNTAS COMUM - FAQ</span>
+            </h2>
+            <p class="text-xs md:text-sm text-gray-600 mt-0 font-bold uppercase tracking-wide">TIRE SUAS DÚVIDAS SOBRE NOSSOS SERVIÇOS, PRAZOS E CONDIÇÕES DE PAGAMENTO.</p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div id="faq-container" class="lg:col-span-2 space-y-4">
+              <!-- FAQ items will be injected here by JS -->
+            </div>
+            <div class="hidden lg:block lg:col-span-1">
+              <div class="h-full rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100">
+                <img 
+                  src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" 
+                  alt="Box de Vidro" 
+                  class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+    </div>
+      
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 pt-12 md:pt-10 pb-6 md:pb-5">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 mb-6 md:mb-5">
+        <!-- About -->
+        <div class="md:col-span-1">
+          <h3 class="text-xl md:text-lg font-bold text-white mb-4 md:mb-3"><i class="fa-solid fa-crown text-red-600"></i> REI DO BOX SINOP</h3>
+          <p class="text-gray-500">Especialistas em transformar ambientes com vidros, espelhos e boxes sob medida. Qualidade e sofisticação em cada detalhe.</p>
+        </div>
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg md:text-base font-bold text-white mb-4 md:mb-3 uppercase">NAVEGAÇÃO</h3>
+          <ul class="space-y-2">
+            <li><a href="#services" onclick="showPage('main-content')" class="hover:text-red-600 transition-colors">Vidraçaria</a></li>
+            <li><a href="#testimonials" onclick="showPage('main-content')" class="hover:text-red-600 transition-colors">Depoimentos</a></li>
+            <li><a href="#faq" onclick="showPage('main-content')" class="hover:text-red-600 transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+        <!-- Contact -->
+        <div class="md:-ml-12">
+          <h3 class="text-lg md:text-base font-bold text-white mb-4 md:mb-3 uppercase">CONTATO</h3>
+          <ul class="space-y-4">
+            <li class="flex items-center"><i class="fa-solid fa-map-marker-alt w-5 mr-2 text-red-600"></i>Atendimento em Sinop-MT</li>
+            <li class="flex items-center"><i class="fa-solid fa-phone w-5 mr-2 text-red-600"></i>(66) 9.9699-2940 - Vendas</li>
+            <li class="flex items-center"><i class="fa-solid fa-envelope w-5 mr-2 text-red-600"></i>contato@reidobox.com</li>
+          </ul>
+        </div>
+        <!-- Social -->
+        <div>
+          <h3 class="text-lg md:text-base font-bold text-white mb-4 md:mb-3 uppercase">REDES SOCIAIS</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-2xl md:text-xl hover:text-red-600 transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-2xl md:text-xl hover:text-red-600 transition-colors"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6 md:pt-5 text-center text-gray-500">
+        <p>&copy; <span id="current-year"></span> Rei do Box Sinop. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 bg-black/95 flex flex-col items-center justify-center z-50 p-4 animate-fade-in" style="display: none;" onclick="closeLightbox()">
+    <!-- Close button above -->
+    <div class="w-full max-w-[90vw] flex justify-end mb-2">
+       <button onclick="closeLightbox()" class="bg-white/10 hover:bg-white/20 text-white w-10 h-10 flex items-center justify-center transition-colors border border-white/20">
+          <i class="fa-solid fa-times text-xl"></i>
+      </button>
+    </div>
+
+    <div class="relative flex items-center justify-center w-full max-w-[95vw]">
+        <!-- Navigation Arrows -->
+        <button onclick="event.stopPropagation(); prevLightboxImage()" class="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors z-20">
+          <i class="fa-solid fa-chevron-left text-xl md:text-2xl"></i>
+        </button>
+        
+        <div id="lightbox-content" onclick="event.stopPropagation()" class="relative flex items-center justify-center overflow-hidden">
+          <img id="lightbox-image" src="" alt="Imagem em destaque" class="block max-w-full max-h-[75vh] md:max-h-[85vh] shadow-2xl transition-opacity duration-300 ease-in-out">
+        </div>
+
+        <button onclick="event.stopPropagation(); nextLightboxImage()" class="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors z-20">
+          <i class="fa-solid fa-chevron-right text-xl md:text-2xl"></i>
+        </button>
+    </div>
+  </div>
+
+
+  <!-- Main Application Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+
+
+
+      window.openWhatsAppDirectly = () => {
+        const basePhone = "5566996992940";
+        const message = "Olá Paulo! Vim pelo site e gostaria de um orçamento rápido.";
+        const encodedMessage = encodeURIComponent(message);
+        const url = `https://wa.me/${basePhone}?text=${encodedMessage}`;
+        window.open(url, '_blank');
+      };
+
+      // --- HELPER FUNCTIONS ---
+      function getRandomDate() {
+          const start = new Date(2026, 1, 1); // 1 de Fevereiro de 2026
+          const end = new Date(); // Data atual
+          const randomDate = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+          
+          const day = String(randomDate.getDate()).padStart(2, '0');
+          const month = String(randomDate.getMonth() + 1).padStart(2, '0');
+          const year = randomDate.getFullYear();
+          
+          return `${day}/${month}/${year}`;
+      }
+
+      function generateTestimonialsData(count = 8) {
+          const neighborhoods = ['Centro', 'Setor Industrial', 'Jardim Botânico', 'Residencial Cidade Jardim', 'Vila Lobos', 'Bairro Esperança', 'Monte Carlo', 'Jardim Imperial', 'Residencial Florença', 'Jardim Primaveras', 'Jardim das Palmeiras', 'Setor Comercial'];
+          const baseTexts = [
+              'O acabamento do box ficou impecável! Paguei no cartão de crédito só depois de instalado, o que me deu muita segurança. Entrega muito rápida e equipe nota dez!!!',
+              'Excelente trabalho e agilidade na entrega. Consegui um ótimo desconto pagando à vista. A qualidade dos acabamentos superou todas as minhas expectativas hoje!!!!',
+              'Atendimento profissional e resposta rápida. A opção de pagar no cartão após o serviço pronto é ótima. Acabamento de primeira linha e muita confiança sempre!!!!!',
+              'Fiquei impressionado com a rapidez. O desconto no pagamento à vista valeu muito a pena. O acabamento do vidro é perfeito, recomendo muito para todos em Sinop!!!',
+              'Serviço ágil e de muita qualidade. Pagar no cartão de crédito após a conclusão trouxe total confiança. Acabamentos muito bem feitos e equipe muito atenciosa!!!',
+              'Melhor preço e entrega recorde em Sinop. O desconto à vista foi o diferencial, e a qualidade dos acabamentos é visível. Nota dez para o Paulo e toda sua equipe!',
+              'Agilidade incrível na montagem e acabamento superior. A segurança de pagar no cartão só depois de pronto é excelente. Muito satisfeito com o resultado final!!!!',
+              'Tudo entregue no prazo e com acabamento perfeito. Aproveitei o desconto à vista. Empresa séria, ágil e com serviço de alta qualidade em todos os detalhes hoje!!',
+              'O box de canto ficou maravilhoso. A equipe foi super rápida e o acabamento é de alto padrão. Recomendo o Rei do Box para quem busca perfeição e preço justo!!!!!',
+              'Espelhos instalados com perfeição. O atendimento do Paulo foi excelente desde o primeiro contato. Qualidade nota mil e entrega super rápida em toda a cidade!!!',
+              'Vidros temperados de ótima qualidade. A entrega foi antes do prazo e o acabamento ficou muito limpo e profissional. Com certeza farei novos orçamentos aqui!!!!',
+              'Fizemos o fechamento da sacada e ficou perfeito. Agilidade e preço justo. O acabamento é realmente diferenciado e trouxe muita sofisticação para o meu imóvel!!'
+          ];
+          
+          const names = [
+              { n: 'Ana Paula Silva', g: 'female' }, { n: 'Roberto Carlos', g: 'male' }, 
+              { n: 'Mariana Costa', g: 'female' }, { n: 'Fernando Oliveira', g: 'male' }, 
+              { n: 'Patrícia Souza', g: 'female' }, { n: 'Ricardo Mendes', g: 'male' }, 
+              { n: 'Carla Almeida', g: 'female' }, { n: 'Diego Martins', g: 'male' },
+              { n: 'Juliana Ferreira', g: 'female' }, { n: 'Marcos Santos', g: 'male' },
+              { n: 'Beatriz Lima', g: 'female' }, { n: 'Lucas Pereira', g: 'male' }
+          ];
+
+          const testimonials = [];
+          for (let i = 0; i < count; i++) {
+              const personIndex = Math.floor(Math.random() * names.length);
+              const person = names[personIndex];
+              const neighborhood = neighborhoods[Math.floor(Math.random() * neighborhoods.length)];
+              const date = getRandomDate();
+              const text = baseTexts[Math.floor(Math.random() * baseTexts.length)];
+              const rating = (Math.random() * (10 - 9.5) + 9.5).toFixed(1); 
+
+              testimonials.push({
+                  name: person.n,
+                  neighborhood,
+                  date,
+                  text,
+                  avatarUrl: `https://xsgames.co/randomusers/assets/avatars/${person.g}/${(personIndex + i + 15) % 50}.jpg`,
+                  rating: parseFloat(rating)
+              });
+          }
+          return testimonials;
+      }
+
+      // --- DATA STORE ---
+      const APP_DATA = {
+        mobileHeroImages: [
+          'https://i.postimg.cc/vBHHC4Dr/Estoque-Reidobox-Sinop-2026.png',
+          'https://i.postimg.cc/d1ttghDj/Estoque-Reidobox-Sinop-2026-Atacado.png',
+          'https://i.postimg.cc/MTKKgnX0/Estoque-Reidobox-Sinop-2026-Atacado-2.png',
+          'https://i.postimg.cc/HWyrQyDr/Caminhao-Reidobox-Sinop-2026-2.png',
+          'https://i.postimg.cc/05wzpwRb/Estoque-Reidobox-Sinop-2026-5.png',
+          'https://i.postimg.cc/WbchS1Tr/Estoque-Reidobox-Sinop-2026-Atacado-1.png',
+          'https://i.postimg.cc/WbchS1T6/Estoque-Reidobox-Sinop-2026-Atacado-4.png',
+          'https://i.postimg.cc/J4CGKzMx/Estoque-Reidobox-Sinop-2026-Mascote-1.png'
+        ],
+        desktopHeroImages: [
+          'https://i.postimg.cc/k7stdYyg/Untitled-3-copy.jpg'
+        ],
+        executedServices: [
+          {
+            id: 'exec-box-frontal',
+            title: 'BOX FRONTAL',
+            description: 'Instalação de box frontal em vidro temperado, unindo praticidade e elegância para o seu banheiro.',
+            galleryImages: [
+              "https://i.postimg.cc/1RM6XvXy/Box-Frontal-Reido-Box-Sinop-1.jpg",
+              "https://i.postimg.cc/05ZmjVjN/Box-Frontal-Reido-Box-Sinop-2.jpg",
+              "https://i.postimg.cc/v8X9T0TT/Box-Frontal-Reido-Box-Sinop-3.jpg",
+              "https://i.postimg.cc/gc4RjgjJ/Box-Frontal-Reido-Box-Sinop-4.jpg",
+              "https://i.postimg.cc/xjgH868q/Box-Frontal-Reido-Box-Sinop-5.jpg"
+            ]
+          },
+          {
+            id: 'exec-box-canto',
+            title: 'BOX DE CANTO',
+            description: 'Soluções inteligentes para otimizar o espaço do seu banheiro com boxes de canto sob medida.',
+            galleryImages: [
+              'https://picsum.photos/seed/box_canto/800/800',
+              'https://picsum.photos/seed/box_canto_1/800/800',
+              'https://picsum.photos/seed/box_canto_2/800/800',
+              'https://picsum.photos/seed/box_canto_3/800/800',
+              'https://picsum.photos/seed/box_canto_4/800/800'
+            ]
+          },
+          {
+            id: 'exec-box-sob-medida',
+            title: 'BOX SOB MEDIDA',
+            description: 'Projetos personalizados que se adaptam perfeitamente ao seu espaço e necessidade.',
+            galleryImages: [
+              'https://picsum.photos/seed/box_medida/800/800',
+              'https://picsum.photos/seed/box_medida_1/800/800',
+              'https://picsum.photos/seed/box_medida_2/800/800',
+              'https://picsum.photos/seed/box_medida_3/800/800',
+              'https://picsum.photos/seed/box_medida_4/800/800'
+            ]
+          },
+          {
+            id: 'exec-box-luxo',
+            title: 'BOX DE LUXO',
+            description: 'O máximo em sofisticação e design para o seu banheiro com acabamentos premium.',
+            galleryImages: [
+              'https://picsum.photos/seed/box_luxo/800/800',
+              'https://picsum.photos/seed/box_luxo_1/800/800',
+              'https://picsum.photos/seed/box_luxo_2/800/800',
+              'https://picsum.photos/seed/box_luxo_3/800/800',
+              'https://picsum.photos/seed/box_luxo_4/800/800'
+            ]
+          },
+          {
+            id: 'exec-espelhos-luxo',
+            title: 'ESPELHOS LUXO',
+            description: 'Espelhos com acabamentos refinados e iluminação LED para transformar seus ambientes.',
+            galleryImages: [
+              'https://picsum.photos/seed/espelho_luxo/800/800',
+              'https://picsum.photos/seed/espelho_luxo_1/800/800',
+              'https://picsum.photos/seed/espelho_luxo_2/800/800',
+              'https://picsum.photos/seed/espelho_luxo_3/800/800',
+              'https://picsum.photos/seed/espelho_luxo_4/800/800'
+            ]
+          },
+          {
+            id: 'exec-esquadrias',
+            title: 'ESQUADRIAS',
+            description: 'Esquadrias de alumínio de alta qualidade para garantir durabilidade e estética superior.',
+            galleryImages: [
+              'https://picsum.photos/seed/esquadrias/800/800',
+              'https://picsum.photos/seed/esquadrias_1/800/800',
+              'https://picsum.photos/seed/esquadrias_2/800/800',
+              'https://picsum.photos/seed/esquadrias_3/800/800',
+              'https://picsum.photos/seed/esquadrias_4/800/800'
+            ]
+          },
+          {
+            id: 'exec-portas',
+            title: 'PORTAS',
+            description: 'Portas de vidro e alumínio que oferecem modernidade e segurança para sua residência ou comércio.',
+            galleryImages: [
+              'https://picsum.photos/seed/portas/800/800',
+              'https://picsum.photos/seed/portas_1/800/800',
+              'https://picsum.photos/seed/portas_2/800/800',
+              'https://picsum.photos/seed/portas_3/800/800',
+              'https://picsum.photos/seed/portas_4/800/800'
+            ]
+          },
+          {
+            id: 'exec-janelas',
+            title: 'JANELAS',
+            description: 'Janelas sob medida com excelente vedação e design contemporâneo.',
+            galleryImages: [
+              'https://picsum.photos/seed/janelas/800/800',
+              'https://picsum.photos/seed/janelas_1/800/800',
+              'https://picsum.photos/seed/janelas_2/800/800',
+              'https://picsum.photos/seed/janelas_3/800/800',
+              'https://picsum.photos/seed/janelas_4/800/800'
+            ]
+          },
+          {
+            id: 'exec-guarda-corpo',
+            title: 'GUARDA CORPO',
+            description: 'Segurança e transparência com guarda-corpos de vidro para escadas e sacadas.',
+            galleryImages: [
+              'https://picsum.photos/seed/guarda_corpo/800/800',
+              'https://picsum.photos/seed/guarda_corpo_1/800/800',
+              'https://picsum.photos/seed/guarda_corpo_2/800/800',
+              'https://picsum.photos/seed/guarda_corpo_3/800/800',
+              'https://picsum.photos/seed/guarda_corpo_4/800/800'
+            ]
+          },
+          {
+            id: 'exec-manutencao',
+            title: 'MANUTENÇÃO',
+            description: 'Serviços de reparo e manutenção preventiva para garantir a longevidade das suas instalações.',
+            galleryImages: [
+              'https://picsum.photos/seed/manutencao/800/800',
+              'https://picsum.photos/seed/manutencao_1/800/800',
+              'https://picsum.photos/seed/manutencao_2/800/800',
+              'https://picsum.photos/seed/manutencao_3/800/800',
+              'https://picsum.photos/seed/manutencao_4/800/800'
+            ]
+          }
+        ],
+        testimonials: generateTestimonialsData(),
+        // Debug: Check APP_DATA.testimonials after assignment
+        // console.log('APP_DATA.testimonials after assignment:', APP_DATA.testimonials.length);
+        faqItems: [
+            { question: 'Qual o prazo de instalação?', answer: 'Nosso grande diferencial é a agilidade! Garantimos a instalação do seu box ou espelho em até 24 horas após a confirmação do pedido para a cidade de Sinop-MT.' },
+            { question: 'Quais são as formas de pagamento?', answer: 'Oferecemos flexibilidade para você. Aceitamos os principais cartões de crédito com parcelamento em até 12x, PIX e transferência bancária. Consulte nossas condições especiais!' },
+            { question: 'O orçamento tem algum custo?', answer: 'Não! Oferecemos orçamento totalmente gratuito e sem compromisso. Entre em contato pelo nosso WhatsApp, nos envie as medidas e receba sua cotação rapidamente.' },
+            { question: 'Os produtos possuem garantia?', answer: 'Sim! Confiamos na qualidade dos nossos produtos e serviços. Por isso, oferecemos garantia de 1 ano contra defeitos de fabricação e problemas na instalação.' }
+        ]
+      };
+
+      // --- STATE MANAGEMENT ---
+      const cardSlideshowStates = {};
+      let currentLightboxIndex = 0;
+      let activeLightboxImageUrls = [];
+      let mobileHeroInterval = null;
+      let currentMobileHeroIndex = 0;
+      let heroImageElements = [];
+      let activeHeroImageIndex = 0;
+      let desktopHeroInterval = null;
+      let currentDesktopHeroIndex = 0;
+      let desktopHeroImageElements = [];
+      let activeDesktopHeroIndex = 0;
+      let currentViewportType = null; // 'mobile' or 'desktop'
+      let testimonialPool = [];
+      let currentTestimonialPage = 0;
+      let testimonialInterval = null;
+
+      // --- DOM ELEMENTS ---
+      const mainContent = document.getElementById('main-content');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxContent = document.getElementById('lightbox-content');
+      
+      // --- DYNAMIC CONTENT RENDERING ---
+
+      function preloadHeroImages() {
+          APP_DATA.mobileHeroImages.forEach(src => {
+              const img = new Image();
+              img.src = src;
+          });
+          APP_DATA.desktopHeroImages.forEach(src => {
+              const img = new Image();
+              img.src = src;
+          });
+      }
+
+      function showMobileSlide(index) {
+          if (!heroImageElements.length || index === currentMobileHeroIndex) return;
+
+          const dots = document.querySelectorAll('#mobile-hero-dots .hero-dot');
+          currentMobileHeroIndex = index;
+
+          const nextActiveImageElIndex = 1 - activeHeroImageIndex;
+          const currentImageEl = heroImageElements[activeHeroImageIndex];
+          const nextImageEl = heroImageElements[nextActiveImageElIndex];
+          
+          nextImageEl.src = APP_DATA.mobileHeroImages[index];
+          
+          currentImageEl.classList.remove('active');
+          nextImageEl.classList.add('active');
+
+          activeHeroImageIndex = nextActiveImageElIndex;
+          
+          if (dots.length) {
+              dots.forEach((dot, dotIndex) => {
+                  dot.classList.toggle('active', dotIndex === index);
+              });
+          }
+      }
+
+      window.prevMobileSlide = () => {
+          const prevIndex = (currentMobileHeroIndex - 1 + APP_DATA.mobileHeroImages.length) % APP_DATA.mobileHeroImages.length;
+          showMobileSlide(prevIndex);
+          startMobileHeroInterval();
+      };
+
+      window.nextMobileSlide = () => {
+          const nextIndex = (currentMobileHeroIndex + 1) % APP_DATA.mobileHeroImages.length;
+          showMobileSlide(nextIndex);
+          startMobileHeroInterval();
+      };
+
+      function startMobileHeroInterval() {
+          clearInterval(mobileHeroInterval);
+          mobileHeroInterval = setInterval(() => {
+              const nextIndex = (currentMobileHeroIndex + 1) % APP_DATA.mobileHeroImages.length;
+              showMobileSlide(nextIndex);
+          }, 5000);
+      }
+
+      function initMobileHeroSlideshow() {
+          const mobileHeroContainer = document.getElementById('mobile-hero-container');
+          const dotsContainer = document.getElementById('mobile-hero-dots');
+          if (!mobileHeroContainer || !dotsContainer) return;
+
+          mobileHeroContainer.innerHTML = '';
+          const firstImageUrl = APP_DATA.mobileHeroImages[0];
+
+          const spacer = document.createElement('img');
+          spacer.src = firstImageUrl;
+          spacer.alt = "";
+          spacer.ariaHidden = "true";
+          spacer.className = 'w-full h-auto opacity-0 pointer-events-none block';
+          mobileHeroContainer.appendChild(spacer);
+
+          const img1 = document.createElement('img');
+          const img2 = document.createElement('img');
+          img1.className = 'hero-slide-img';
+          img2.className = 'hero-slide-img';
+          heroImageElements = [img1, img2];
+          mobileHeroContainer.append(img1, img2);
+          
+          img1.src = firstImageUrl;
+          img1.classList.add('active');
+          activeHeroImageIndex = 0;
+          currentMobileHeroIndex = 0;
+
+          const images = APP_DATA.mobileHeroImages;
+          dotsContainer.innerHTML = images.map((_, index) => 
+              `<button class="hero-dot w-3 h-3 ${index === 0 ? 'active' : ''}" data-index="${index}"></button>`
+          ).join('');
+
+          dotsContainer.addEventListener('click', (event) => {
+              if (event.target.classList.contains('hero-dot')) {
+                  const index = parseInt(event.target.dataset.index, 10);
+                  if (index !== currentMobileHeroIndex) {
+                      showMobileSlide(index);
+                      startMobileHeroInterval();
+                  }
+              }
+          });
+          
+          startMobileHeroInterval();
+      }
+      
+      function showDesktopSlide(index) {
+          const heroTitle = document.getElementById('desktop-hero-title');
+          const heroSubtitle = document.getElementById('desktop-hero-subtitle');
+          const heroStats = document.getElementById('desktop-hero-stats');
+          const dots = document.querySelectorAll('#desktop-hero-dots .hero-dot');
+          
+          if (!desktopHeroImageElements.length || !heroTitle || !heroSubtitle) return;
+
+          currentDesktopHeroIndex = index;
+
+          const nextActiveImageElIndex = 1 - activeDesktopHeroIndex;
+          const currentImageEl = desktopHeroImageElements[activeDesktopHeroIndex];
+          const nextImageEl = desktopHeroImageElements[nextActiveImageElIndex];
+          
+          nextImageEl.src = APP_DATA.desktopHeroImages[index];
+          
+          currentImageEl.classList.remove('active');
+          nextImageEl.classList.add('active');
+
+          activeDesktopHeroIndex = nextActiveImageElIndex;
+          
+          // Restart animations
+          const elementsToAnimate = [heroTitle, heroSubtitle];
+          if (heroStats) {
+              const stats = heroStats.querySelectorAll('.hero-stat');
+              stats.forEach(s => elementsToAnimate.push(s));
+          }
+
+          elementsToAnimate.forEach(el => {
+              el.classList.remove('slide-in');
+              el.style.animation = 'none';
+              void el.offsetWidth; // Force reflow
+              el.style.animation = '';
+          });
+          
+          heroTitle.classList.add('slide-in');
+          heroSubtitle.classList.add('slide-in');
+          if (heroStats) {
+              const stats = heroStats.querySelectorAll('.hero-stat');
+              stats.forEach((s, i) => {
+                  s.classList.add('slide-in');
+                  s.style.animationDelay = `${0.4 + (i * 0.1)}s`;
+              });
+          }
+
+          dots.forEach((dot, dotIndex) => {
+              dot.classList.toggle('active', dotIndex === index);
+          });
+      }
+
+      function startDesktopHeroInterval() {
+          clearInterval(desktopHeroInterval);
+          desktopHeroInterval = setInterval(() => {
+              const nextIndex = (currentDesktopHeroIndex + 1) % APP_DATA.desktopHeroImages.length;
+              showDesktopSlide(nextIndex);
+          }, 5000);
+      }
+
+      function initDesktopHeroSlideshow() {
+          const container = document.getElementById('desktop-hero-container');
+          const dotsContainer = document.getElementById('desktop-hero-dots');
+          if (!container || !dotsContainer) return;
+
+          container.innerHTML = '';
+          const firstImageUrl = APP_DATA.desktopHeroImages[0];
+          
+          const spacer = document.createElement('img');
+          spacer.src = firstImageUrl;
+          spacer.alt = "";
+          spacer.ariaHidden = "true";
+          spacer.className = 'w-full h-auto opacity-0 pointer-events-none block';
+          container.appendChild(spacer);
+
+          const img1 = document.createElement('img');
+          const img2 = document.createElement('img');
+          img1.className = 'hero-slide-img';
+          img2.className = 'hero-slide-img';
+          desktopHeroImageElements = [img1, img2];
+          container.append(img1, img2);
+          
+          img1.src = firstImageUrl;
+          img1.classList.add('active');
+          activeDesktopHeroIndex = 0;
+          currentDesktopHeroIndex = 0;
+
+          dotsContainer.innerHTML = APP_DATA.desktopHeroImages.map((_, index) => 
+              `<button class="hero-dot w-3 h-3 ${index === 0 ? 'active' : ''}" data-index="${index}"></button>`
+          ).join('');
+
+          dotsContainer.addEventListener('click', (event) => {
+              if (event.target.classList.contains('hero-dot')) {
+                  const index = parseInt(event.target.dataset.index, 10);
+                  if (index !== currentDesktopHeroIndex) {
+                      showDesktopSlide(index);
+                      startDesktopHeroInterval();
+                  }
+              }
+          });
+          
+          showDesktopSlide(0);
+          startDesktopHeroInterval();
+      }
+
+      function handleHeroSlideshow() {
+          const isMobile = window.innerWidth < 768;
+          const newViewportType = isMobile ? 'mobile' : 'desktop';
+          
+          if (currentViewportType === newViewportType) return;
+          currentViewportType = newViewportType;
+
+          const mobileSection = document.getElementById('mobile-hero-section');
+          const desktopSection = document.getElementById('desktop-hero-section');
+          const mobileContainer = document.getElementById('mobile-hero-container');
+          const desktopContainer = document.getElementById('desktop-hero-container');
+
+          if (isMobile) {
+              // Stop desktop
+              if (desktopHeroInterval) clearInterval(desktopHeroInterval);
+              if (desktopContainer) desktopContainer.innerHTML = '';
+              if (desktopSection) desktopSection.style.display = 'none';
+              
+              // Start mobile
+              if (mobileSection) mobileSection.style.display = 'block';
+              initMobileHeroSlideshow();
+          } else {
+              // Stop mobile
+              if (mobileHeroInterval) clearInterval(mobileHeroInterval);
+              if (mobileContainer) mobileContainer.innerHTML = '';
+              if (mobileSection) mobileSection.style.display = 'none';
+              
+              // Start desktop
+              if (desktopSection) desktopSection.style.display = 'block';
+              initDesktopHeroSlideshow();
+          }
+      }
+
+      function showCardSlide(projectId, index) {
+        const slideshowContainer = document.getElementById(`card-slideshow-${projectId}`);
+        if (!slideshowContainer) return;
+
+        const images = slideshowContainer.querySelectorAll('.card-slide-image');
+        const dots = slideshowContainer.querySelectorAll('.card-slide-dot');
+
+        images.forEach((img, i) => {
+            img.classList.toggle('opacity-100', i === index);
+            img.classList.toggle('opacity-0', i !== index);
+        });
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('bg-white', i === index);
+            dot.classList.toggle('bg-white/50', i !== index);
+        });
+
+        cardSlideshowStates[projectId] = index;
+      }
+
+      window.navigateCardSlideshow = (projectId, direction) => {
+          event.stopPropagation();
+          const project = APP_DATA.executedServices.find(p => p.id === projectId);
+          if (!project) return;
+          
+          let currentIndex = cardSlideshowStates[projectId] || 0;
+          let newIndex = currentIndex + direction;
+
+          if (newIndex < 0) {
+              newIndex = project.galleryImages.length - 1;
+          } else if (newIndex >= project.galleryImages.length) {
+              newIndex = 0;
+          }
+          
+          showCardSlide(projectId, newIndex);
+      }
+
+      window.jumpToCardSlide = (projectId, index) => {
+          event.stopPropagation();
+          showCardSlide(projectId, index);
+      }
+
+      function renderExecutedServices() {
+        const grid = document.getElementById('executed-services-grid');
+        if (!grid) return;
+        grid.innerHTML = APP_DATA.executedServices.map((project, index) => {
+          cardSlideshowStates[project.id] = 0;
+          return `
+          <div class="bg-white shadow-lg rounded-t-[3px] overflow-hidden flex flex-col group scroll-animate" style="transition-delay: ${index * 100}ms;">
+            <div id="card-slideshow-${project.id}" class="card-slideshow-container relative w-full aspect-square overflow-hidden">
+              ${project.galleryImages.map((imgUrl, imgIndex) => `
+                <img src="${imgUrl}" 
+                     alt="${project.title} - imagem ${imgIndex + 1}" 
+                     width="800" height="800" 
+                     loading="lazy" 
+                     onclick="openLightboxFromCard('${project.id}', ${imgIndex})"
+                     class="card-slide-image absolute top-0 left-0 w-full h-full object-cover cursor-pointer ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}">
+              `).join('')}
+              
+              <button onclick="navigateCardSlideshow('${project.id}', -1)" class="card-slide-nav hidden md:flex absolute top-1/2 left-2 -translate-y-1/2 z-10">
+                  <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button onclick="navigateCardSlideshow('${project.id}', 1)" class="card-slide-nav hidden md:flex absolute top-1/2 right-2 -translate-y-1/2 z-10">
+                  <i class="fa-solid fa-chevron-right"></i>
+              </button>
+
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 hidden md:flex space-x-2 z-10">
+                  ${project.galleryImages.map((_, dotIndex) => `
+                      <button onclick="jumpToCardSlide('${project.id}', ${dotIndex})" class="card-slide-dot w-2 h-2 rounded-full ${dotIndex === 0 ? 'bg-white' : 'bg-white/50'} transition-colors"></button>
+                  `).join('')}
+              </div>
+            </div>
+            <div class="p-2 md:p-5 flex flex-col flex-grow text-center md:text-left">
+              <h3 class="text-[13px] md:text-lg font-bold mb-1 md:mb-2 text-gray-800 line-clamp-2 uppercase md:normal-case">${project.title}</h3>
+              <p class="hidden md:block text-gray-600 mb-4 md:mb-3 flex-grow">${project.description}</p>
+              <button onclick="openWhatsAppDirectly()" class="mt-auto w-full md:w-auto md:self-center bg-red-600 md:bg-red-600 text-white font-bold py-2.5 px-5 rounded-full hover:bg-red-700 md:hover:bg-red-700 transition-colors shadow-md group-hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-400 md:focus:ring-red-400 focus:ring-opacity-75 text-[10px] md:text-sm text-center uppercase md:normal-case">
+                Pedir Orçamento
+              </button>
+            </div>
+          </div>
+          `;
+        }).join('');
+      }
+
+      function createStaticTestimonialCardHtml(testimonial, index) {
+          let stars = '';
+          for (let i = 1; i <= 5; i++) {
+              stars += `<i class="fa-solid fa-star ${i > Math.round(testimonial.rating) ? 'text-gray-200' : 'text-red-600'} text-sm"></i>`;
+          }
+          const neighborhood = testimonial.neighborhood.replace('Jardim', 'Jd.');
+          return `
+          <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-2 flex flex-col h-full testimonial-card md:hover:shadow-md transition-all duration-300 scroll-animate" style="transition-delay: ${index * 150}ms;">
+            <!-- Header: Photo & Name & Neighborhood -->
+            <div class="flex items-center gap-1.5 mb-1">
+              <div class="relative flex-shrink-0">
+                <img src="${testimonial.avatarUrl}" alt="Avatar de ${testimonial.name}" width="32" height="32" loading="lazy" class="w-8 h-8 rounded-full object-cover ring-1 ring-gray-100">
+                <div class="absolute -bottom-0.5 -right-0.5 bg-green-500 border border-white w-2.5 h-2.5 rounded-full flex items-center justify-center">
+                  <i class="fa-solid fa-check text-[5px] text-white"></i>
+                </div>
+              </div>
+              <div class="overflow-hidden">
+                <h4 class="font-bold text-gray-900 text-sm leading-tight truncate">${testimonial.name}</h4>
+                <p class="text-sm text-gray-500 font-bold">${neighborhood}, Sinop-MT</p>
+              </div>
+            </div>
+
+            <!-- Body: Text (Compact, No Quotes) -->
+            <div class="flex-grow mb-1">
+              <p class="text-gray-600 text-[12px] md:text-[14px] leading-relaxed">
+                ${testimonial.text}
+              </p>
+            </div>
+
+            <!-- Footer: Rating & Date (Same Line) -->
+            <div class="pt-1 border-t border-gray-50 flex justify-between items-center">
+              <div class="flex items-center gap-1">
+                <div class="flex gap-0.5">
+                  ${stars}
+                </div>
+                <span class="text-sm font-bold text-gray-900">${testimonial.rating.toFixed(1)}</span>
+              </div>
+              <p class="text-sm text-gray-400 font-normal">${testimonial.date}</p>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderStaticTestimonials(page = 0) {
+          const grid = document.getElementById('static-testimonials-grid');
+          const dotsContainer = document.getElementById('testimonial-pagination');
+          if (!grid || !dotsContainer) return;
+
+          // Initialize pool if empty
+          if (testimonialPool.length === 0) {
+              testimonialPool = generateTestimonialsData(15);
+          }
+
+          currentTestimonialPage = page;
+          const start = page * 5;
+          const end = start + 5;
+          const testimonialsToShow = testimonialPool.slice(start, end);
+
+          grid.innerHTML = testimonialsToShow.map((testimonial, index) => {
+              return createStaticTestimonialCardHtml(testimonial, index);
+          }).join('');
+
+          // Render Dots
+          dotsContainer.innerHTML = [0, 1, 2].map(i => `
+              <button onclick="changeTestimonialPage(${i})" class="pagination-dot ${i === page ? 'active' : ''}" aria-label="Página ${i + 1}"></button>
+          `).join('');
+          
+          // Re-trigger scroll animation
+          setTimeout(() => {
+              const cards = grid.querySelectorAll('.scroll-animate');
+              cards.forEach(card => card.classList.add('is-visible'));
+          }, 50);
+      }
+
+      window.changeTestimonialPage = (page) => {
+          const grid = document.getElementById('static-testimonials-grid');
+          const cards = grid.querySelectorAll('.testimonial-card');
+          
+          // Fade out
+          cards.forEach(card => {
+              card.style.transitionDelay = '0ms'; // Remove delay for fade out
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(10px)';
+          });
+
+          setTimeout(() => {
+              renderStaticTestimonials(page);
+              // Restart interval
+              startTestimonialInterval();
+          }, 300);
+      }
+      
+      function startTestimonialInterval() {
+          clearInterval(testimonialInterval);
+          
+          testimonialInterval = setInterval(() => {
+              const nextPage = (currentTestimonialPage + 1) % 3;
+              changeTestimonialPage(nextPage);
+          }, 5000);
+      }
+
+      function renderFaq() {
+          const container = document.getElementById('faq-container');
+          if (!container) return;
+          container.innerHTML = APP_DATA.faqItems.map((item, index) => `
+            <div class="faq-item bg-white overflow-hidden scroll-animate">
+              <button onclick="toggleFaq(this)" class="w-full text-left flex justify-between items-center focus:outline-none group px-4">
+                <div class="flex items-center gap-5">
+                  <div class="faq-number-badge flex-shrink-0">
+                    ${String(index + 1).padStart(2, '0')}
+                  </div>
+                  <h3 class="text-base md:text-lg font-bold text-gray-800 group-hover:text-red-600 transition-colors leading-tight">${item.question}</h3>
+                </div>
+                <div class="flex-shrink-0 ml-4">
+                  <div class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-100 group-hover:border-red-200 transition-colors">
+                    <i class="faq-icon-plus fa-solid fa-plus text-gray-300 group-hover:text-red-600 transition-all duration-300 text-sm"></i>
+                  </div>
+                </div>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner pb-6 pl-16 md:pl-20 pr-6">
+                  <p class="text-gray-600 text-sm md:text-base leading-relaxed max-w-3xl">${item.answer}</p>
+                </div>
+              </div>
+            </div>
+          `).join('');
+      }
+      
+      // --- PAGE NAVIGATION ---
+      window.showPage = (pageId) => {
+        mainContent.style.display = 'none';
+
+        const pageToShow = document.getElementById(pageId);
+        if (pageToShow) {
+            pageToShow.style.display = 'block';
+        }
+        
+        if (!pageId.startsWith('#')) {
+            window.scrollTo(0, 0);
+        }
+      };
+        
+      window.showMainPage = () => {
+        showPage('main-content');
+      }
+      
+      // --- LIGHTBOX LOGIC ---
+      window.openLightbox = (index, imageUrls) => {
+          if (!imageUrls || imageUrls.length === 0) return;
+          activeLightboxImageUrls = imageUrls;
+          currentLightboxIndex = index;
+          updateLightboxImage();
+          lightbox.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+      }
+
+      window.openLightboxFromCard = (projectId, index) => {
+        event.stopPropagation();
+        const project = APP_DATA.executedServices.find(p => p.id === projectId);
+        if (project) {
+            openLightbox(index, project.galleryImages);
+        }
+      }
+
+      window.closeLightbox = () => {
+          lightbox.style.display = 'none';
+          activeLightboxImageUrls = [];
+          document.body.style.overflow = '';
+      }
+
+      function updateLightboxImage() {
+          const lightboxImageEl = document.getElementById('lightbox-image');
+          if (activeLightboxImageUrls.length === 0) return;
+          
+          lightboxImageEl.style.opacity = '0';
+
+          setTimeout(() => {
+              lightboxImageEl.src = activeLightboxImageUrls[currentLightboxIndex];
+              lightboxImageEl.onload = () => {
+                  lightboxImageEl.style.opacity = '1';
+              };
+          }, 200); 
+      }
+
+      window.nextLightboxImage = () => {
+          if (activeLightboxImageUrls.length === 0) return;
+          currentLightboxIndex = (currentLightboxIndex + 1) % activeLightboxImageUrls.length;
+          updateLightboxImage();
+      }
+
+      window.prevLightboxImage = () => {
+          if (activeLightboxImageUrls.length === 0) return;
+          currentLightboxIndex = (currentLightboxIndex - 1 + activeLightboxImageUrls.length) % activeLightboxImageUrls.length;
+          updateLightboxImage();
+      }
+
+      let touchStartX = 0;
+      const swipeThreshold = 50;
+      lightboxContent.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX, false);
+      lightboxContent.addEventListener('touchend', e => {
+          const deltaX = e.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(deltaX) > swipeThreshold) {
+              if (deltaX < 0) nextLightboxImage();
+              else prevLightboxImage();
+          }
+      }, false);
+
+      // --- FAQ LOGIC ---
+      window.toggleFaq = (button) => {
+          button.closest('.faq-item').classList.toggle('open');
+      }
+      
+      // --- COUNT-UP ANIMATION ---
+      function animateCountUp(el, end, duration = 2000, prefix = '', suffix = '') {
+        let startTimestamp = null;
+        const finalValue = parseInt(end, 10);
+
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const easedProgress = progress * (2 - progress); // Ease-out quad
+            const currentValue = Math.floor(easedProgress * finalValue);
+
+            el.textContent = prefix + currentValue.toLocaleString('pt-BR');
+
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                el.textContent = prefix + finalValue.toLocaleString('pt-BR') + suffix;
+            }
+        };
+        window.requestAnimationFrame(step);
+      }
+
+      // --- SCROLL ANIMATION ---
+      function initScrollAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+
+              if (entry.target.id === 'stats-header-container' && !entry.target.dataset.animated) {
+                entry.target.dataset.animated = 'true'; // Prevent re-animation
+
+                const clientsEl = document.getElementById('stats-clients');
+                const projectsEl = document.getElementById('stats-projects');
+                const experienceEl = document.getElementById('stats-experience');
+
+                if (clientsEl) animateCountUp(clientsEl, 2747, 2000, '+DE ', '');
+                if (projectsEl) animateCountUp(projectsEl, 4318, 2000, '+DE ', '');
+                if (experienceEl) animateCountUp(experienceEl, 5, 1500, '+DE ', ' Anos');
+              }
+              
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+      }
+      
+      // --- LOGO ANIMATION ---
+      function initLogoAnimation() {
+        const logo1 = document.getElementById('logo-image-1');
+        const logo2 = document.getElementById('logo-image-2');
+        if (!logo1 || !logo2) return;
+
+        new Image().src = logo2.src;
+
+        setInterval(() => {
+            logo1.classList.toggle('active');
+            logo2.classList.toggle('active');
+        }, 10000);
+      }
+
+      // --- INITIALIZATION ---
+      function initializeApp() {
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        preloadHeroImages();
+        handleHeroSlideshow();
+        window.addEventListener('resize', () => {
+            // Debounce resize
+            clearTimeout(window.resizeTimer);
+            window.resizeTimer = setTimeout(handleHeroSlideshow, 250);
+        });
+        renderExecutedServices();
+        renderStaticTestimonials(0);
+        startTestimonialInterval();
+        renderFaq();
+        initScrollAnimations();
+        initLogoAnimation();
+        
+
+      }
+
+      initializeApp();
+    });
+
+    // --- PRELOADER SCRIPT ---
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 500);
+      }
+    });
+  </script>
+
+  <!-- NOVO BOTÃO WHATSAPP (DO ZERO) -->
+  <a href="https://wa.me/5566996992940?text=Ol%C3%A1%20Paulo!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20r%C3%A1pido." 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="wa-float-new" 
+     aria-label="Fale conosco no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="wa-tooltip-new">Fale Conosco</span>
+  </a>
+
+</body>
+</html>
