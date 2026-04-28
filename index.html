@@ -405,8 +405,42 @@
     /* Desktop Scale Adjustment */
     @media (min-width: 1024px) {
       body {
-        zoom: 0.65;
+        zoom: 0.78;
       }
+    }
+
+    /* Floating WhatsApp Button */
+    .wa-float-fixed {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+      z-index: 9999;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid #fff;
+    }
+    .wa-float-fixed:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+      background-color: #128c7e;
+    }
+    @keyframes wa-pulse-glow {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    .wa-float-fixed {
+      animation: wa-pulse-glow 2s infinite;
     }
 
   </style>
@@ -447,18 +481,18 @@
       <div class="flex items-center gap-2">
         <!-- Desktop Nav -->
         <nav class="hidden md:flex md:space-x-6 items-center">
-          <a href="#executed-services" onclick="event.preventDefault(); scrollToSection('executed-services')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">Vidraçaria</a>
-          <a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">Depoimentos</a>
-          <a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">FAQ</a>
+          <a href="#executed-services" onclick="event.preventDefault(); scrollToSection('executed-services')" class="font-bold text-gray-800 hover:text-red-600 transition-colors text-[115%] uppercase">SERVIÇOS</a>
+          <a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="font-bold text-gray-800 hover:text-red-600 transition-colors text-[115%] uppercase">DEPOIMENTOS</a>
+          <a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="font-bold text-gray-800 hover:text-red-600 transition-colors text-[115%] uppercase">FAQ</a>
           <button onclick="openWhatsAppDirectly()" class="animate-pulse-green inline-flex items-center justify-center text-white py-[7px] px-[22px] rounded-full shadow-md text-sm whitespace-nowrap">
-            <span class="font-bold">ORÇAMENTO RÁPIDO</span>
+            <span class="font-bold text-[115%] uppercase whitespace-nowrap">PEDIR ORÇAMENTO AGORA</span>
             <i class="fa-brands fa-whatsapp ml-2 text-[22px]"></i>
           </button>
         </nav>
         
         <!-- Mobile Button -->
         <button onclick="openWhatsAppDirectly()" class="animate-pulse-green inline-flex items-center justify-center text-white py-[5px] px-[14px] rounded-full shadow-sm text-xs md:hidden whitespace-nowrap flex-shrink-0">
-            <span class="font-bold">ORÇAMENTO</span>
+            <span class="font-bold uppercase">WHATSAPP</span>
             <i class="fa-brands fa-whatsapp ml-2 text-[20px]"></i>
         </button>
 
@@ -656,9 +690,9 @@
         <div>
           <h3 class="text-lg md:text-base font-bold text-white mb-4 md:mb-3 uppercase">NAVEGAÇÃO</h3>
           <ul class="space-y-2">
-            <li><a href="#executed-services" onclick="event.preventDefault(); scrollToSection('executed-services')" class="hover:text-red-600 transition-colors">Vidraçaria</a></li>
-            <li><a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="hover:text-red-600 transition-colors">Depoimentos</a></li>
-            <li><a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="hover:text-red-600 transition-colors">FAQ</a></li>
+            <li><a href="#executed-services" onclick="event.preventDefault(); scrollToSection('executed-services')" class="hover:text-red-600 transition-colors uppercase">SERVIÇOS</a></li>
+            <li><a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="hover:text-red-600 transition-colors uppercase">DEPOIMENTOS</a></li>
+            <li><a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="hover:text-red-600 transition-colors uppercase">FAQ</a></li>
           </ul>
         </div>
         <!-- Contact -->
@@ -1583,6 +1617,14 @@
     });
   </script>
 
+
+  <!-- Floating WhatsApp Button -->
+  <a href="javascript:void(0)" 
+     onclick="openWhatsAppDirectly()"
+     class="wa-float-fixed" 
+     aria-label="Fale conosco no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
 </body>
 </html>
