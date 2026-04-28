@@ -527,9 +527,9 @@
       <div class="flex items-center gap-2">
         <!-- Desktop Nav -->
         <nav class="hidden md:flex md:space-x-6 items-center">
-          <a href="#services" onclick="showPage('main-content')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">Vidraçaria</a>
-          <a href="#testimonials" onclick="showPage('main-content')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">Depoimentos</a>
-          <a href="#faq" onclick="showPage('main-content')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">FAQ</a>
+          <a href="#executed-services" onclick="event.preventDefault(); scrollToSection('executed-services')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">Vidraçaria</a>
+          <a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">Depoimentos</a>
+          <a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="font-bold text-gray-800 hover:text-red-600 transition-colors">FAQ</a>
           <button onclick="openWhatsAppDirectly()" class="animate-pulse-green inline-flex items-center justify-center text-white py-[7px] px-[22px] rounded-full shadow-md text-sm whitespace-nowrap">
             <span class="font-bold">ORÇAMENTO RÁPIDO</span>
             <i class="fa-brands fa-whatsapp ml-2 text-[22px]"></i>
@@ -736,9 +736,9 @@
         <div>
           <h3 class="text-lg md:text-base font-bold text-white mb-4 md:mb-3 uppercase">NAVEGAÇÃO</h3>
           <ul class="space-y-2">
-            <li><a href="#services" onclick="showPage('main-content')" class="hover:text-red-600 transition-colors">Vidraçaria</a></li>
-            <li><a href="#testimonials" onclick="showPage('main-content')" class="hover:text-red-600 transition-colors">Depoimentos</a></li>
-            <li><a href="#faq" onclick="showPage('main-content')" class="hover:text-red-600 transition-colors">FAQ</a></li>
+            <li><a href="#executed-services" onclick="event.preventDefault(); scrollToSection('executed-services')" class="hover:text-red-600 transition-colors">Vidraçaria</a></li>
+            <li><a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="hover:text-red-600 transition-colors">Depoimentos</a></li>
+            <li><a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="hover:text-red-600 transition-colors">FAQ</a></li>
           </ul>
         </div>
         <!-- Contact -->
@@ -1489,6 +1489,23 @@
       }
       
       // --- PAGE NAVIGATION ---
+      window.scrollToSection = (sectionId) => {
+        showPage('main-content');
+        
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const header = document.querySelector('header');
+          const headerHeight = header ? header.offsetHeight : 0;
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      };
+
       window.showPage = (pageId) => {
         mainContent.style.display = 'none';
 
