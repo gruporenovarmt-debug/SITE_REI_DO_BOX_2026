@@ -509,6 +509,74 @@
       }
     }
 
+    /* Mosaic Gallery Styles */
+    .mosaic-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 150px;
+      gap: 8px;
+    }
+    
+    @media (min-width: 768px) {
+      .mosaic-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 220px;
+        gap: 16px;
+      }
+      .mosaic-item-large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+      .mosaic-item-tall {
+        grid-row: span 2;
+      }
+      .mosaic-item-wide {
+        grid-column: span 2;
+      }
+    }
+
+    .mosaic-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease-out;
+    }
+    
+    .mosaic-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.15s ease-out, filter 0.15s ease-out;
+      will-change: transform, filter;
+    }
+    
+    .mosaic-item:hover {
+      transform: scale(1.02) translateY(-4px);
+      z-index: 10;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    
+    .mosaic-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(1.1);
+    }
+
+    .mosaic-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      padding: 15px;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+    
+    .mosaic-item:hover .mosaic-overlay {
+      opacity: 1;
+    }
+
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -680,6 +748,74 @@
             </div>
           <div id="executed-services-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
             <!-- Executed services will be injected here by JS -->
+          </div>
+          
+          <!-- Mosaic Gallery Highlights -->
+          <div class="mt-16 md:mt-24 mb-12">
+            <div class="text-center md:text-left mb-8 scroll-animate">
+                <h2 class="section-title font-bold text-red-600 inline-flex items-center gap-x-3">
+                    <i class="fa-solid fa-camera-retro text-red-600"></i>
+                    <span class="uppercase md:normal-case">GALERIA DE DESTAQUES</span>
+                </h2>
+                <p class="text-gray-600 mt-2">Confira projetos exclusivos e detalhes de nossas instalações premium.</p>
+            </div>
+
+            <div class="mosaic-grid scroll-animate">
+                <div class="mosaic-item mosaic-item-large" onclick="openMosaicGallery(0)">
+                    <img src="https://i.postimg.cc/1RM6XvXy/Box-Frontal-Reido-Box-Sinop-1.jpg" alt="Destaque 1">
+                    <div class="mosaic-overlay">
+                        <div class="flex flex-col">
+                            <span class="text-white font-bold uppercase text-sm">Box Frontal Premium</span>
+                            <span class="text-white/80 text-xs">Instalação Impecável</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mosaic-item" onclick="openMosaicGallery(1)">
+                    <img src="https://i.postimg.cc/05ZmjVjN/Box-Frontal-Reido-Box-Sinop-2.jpg" alt="Destaque 2">
+                    <div class="mosaic-overlay">
+                        <span class="text-white font-bold uppercase text-[10px]">Elegância</span>
+                    </div>
+                </div>
+                <div class="mosaic-item mosaic-item-tall" onclick="openMosaicGallery(2)">
+                    <img src="https://i.postimg.cc/v8X9T0TT/Box-Frontal-Reido-Box-Sinop-3.jpg" alt="Destaque 3">
+                    <div class="mosaic-overlay">
+                        <span class="text-white font-bold uppercase text-[10px]">Vidro Temperado</span>
+                    </div>
+                </div>
+                <div class="mosaic-item" onclick="openMosaicGallery(3)">
+                    <img src="https://i.postimg.cc/gc4RjgjJ/Box-Frontal-Reido-Box-Sinop-4.jpg" alt="Destaque 4">
+                    <div class="mosaic-overlay">
+                        <span class="text-white font-bold uppercase text-[10px]">Acabamento</span>
+                    </div>
+                </div>
+                <div class="mosaic-item" onclick="openMosaicGallery(4)">
+                    <img src="https://i.postimg.cc/HWyrQyDr/Caminhao-Reidobox-Sinop-2026-2.jpg" alt="Destaque 5">
+                    <div class="mosaic-overlay">
+                        <div class="flex flex-col">
+                            <span class="text-white font-bold uppercase text-xs">Agilidade na Entrega</span>
+                            <span class="text-white/80 text-[10px]">Entregamos em até 24H</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mosaic-item" onclick="openMosaicGallery(5)">
+                    <img src="https://i.postimg.cc/xjgH868q/Box-Frontal-Reido-Box-Sinop-5.jpg" alt="Destaque 6">
+                    <div class="mosaic-overlay">
+                        <span class="text-white font-bold uppercase text-[10px]">Sinop-MT</span>
+                    </div>
+                </div>
+                <div class="mosaic-item" onclick="openMosaicGallery(6)">
+                    <img src="https://picsum.photos/seed/reidobox_m1/800/1200" alt="Destaque 7">
+                    <div class="mosaic-overlay">
+                        <span class="text-white font-bold uppercase text-[10px]">Design Moderno</span>
+                    </div>
+                </div>
+                <div class="mosaic-item" onclick="openMosaicGallery(7)">
+                    <img src="https://picsum.photos/seed/reidobox_m2/1200/800" alt="Destaque 8">
+                    <div class="mosaic-overlay">
+                        <span class="text-white font-bold uppercase text-[10px]">Qualidade Rei</span>
+                    </div>
+                </div>
+            </div>
           </div>
         </div>
       </section>
@@ -972,6 +1108,16 @@
               'https://picsum.photos/seed/box_luxo_4/800/800'
             ]
           }
+        ],
+        mosaicImages: [
+          "https://i.postimg.cc/1RM6XvXy/Box-Frontal-Reido-Box-Sinop-1.jpg",
+          "https://i.postimg.cc/05ZmjVjN/Box-Frontal-Reido-Box-Sinop-2.jpg",
+          "https://i.postimg.cc/v8X9T0TT/Box-Frontal-Reido-Box-Sinop-3.jpg",
+          "https://i.postimg.cc/gc4RjgjJ/Box-Frontal-Reido-Box-Sinop-4.jpg",
+          "https://i.postimg.cc/HWyrQyDr/Caminhao-Reidobox-Sinop-2026-2.jpg",
+          "https://i.postimg.cc/xjgH868q/Box-Frontal-Reido-Box-Sinop-5.jpg",
+          "https://picsum.photos/seed/reidobox_m1/800/1200",
+          "https://picsum.photos/seed/reidobox_m2/1200/800"
         ],
         testimonials: generateTestimonialsData(),
         // Debug: Check APP_DATA.testimonials after assignment
@@ -1496,6 +1642,11 @@
         if (project) {
             openLightbox(index, project.galleryImages);
         }
+      }
+
+      window.openMosaicGallery = (index) => {
+        event.stopPropagation();
+        openLightbox(index, APP_DATA.mosaicImages);
       }
 
       window.closeLightbox = () => {
