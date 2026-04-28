@@ -367,16 +367,31 @@
       }
     }
 
-    /* Testimonial card hover effect - Snappy like service cards */
-    .testimonial-card {
-      transition: all 0.15s ease-out;
-      will-change: transform, box-shadow;
+    /* Testimonial Section Enhancements */
+    #static-testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      width: 100%;
     }
-    @media (min-width: 768px) {
-      .testimonial-card:hover {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+    
+    @media (min-width: 1024px) {
+      #static-testimonials-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
       }
+    }
+
+    .testimonial-card {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      will-change: transform, opacity;
+    }
+    
+    .testimonial-card.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Remove italic from blockquote in testimonials */
@@ -824,7 +839,7 @@
 
       <!-- Static Testimonials Section -->
       <section id="static-testimonials" class="pt-4 pb-2 md:pt-6 md:pb-2 bg-white">
-        <div class="container mx-auto px-6">
+        <div class="max-w-[1500px] mx-auto px-4 md:px-8">
           <div class="text-center md:text-left mb-2 md:mb-4 scroll-animate">
             <h2 class="section-title font-bold text-red-600 inline-flex items-center gap-x-3">
               <i class="fa-solid fa-users text-red-600 md:text-red-600"></i>
@@ -832,7 +847,7 @@
             </h2>
             <p class="text-xs md:text-sm text-gray-600 mt-0 font-bold uppercase tracking-wide">CONFIRA O QUE DIZEM NOSSOS CLIENTES SOBRE A QUALIDADE E AGILIDADE DA NOSSA EMPRESA.</p>
           </div>
-          <div id="static-testimonials-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-4">
+          <div id="static-testimonials-grid">
             <!-- Static testimonials will be injected here by JS -->
           </div>
           <!-- Pagination Dots -->
@@ -1466,44 +1481,44 @@
       function createStaticTestimonialCardHtml(testimonial, index) {
           let stars = '';
           for (let i = 1; i <= 5; i++) {
-              stars += `<i class="fa-solid fa-star ${i > Math.round(testimonial.rating) ? 'text-gray-200' : 'text-red-600'} text-sm"></i>`;
+              stars += `<i class="fa-solid fa-star ${i > Math.round(testimonial.rating) ? 'text-gray-200' : 'text-red-600'} text-xs"></i>`;
           }
           const neighborhood = testimonial.neighborhood.replace('Jardim', 'Jd.');
           return `
-          <div class="bg-white rounded-lg shadow-sm border border-gray-100 p-2 flex flex-col h-full testimonial-card md:hover:shadow-md transition-all duration-300 scroll-animate" style="transition-delay: ${index * 150}ms;">
+          <div class="testimonial-card bg-white rounded-xl shadow-sm border border-gray-100 p-4 flex flex-col h-full transition-all duration-300 scroll-animate" style="transition-delay: ${index * 120}ms;">
             <!-- Header: Photo & Name & Neighborhood -->
-            <div class="flex items-center gap-1.5 mb-1">
+            <div class="flex items-center gap-3 mb-3">
               <div class="relative flex-shrink-0">
-                <img src="${testimonial.avatarUrl}" alt="Avatar de ${testimonial.name}" width="32" height="32" loading="lazy" class="w-8 h-8 rounded-full object-cover ring-1 ring-gray-100">
-                <div class="absolute -bottom-0.5 -right-0.5 bg-green-500 border border-white w-2.5 h-2.5 rounded-full flex items-center justify-center">
-                  <i class="fa-solid fa-check text-[5px] text-white"></i>
+                <img src="${testimonial.avatarUrl}" alt="Avatar de ${testimonial.name}" width="40" height="40" loading="lazy" class="w-10 h-10 rounded-full object-cover ring-2 ring-red-50">
+                <div class="absolute -bottom-0.5 -right-0.5 bg-green-500 border-2 border-white w-3.5 h-3.5 rounded-full flex items-center justify-center">
+                  <i class="fa-solid fa-check text-[6px] text-white"></i>
                 </div>
               </div>
               <div class="overflow-hidden">
-                <h4 class="font-bold text-gray-900 text-sm leading-tight truncate">${testimonial.name}</h4>
-                <p class="text-sm text-gray-500 font-bold">${neighborhood}, Sinop-MT</p>
+                <h4 class="font-bold text-gray-900 text-[13px] md:text-sm leading-tight truncate uppercase">${testimonial.name}</h4>
+                <p class="text-[11px] md:text-xs text-gray-400 font-medium">${neighborhood}, Sinop-MT</p>
               </div>
             </div>
 
-            <!-- Body: Text (Compact, No Quotes) -->
-            <div class="flex-grow mb-1">
-              <p class="text-gray-600 text-[12px] md:text-[14px] leading-relaxed">
-                ${testimonial.text}
+            <!-- Body: Text -->
+            <div class="flex-grow mb-3">
+              <p class="text-gray-600 text-[13px] md:text-sm leading-relaxed line-clamp-4">
+                "${testimonial.text}"
               </p>
             </div>
 
-            <!-- Footer: Rating & Date (Same Line) -->
-            <div class="pt-1 border-t border-gray-50 flex justify-between items-center">
-              <div class="flex items-center gap-1">
-                <div class="flex gap-0.5">
+            <!-- Footer: Rating & Verified -->
+            <div class="pt-3 border-t border-gray-50 flex justify-between items-center">
+              <div class="flex gap-0.5">
                   ${stars}
-                </div>
-                <span class="text-sm font-bold text-gray-900">${testimonial.rating.toFixed(1)}</span>
               </div>
-              <p class="text-sm text-gray-400 font-normal">${testimonial.date}</p>
+              <div class="flex items-center gap-1 opacity-30">
+                <i class="fa-brands fa-google text-[10px]"></i>
+                <span class="text-[8px] font-bold">Verificado</span>
+              </div>
             </div>
           </div>
-        `;
+          `;
       }
 
       function renderStaticTestimonials(page = 0) {
@@ -1513,12 +1528,16 @@
 
           // Initialize pool if empty
           if (testimonialPool.length === 0) {
-              testimonialPool = generateTestimonialsData(15);
+              testimonialPool = generateTestimonialsData(16); // 16 for easy paging
           }
 
           currentTestimonialPage = page;
-          const start = page * 5;
-          const end = start + 5;
+          const isDesktop = window.innerWidth >= 1024;
+          const itemsPerPage = isDesktop ? 4 : 2;
+          const totalPages = Math.ceil(testimonialPool.length / itemsPerPage);
+          
+          const start = page * itemsPerPage;
+          const end = start + itemsPerPage;
           const testimonialsToShow = testimonialPool.slice(start, end);
 
           grid.innerHTML = testimonialsToShow.map((testimonial, index) => {
@@ -1526,14 +1545,14 @@
           }).join('');
 
           // Render Dots
-          dotsContainer.innerHTML = [0, 1, 2].map(i => `
+          dotsContainer.innerHTML = Array.from({ length: totalPages }).map((_, i) => `
               <button onclick="changeTestimonialPage(${i})" class="pagination-dot ${i === page ? 'active' : ''}" aria-label="Página ${i + 1}"></button>
           `).join('');
           
           // Re-trigger scroll animation
           setTimeout(() => {
-              const cards = grid.querySelectorAll('.scroll-animate');
-              cards.forEach(card => card.classList.add('is-visible'));
+              const cards = grid.querySelectorAll('.testimonial-card');
+              cards.forEach(card => card.classList.add('show'));
           }, 50);
       }
 
@@ -1559,9 +1578,12 @@
           clearInterval(testimonialInterval);
           
           testimonialInterval = setInterval(() => {
-              const nextPage = (currentTestimonialPage + 1) % 3;
+              const isDesktop = window.innerWidth >= 1024;
+              const itemsPerPage = isDesktop ? 4 : 2;
+              const totalPages = Math.ceil(testimonialPool.length / itemsPerPage);
+              const nextPage = (currentTestimonialPage + 1) % totalPages;
               changeTestimonialPage(nextPage);
-          }, 5000);
+          }, 6000);
       }
 
       function renderFaq() {
