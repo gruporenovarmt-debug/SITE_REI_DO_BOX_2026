@@ -409,38 +409,96 @@
       }
     }
 
-    /* Floating WhatsApp Button */
+    /* Improved Text Proportions */
+    p {
+      line-height: 1.6;
+    }
+    
+    .section-title {
+      font-size: 1.25rem; /* Default */
+    }
+    
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Floating WhatsApp Button - Optimized */
     .wa-float-fixed {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      width: 60px;
-      height: 60px;
+      width: 65px;
+      height: 65px;
       background-color: #25d366;
       color: #FFF;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
-      box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+      font-size: 32px;
       z-index: 9999;
       text-decoration: none;
-      transition: all 0.3s ease;
-      border: 2px solid #fff;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+    
     .wa-float-fixed:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+      transform: scale(1.15);
       background-color: #128c7e;
     }
-    @keyframes wa-pulse-glow {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    
+    @keyframes wa-pulse-blur {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); filter: blur(0px); }
+      70% { box-shadow: 0 0 20px 20px rgba(37, 211, 102, 0); filter: blur(2px); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); filter: blur(0px); }
     }
-    .wa-float-fixed {
-      animation: wa-pulse-glow 2s infinite;
+    
+    .wa-float-fixed::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      background: rgba(37, 211, 102, 0.4);
+      z-index: -1;
+      animation: wa-pulse-blur-glow 2s infinite;
+    }
+
+    @keyframes wa-pulse-blur-glow {
+      0% { transform: scale(1); opacity: 0.8; filter: blur(0px); }
+      100% { transform: scale(1.6); opacity: 0; filter: blur(8px); }
+    }
+
+    /* Service Box Hover Effects */
+    .service-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .service-card:hover {
+      transform: scale(1.05);
+      z-index: 20;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .service-card-img {
+      transition: filter 0.4s ease;
+    }
+    
+    .service-card:hover .service-card-img {
+      filter: brightness(1.15) contrast(1.05);
+    }
+    
+    /* Desktop Button Visibility */
+    @media (min-width: 1024px) {
+      .service-card .cta-button {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+      }
+      .service-card:hover .cta-button {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
   </style>
@@ -485,7 +543,7 @@
           <a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="font-bold text-gray-800 hover:text-red-600 transition-colors text-[115%] uppercase">DEPOIMENTOS</a>
           <a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="font-bold text-gray-800 hover:text-red-600 transition-colors text-[115%] uppercase">FAQ</a>
           <button onclick="openWhatsAppDirectly()" class="animate-pulse-green inline-flex items-center justify-center text-white py-[7px] px-[22px] rounded-full shadow-md text-sm whitespace-nowrap">
-            <span class="font-bold text-[115%] uppercase whitespace-nowrap">PEDIR ORÇAMENTO AGORA</span>
+            <span class="font-bold text-[115%] uppercase whitespace-nowrap">ORÇAMENTO RÁPIDO</span>
             <i class="fa-brands fa-whatsapp ml-2 text-[22px]"></i>
           </button>
         </nav>
@@ -535,21 +593,23 @@
             </div>
             
             <!-- Desktop Hero Text Content -->
-            <div class="absolute inset-0 z-20 flex flex-col justify-center px-12 lg:px-24">
-                <h1 id="desktop-hero-title" class="text-3xl lg:text-4xl font-bold text-white text-shadow slide-in max-w-2xl">REI DO BOX SINOP</h1>
-                <p id="desktop-hero-subtitle" class="text-sm lg:text-base text-white text-shadow mt-4 slide-in max-w-xl">Especialista em Box para Banheiro, Espelhos e Vidros em Sinop-MT</p>
-                <div id="desktop-hero-stats" class="flex gap-8 mt-8">
-                    <div class="hero-stat">
-                        <p class="text-red-600 font-bold text-xl">+2.700</p>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-300">Clientes Satisfeitos</p>
-                    </div>
-                    <div class="hero-stat">
-                        <p class="text-red-600 font-bold text-xl">+4.300</p>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-300">Projetos Instalados</p>
-                    </div>
-                    <div class="hero-stat">
-                        <p class="text-red-600 font-bold text-xl">+5 Anos</p>
-                        <p class="text-[10px] uppercase tracking-widest text-gray-300">De Experiência</p>
+            <div class="absolute inset-0 z-20 flex flex-col justify-center">
+                <div class="container mx-auto px-6 md:px-6">
+                    <h1 id="desktop-hero-title" class="text-3xl lg:text-4xl font-bold text-white text-shadow slide-in max-w-2xl">REI DO BOX SINOP</h1>
+                    <p id="desktop-hero-subtitle" class="text-sm lg:text-base text-white text-shadow mt-4 slide-in max-w-xl">Especialista em Box para Banheiro, Espelhos e Vidros em Sinop-MT</p>
+                    <div id="desktop-hero-stats" class="flex gap-8 mt-8">
+                        <div class="hero-stat">
+                            <p class="text-red-600 font-bold text-xl">+2.700</p>
+                            <p class="text-[10px] uppercase tracking-widest text-gray-300">Clientes Satisfeitos</p>
+                        </div>
+                        <div class="hero-stat">
+                            <p class="text-red-600 font-bold text-xl">+4.300</p>
+                            <p class="text-[10px] uppercase tracking-widest text-gray-300">Projetos Instalados</p>
+                        </div>
+                        <div class="hero-stat">
+                            <p class="text-red-600 font-bold text-xl">+5 Anos</p>
+                            <p class="text-[10px] uppercase tracking-widest text-gray-300">De Experiência</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -570,7 +630,7 @@
                 
                 <!-- Col 1: Title & Subtitle -->
                 <div class="text-center md:text-left">
-                    <h2 class="text-lg md:text-2xl font-bold text-red-600 inline-flex items-center gap-x-3">
+                    <h2 class="section-title font-bold text-red-600 inline-flex items-center gap-x-3">
                         <i class="fa-solid fa-ruler-combined text-red-600 md:text-red-600"></i>
                         <span class="uppercase md:normal-case">CONFIRA NOSSOS TRABALHOS</span>
                     </h2>
@@ -622,7 +682,7 @@
       <section id="static-testimonials" class="pt-4 pb-2 md:pt-6 md:pb-2 bg-white">
         <div class="container mx-auto px-6">
           <div class="text-center md:text-left mb-2 md:mb-4 scroll-animate">
-            <h2 class="text-lg md:text-2xl font-bold text-red-600 inline-flex items-center gap-x-3">
+            <h2 class="section-title font-bold text-red-600 inline-flex items-center gap-x-3">
               <i class="fa-solid fa-users text-red-600 md:text-red-600"></i>
               <span class="uppercase md:normal-case">DEPOIMENTO DE CLIENTES</span>
             </h2>
@@ -647,7 +707,7 @@
       <section id="faq" class="pt-6 pb-12 md:pt-8 md:pb-16 bg-white">
         <div class="container mx-auto px-6">
           <div class="text-center md:text-left mb-8 md:mb-10 scroll-animate">
-            <h2 class="text-lg md:text-2xl font-bold text-red-600 inline-flex items-center gap-x-3">
+            <h2 class="section-title font-bold text-red-600 inline-flex items-center gap-x-3">
               <i class="fa-solid fa-circle-question text-red-600 md:text-red-600"></i>
               <span class="uppercase md:normal-case">PERGUNTAS COMUM - FAQ</span>
             </h2>
@@ -832,9 +892,27 @@
           'https://i.postimg.cc/05wzpwRb/Estoque-Reidobox-Sinop-2026-5.png',
           'https://i.postimg.cc/WbchS1Tr/Estoque-Reidobox-Sinop-2026-Atacado-1.png',
           'https://i.postimg.cc/WbchS1T6/Estoque-Reidobox-Sinop-2026-Atacado-4.png',
+          'https://i.postimg.cc/J4CGKzMx/Estoque-Reidobox-Sinop-2026-Mascote-1.png',
+          'https://i.postimg.cc/vBHHC4Dr/Estoque-Reidobox-Sinop-2026.png',
+          'https://i.postimg.cc/d1ttghDj/Estoque-Reidobox-Sinop-2026-Atacado.png',
+          'https://i.postimg.cc/MTKKgnX0/Estoque-Reidobox-Sinop-2026-Atacado-2.png',
+          'https://i.postimg.cc/HWyrQyDr/Caminhao-Reidobox-Sinop-2026-2.png',
+          'https://i.postimg.cc/05wzpwRb/Estoque-Reidobox-Sinop-2026-5.png',
+          'https://i.postimg.cc/WbchS1Tr/Estoque-Reidobox-Sinop-2026-Atacado-1.png',
+          'https://i.postimg.cc/WbchS1T6/Estoque-Reidobox-Sinop-2026-Atacado-4.png',
+          'https://i.postimg.cc/J4CGKzMx/Estoque-Reidobox-Sinop-2026-Mascote-1.png',
+          'https://i.postimg.cc/vBHHC4Dr/Estoque-Reidobox-Sinop-2026.png',
+          'https://i.postimg.cc/d1ttghDj/Estoque-Reidobox-Sinop-2026-Atacado.png',
+          'https://i.postimg.cc/MTKKgnX0/Estoque-Reidobox-Sinop-2026-Atacado-2.png',
+          'https://i.postimg.cc/HWyrQyDr/Caminhao-Reidobox-Sinop-2026-2.png',
+          'https://i.postimg.cc/05wzpwRb/Estoque-Reidobox-Sinop-2026-5.png',
+          'https://i.postimg.cc/WbchS1Tr/Estoque-Reidobox-Sinop-2026-Atacado-1.png',
+          'https://i.postimg.cc/WbchS1T6/Estoque-Reidobox-Sinop-2026-Atacado-4.png',
           'https://i.postimg.cc/J4CGKzMx/Estoque-Reidobox-Sinop-2026-Mascote-1.png'
         ],
         desktopHeroImages: [
+          'https://i.postimg.cc/k7stdYyg/Untitled-3-copy.jpg',
+          'https://i.postimg.cc/k7stdYyg/Untitled-3-copy.jpg',
           'https://i.postimg.cc/k7stdYyg/Untitled-3-copy.jpg'
         ],
         executedServices: [
@@ -1243,18 +1321,13 @@
           showCardSlide(projectId, newIndex);
       }
 
-      window.jumpToCardSlide = (projectId, index) => {
-          event.stopPropagation();
-          showCardSlide(projectId, index);
-      }
-
       function renderExecutedServices() {
         const grid = document.getElementById('executed-services-grid');
         if (!grid) return;
         grid.innerHTML = APP_DATA.executedServices.map((project, index) => {
           cardSlideshowStates[project.id] = 0;
           return `
-          <div class="bg-white shadow-lg rounded-t-[3px] overflow-hidden flex flex-col group scroll-animate" style="transition-delay: ${index * 100}ms;">
+          <div class="bg-white shadow-lg rounded-t-[3px] overflow-hidden flex flex-col group service-card scroll-animate" style="transition-delay: ${index * 100}ms;">
             <div id="card-slideshow-${project.id}" class="card-slideshow-container relative w-full aspect-square overflow-hidden">
               ${project.galleryImages.map((imgUrl, imgIndex) => `
                 <img src="${imgUrl}" 
@@ -1262,27 +1335,21 @@
                      width="800" height="800" 
                      loading="lazy" 
                      onclick="openLightboxFromCard('${project.id}', ${imgIndex})"
-                     class="card-slide-image absolute top-0 left-0 w-full h-full object-cover cursor-pointer ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}">
+                     class="card-slide-image service-card-img absolute top-0 left-0 w-full h-full object-cover cursor-pointer ${imgIndex === 0 ? 'opacity-100' : 'opacity-0'}">
               `).join('')}
               
-              <button onclick="navigateCardSlideshow('${project.id}', -1)" class="card-slide-nav hidden md:flex absolute top-1/2 left-2 -translate-y-1/2 z-10">
+              <button onclick="navigateCardSlideshow('${project.id}', -1)" class="card-slide-nav hidden md:flex absolute top-1/2 left-2 -translate-y-1/2 z-10 transition-opacity">
                   <i class="fa-solid fa-chevron-left"></i>
               </button>
-              <button onclick="navigateCardSlideshow('${project.id}', 1)" class="card-slide-nav hidden md:flex absolute top-1/2 right-2 -translate-y-1/2 z-10">
+              <button onclick="navigateCardSlideshow('${project.id}', 1)" class="card-slide-nav hidden md:flex absolute top-1/2 right-2 -translate-y-1/2 z-10 transition-opacity">
                   <i class="fa-solid fa-chevron-right"></i>
               </button>
-
-              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 hidden md:flex space-x-2 z-10">
-                  ${project.galleryImages.map((_, dotIndex) => `
-                      <button onclick="jumpToCardSlide('${project.id}', ${dotIndex})" class="card-slide-dot w-2 h-2 rounded-full ${dotIndex === 0 ? 'bg-white' : 'bg-white/50'} transition-colors"></button>
-                  `).join('')}
-              </div>
             </div>
             <div class="p-2 md:p-5 flex flex-col flex-grow text-center md:text-left">
-              <h3 class="text-[13px] md:text-lg font-bold mb-1 md:mb-2 text-gray-800 line-clamp-2 uppercase md:normal-case">${project.title}</h3>
-              <p class="hidden md:block text-gray-600 mb-4 md:mb-3 flex-grow">${project.description}</p>
-              <button onclick="openWhatsAppDirectly()" class="mt-auto w-full md:w-auto md:self-center bg-red-600 md:bg-red-600 text-white font-bold py-2.5 px-5 rounded-full hover:bg-red-700 md:hover:bg-red-700 transition-colors shadow-md group-hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-400 md:focus:ring-red-400 focus:ring-opacity-75 text-[10px] md:text-sm text-center uppercase md:normal-case">
-                Pedir Orçamento
+              <h3 class="text-[14px] md:text-lg font-bold mb-1 md:mb-2 text-gray-800 line-clamp-2 uppercase md:normal-case">${project.title}</h3>
+              <p class="hidden md:block text-gray-600 mb-4 md:mb-3 flex-grow text-sm leading-relaxed">${project.description}</p>
+              <button onclick="openWhatsAppDirectly()" class="mt-auto w-full md:w-auto md:self-center bg-red-600 text-white font-bold py-2.5 px-6 rounded-full hover:bg-red-700 transition-all shadow-md cta-button text-[10px] md:text-sm text-center uppercase md:normal-case tracking-wide">
+                ORÇAMENTO RÁPIDO
               </button>
             </div>
           </div>
