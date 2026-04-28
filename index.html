@@ -469,31 +469,33 @@
       100% { transform: scale(1.6); opacity: 0; filter: blur(8px); }
     }
 
-    /* Service Box Hover Effects */
+    /* Service Box Hover Effects - Faster & Smoother */
     .service-card {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.25s ease-out;
+      will-change: transform, box-shadow;
     }
     
     .service-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-8px) scale(1.03);
       z-index: 20;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
     
     .service-card-img {
-      transition: filter 0.4s ease;
+      transition: filter 0.25s ease-out;
+      will-change: filter;
     }
     
     .service-card:hover .service-card-img {
-      filter: brightness(1.15) contrast(1.05);
+      filter: brightness(1.1) contrast(1.05);
     }
     
-    /* Desktop Button Visibility */
+    /* Desktop Button Visibility - Snappier */
     @media (min-width: 1024px) {
       .service-card .cta-button {
         opacity: 0;
-        transform: translateY(10px);
-        transition: all 0.3s ease;
+        transform: translateY(15px);
+        transition: all 0.2s ease-out;
       }
       .service-card:hover .cta-button {
         opacity: 1;
