@@ -270,48 +270,34 @@
       animation: fadeIn 0.3s ease-out forwards;
     }
     
-    /* FAQ Open/Close Transition */
-    .faq-answer-inner {
-        transform: scale(0.95) translateY(10px);
-        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        opacity: 0;
-    }
-    .faq-item.open .faq-answer-inner {
-        transform: scale(1) translateY(0);
-        opacity: 1;
-    }
+    /* FAQ Always Open Style */
     .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .faq-item.open .faq-answer {
-        max-height: 800px;
-    }
-    .faq-item.open .faq-icon-plus {
-        transform: rotate(45deg);
-        color: #dc2626;
-    }
-    .faq-item.open {
-        background-color: #ffffff;
-        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
-        border-color: transparent;
-        z-index: 10;
+        max-height: 1000px !important;
+        overflow: visible !important;
     }
     .faq-item {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border-bottom: 1px solid #f3f4f6;
-        position: relative;
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        border: 1px solid #f3f4f6;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
     }
-    .faq-item:last-child {
-        border-bottom: none;
+    .faq-item:hover {
+        background-color: #fff;
     }
-    .faq-item:hover:not(.open) {
-        background-color: #fafafa;
+    .faq-icon-plus {
+        display: none;
     }
-    .faq-item button {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+    .faq-number-badge {
+        background-color: #dc2626 !important;
+        color: white !important;
+    }
+    .faq-answer-inner {
+        opacity: 1 !important;
+        transform: none !important;
+        padding-top: 0 !important;
+        padding-bottom: 1rem !important;
     }
 
     /* FAQ Number Badge */
@@ -384,9 +370,30 @@
 
     .testimonial-card {
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-      will-change: transform, opacity;
+      transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      border-radius: 16px;
+      position: relative;
+      background: white;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 80px;
+      color: rgba(220, 38, 38, 0.05);
+      font-family: serif;
+      line-height: 1;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
     
     .testimonial-card.show {
@@ -427,22 +434,63 @@
 
     /* Improved Text Proportions - Better Scaling */
     p {
-      line-height: 1.65;
-      font-size: 1rem;
+      line-height: 1.6;
+      font-size: 0.9375rem; /* 15px default body */
     }
     
     .section-title {
-      font-size: 1.35rem;
+      font-size: 1.25rem; /* 20px mobile */
+      font-weight: 800;
       letter-spacing: -0.01em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    
+    .section-subtitle {
+      font-size: 0.75rem; /* 12px mobile */
+      font-weight: 700;
+      color: #71717a; /* zinc-500 */
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+    }
+
+    .card-title {
+      font-size: 0.875rem; /* 14px mobile */
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .card-description {
+      font-size: 0.8125rem; /* 13px mobile */
+      line-height: 1.5;
+      color: #4b5563; /* gray-600 */
     }
     
     @media (min-width: 768px) {
       .section-title {
-        font-size: 2.5rem;
+        font-size: 2.25rem; /* 36px desktop */
+      }
+      .section-subtitle {
+        font-size: 0.9375rem; /* 15px desktop */
+      }
+      .card-title {
+        font-size: 1.125rem; /* 18px desktop */
+      }
+      .card-description {
+        font-size: 0.9375rem; /* 15px desktop */
       }
       p {
-        font-size: 1.15rem;
+        font-size: 1.0625rem; /* 17px desktop */
       }
+    }
+
+    .footer-title {
+      font-size: 1.125rem; /* 18px */
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
     }
 
     /* Floating WhatsApp Button - Optimized */
@@ -743,63 +791,26 @@
       <section class="relative z-10 -mt-2 md:-mt-1 pb-2 md:pb-4">
 
         <!-- Executed Services Section -->
-        <div id="executed-services" class="container mx-auto px-2 md:px-6 pt-4 md:pt-6">
-            <div id="stats-header-container" class="grid grid-cols-1 md:grid-cols-2 items-center gap-6 mb-2 md:mb-4 scroll-animate">
-                
-                <!-- Col 1: Title & Subtitle -->
-                <div class="text-center md:text-left">
-                    <h2 class="section-title font-bold text-red-600 inline-flex items-center gap-x-3">
-                        <i class="fa-solid fa-ruler-combined text-red-600 md:text-red-600"></i>
-                        <span class="uppercase md:normal-case">CONFIRA NOSSOS TRABALHOS</span>
-                    </h2>
-                    <p class="text-xs md:text-sm text-gray-600 mt-0 font-bold uppercase tracking-wide">UMA LINHA COMPLETA EM SERVIÇOS DE VIDRAÇARIA PROFISSIONAL, PRIORIZANDO ENTREGA E QUALIDADE.</p>
-                </div>
-                
-                <!-- Col 2: Merged Stats & Partners Card -->
-                <div class="hidden md:flex justify-center md:justify-end">
-                    <div class="flex items-center md:divide-x-2 divide-gray-300 bg-white p-4 rounded-lg shadow-md">
-                        <div class="hidden md:block px-3 text-center">
-                            <div class="h-6 flex items-center justify-center">
-                                <span id="stats-clients" class="text-lg font-bold text-red-600">0</span>
-                            </div>
-                            <h3 class="font-bold text-[11px] text-gray-500 whitespace-nowrap uppercase tracking-tight">CLIENTES SATISFEITOS</h3>
-                        </div>
-                        <div class="hidden md:block px-3 text-center">
-                            <div class="h-6 flex items-center justify-center">
-                                <span id="stats-projects" class="text-lg font-bold text-red-600">0</span>
-                            </div>
-                            <h3 class="font-bold text-[11px] text-gray-500 whitespace-nowrap uppercase tracking-tight">PROJETOS INSTALADOS</h3>
-                        </div>
-                        <div class="hidden md:block px-3 text-center">
-                            <div class="h-6 flex items-center justify-center">
-                                <span id="stats-experience" class="text-lg font-bold text-red-600">0</span>
-                            </div>
-                            <h3 class="font-bold text-[11px] text-gray-500 whitespace-nowrap uppercase tracking-tight">DE EXPERIÊNCIA</h3>
-                        </div>
-                        <div class="px-3 text-center">
-                            <div class="h-6 flex items-center justify-center gap-x-2">
-                                <img src="https://i.postimg.cc/XJppZhDZ/Reido-Box-Blindex-Paceiro.png" alt="Marca Parceira Blindex" class="max-h-5 w-auto opacity-70">
-                                <img src="https://i.postimg.cc/PJ7sFVdB/Reido-Box-Amazon-Paceiro.png" alt="Marca Parceira Amazon" class="max-h-5 w-auto opacity-70">
-                                <img src="https://i.postimg.cc/050CdKVL/Reido-Box-Delta-Paceiro.png" alt="Marca Parceira Delta" class="max-h-5 w-auto opacity-70">
-                                <img src="https://i.postimg.cc/kGRq9PY9/Reido-Box-Gruapore-Paceiro.png" alt="Marca Parceira Guaporé" class="max-h-5 w-auto opacity-70">
-                            </div>
-                            <h3 class="font-bold text-[11px] text-gray-500 whitespace-nowrap uppercase tracking-tight">Marcas Parceiras</h3>
-                        </div>
-                    </div>
-                </div>
+        <div id="executed-services" class="container mx-auto px-4 md:px-6 pt-4 md:pt-10">
+            <div id="stats-header-container" class="mb-10 text-center scroll-animate">
+                <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-3">
+                    <i class="fa-solid fa-ruler-combined text-red-600"></i>
+                    <span>CONFIRA NOSSOS TRABALHOS</span>
+                </h2>
+                <p class="section-subtitle max-w-2xl mx-auto">UMA LINHA COMPLETA EM SERVIÇOS DE VIDRAÇARIA PROFISSIONAL, PRIORIZANDO ENTREGA E QUALIDADE.</p>
             </div>
           <div id="executed-services-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
             <!-- Executed services will be injected here by JS -->
           </div>
           
           <!-- Mosaic Gallery Highlights -->
-          <div class="mt-16 md:mt-24 mb-12">
-            <div class="text-center md:text-left mb-8 scroll-animate">
-                <h2 class="section-title font-bold text-red-600 inline-flex items-center gap-x-3">
+          <div class="mt-8 md:mt-16 mb-12">
+            <div class="text-center md:text-left mb-6 md:mb-8 scroll-animate">
+                <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-2">
                     <i class="fa-solid fa-camera-retro text-red-600"></i>
-                    <span class="uppercase md:normal-case">GALERIA DE DESTAQUES</span>
+                    <span>GALERIA DE DESTAQUES</span>
                 </h2>
-                <p class="text-gray-600 mt-2">Confira projetos exclusivos e detalhes de nossas instalações premium.</p>
+                <p class="section-subtitle">RESULTADOS REAIS DE PROJETOS EXECUTADOS EM TODA A REGIÃO.</p>
             </div>
 
             <div class="mosaic-grid scroll-animate">
@@ -807,54 +818,54 @@
                     <img src="https://i.postimg.cc/1RM6XvXy/Box-Frontal-Reido-Box-Sinop-1.jpg" alt="Destaque 1">
                     <div class="mosaic-overlay">
                         <div class="flex flex-col">
-                            <span class="text-white font-bold uppercase text-sm">Box Frontal Premium</span>
-                            <span class="text-white/80 text-xs">Instalação Impecável</span>
+                            <span class="card-title text-white uppercase">Box Frontal Premium</span>
+                            <span class="card-description !text-white/80">Instalação Impecável</span>
                         </div>
                     </div>
                 </div>
                 <div class="mosaic-item" onclick="openMosaicGallery(1)">
                     <img src="https://i.postimg.cc/05ZmjVjN/Box-Frontal-Reido-Box-Sinop-2.jpg" alt="Destaque 2">
                     <div class="mosaic-overlay">
-                        <span class="text-white font-bold uppercase text-[10px]">Elegância</span>
+                        <span class="card-title text-white uppercase">Elegância</span>
                     </div>
                 </div>
                 <div class="mosaic-item mosaic-item-tall" onclick="openMosaicGallery(2)">
                     <img src="https://i.postimg.cc/v8X9T0TT/Box-Frontal-Reido-Box-Sinop-3.jpg" alt="Destaque 3">
                     <div class="mosaic-overlay">
-                        <span class="text-white font-bold uppercase text-[10px]">Vidro Temperado</span>
+                        <span class="card-title text-white uppercase">Vidro Temperado</span>
                     </div>
                 </div>
                 <div class="mosaic-item" onclick="openMosaicGallery(3)">
                     <img src="https://i.postimg.cc/gc4RjgjJ/Box-Frontal-Reido-Box-Sinop-4.jpg" alt="Destaque 4">
                     <div class="mosaic-overlay">
-                        <span class="text-white font-bold uppercase text-[10px]">Acabamento</span>
+                        <span class="card-title text-white uppercase">Acabamento</span>
                     </div>
                 </div>
                 <div class="mosaic-item" onclick="openMosaicGallery(4)">
                     <img src="https://i.postimg.cc/HWyrQyDr/Caminhao-Reidobox-Sinop-2026-2.jpg" alt="Destaque 5">
                     <div class="mosaic-overlay">
                         <div class="flex flex-col">
-                            <span class="text-white font-bold uppercase text-xs">Agilidade na Entrega</span>
-                            <span class="text-white/80 text-[10px]">Entregamos em até 24H</span>
+                            <span class="card-title text-white uppercase">Agilidade na Entrega</span>
+                            <span class="card-description !text-white/80">Entregamos em até 24H</span>
                         </div>
                     </div>
                 </div>
                 <div class="mosaic-item" onclick="openMosaicGallery(5)">
                     <img src="https://i.postimg.cc/xjgH868q/Box-Frontal-Reido-Box-Sinop-5.jpg" alt="Destaque 6">
                     <div class="mosaic-overlay">
-                        <span class="text-white font-bold uppercase text-[10px]">Sinop-MT</span>
+                        <span class="card-title text-white uppercase text-center">Sinop-MT</span>
                     </div>
                 </div>
                 <div class="mosaic-item" onclick="openMosaicGallery(6)">
                     <img src="https://picsum.photos/seed/reidobox_m1/800/1200" alt="Destaque 7">
                     <div class="mosaic-overlay">
-                        <span class="text-white font-bold uppercase text-[10px]">Design Moderno</span>
+                        <span class="card-title text-white uppercase text-center">Design Moderno</span>
                     </div>
                 </div>
                 <div class="mosaic-item" onclick="openMosaicGallery(7)">
                     <img src="https://picsum.photos/seed/reidobox_m2/1200/800" alt="Destaque 8">
                     <div class="mosaic-overlay">
-                        <span class="text-white font-bold uppercase text-[10px]">Qualidade Rei</span>
+                        <span class="card-title text-white uppercase text-center">Qualidade Rei</span>
                     </div>
                 </div>
             </div>
@@ -865,14 +876,14 @@
 
 
       <!-- Static Testimonials Section -->
-      <section id="static-testimonials" class="pt-4 pb-2 md:pt-6 md:pb-2 bg-white">
+      <section id="static-testimonials" class="pt-6 pb-4 md:pt-10 md:pb-6 bg-white">
         <div class="max-w-[1500px] mx-auto px-4 md:px-8">
-          <div class="text-center md:text-left mb-2 md:mb-4 scroll-animate">
-            <h2 class="section-title font-bold text-red-600 inline-flex items-center gap-x-3">
-              <i class="fa-solid fa-users text-red-600 md:text-red-600"></i>
-              <span class="uppercase md:normal-case">DEPOIMENTO DE CLIENTES</span>
+          <div class="text-center md:text-left mb-6 md:mb-8 scroll-animate">
+            <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-2">
+              <i class="fa-solid fa-users text-red-600"></i>
+              <span>DEPOIMENTO DE CLIENTES</span>
             </h2>
-            <p class="text-xs md:text-sm text-gray-600 mt-0 font-bold uppercase tracking-wide">CONFIRA O QUE DIZEM NOSSOS CLIENTES SOBRE A QUALIDADE E AGILIDADE DA NOSSA EMPRESA.</p>
+            <p class="section-subtitle">CONFIRA O QUE DIZEM NOSSOS CLIENTES SOBRE A QUALIDADE E AGILIDADE DA NOSSA EMPRESA.</p>
           </div>
           <div id="static-testimonials-grid">
             <!-- Static testimonials will be injected here by JS -->
@@ -890,14 +901,14 @@
       </div>
 
       <!-- FAQ Section -->
-      <section id="faq" class="pt-6 pb-12 md:pt-8 md:pb-16 bg-white">
+      <section id="faq" class="pt-8 pb-12 md:pt-12 md:pb-16 bg-white">
         <div class="container mx-auto px-6">
-          <div class="text-center md:text-left mb-8 md:mb-10 scroll-animate">
-            <h2 class="section-title font-bold text-red-600 inline-flex items-center gap-x-3">
-              <i class="fa-solid fa-circle-question text-red-600 md:text-red-600"></i>
-              <span class="uppercase md:normal-case">PERGUNTAS COMUM - FAQ</span>
+          <div class="text-center md:text-left mb-8 md:mb-12 scroll-animate">
+            <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-2">
+              <i class="fa-solid fa-circle-question text-red-600"></i>
+              <span>PERGUNTAS FREQUENTES - FAQ</span>
             </h2>
-            <p class="text-xs md:text-sm text-gray-600 mt-0 font-bold uppercase tracking-wide">TIRE SUAS DÚVIDAS SOBRE NOSSOS SERVIÇOS, PRAZOS E CONDIÇÕES DE PAGAMENTO.</p>
+            <p class="section-subtitle">TIRE SUAS DÚVIDAS SOBRE NOSSOS SERVIÇOS, PRAZOS E CONDIÇÕES DE PAGAMENTO.</p>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div id="faq-container" class="lg:col-span-2 space-y-4">
@@ -929,12 +940,12 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 mb-6 md:mb-5">
         <!-- About -->
         <div class="md:col-span-1">
-          <h3 class="text-xl md:text-lg font-bold text-white mb-4 md:mb-3"><i class="fa-solid fa-crown text-red-600"></i> REI DO BOX SINOP</h3>
-          <p class="text-gray-500">Especialistas em transformar ambientes com vidros, espelhos e boxes sob medida em Sinop-MT. Qualidade e sofisticação em cada detalhe do seu projeto.</p>
+          <h3 class="footer-title"><i class="fa-solid fa-crown text-red-600"></i> REI DO BOX SINOP</h3>
+          <p class="text-gray-500 text-sm">Especialistas em transformar ambientes com vidros, espelhos e boxes sob medida em Sinop-MT. Qualidade e sofisticação em cada detalhe do seu projeto.</p>
         </div>
         <!-- Quick Links -->
         <div>
-          <h3 class="text-lg md:text-base font-bold text-white mb-4 md:mb-3 uppercase">NAVEGAÇÃO</h3>
+          <h3 class="footer-title">NAVEGAÇÃO</h3>
           <ul class="space-y-2">
             <li><a href="#executed-services" onclick="event.preventDefault(); scrollToSection('executed-services')" class="hover:text-red-600 transition-colors uppercase">SERVIÇOS</a></li>
             <li><a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="hover:text-red-600 transition-colors uppercase">DEPOIMENTOS</a></li>
@@ -943,7 +954,7 @@
         </div>
         <!-- Contact -->
         <div class="md:-ml-12">
-          <h3 class="text-lg md:text-base font-bold text-white mb-4 md:mb-3 uppercase">CONTATO</h3>
+          <h3 class="footer-title">CONTATO</h3>
           <ul class="space-y-4">
             <li class="flex items-center"><i class="fa-solid fa-map-marker-alt w-5 mr-2 text-red-600"></i>Atendimento em Sinop-MT</li>
             <li class="flex items-center"><i class="fa-solid fa-phone w-5 mr-2 text-red-600"></i>(66) 9.9699-2940 - Vendas</li>
@@ -1165,10 +1176,10 @@
         // Debug: Check APP_DATA.testimonials after assignment
         // console.log('APP_DATA.testimonials after assignment:', APP_DATA.testimonials.length);
         faqItems: [
-            { question: 'Qual o prazo de instalação?', answer: 'Nosso grande diferencial é a agilidade! Garantimos a instalação do seu box ou espelho em até 24 horas após a confirmação do pedido para a cidade de Sinop-MT.' },
-            { question: 'Quais são as formas de pagamento?', answer: 'Oferecemos flexibilidade para você. Aceitamos os principais cartões de crédito com parcelamento em até 12x, PIX e transferência bancária. Consulte nossas condições especiais!' },
-            { question: 'O orçamento tem algum custo?', answer: 'Não! Oferecemos orçamento totalmente gratuito e sem compromisso. Entre em contato pelo nosso WhatsApp, nos envie as medidas e receba sua cotação rapidamente.' },
-            { question: 'Os produtos possuem garantia?', answer: 'Sim! Confiamos na qualidade dos nossos produtos e serviços. Por isso, oferecemos garantia de 1 ano contra defeitos de fabricação e problemas na instalação.' }
+            { question: 'QUAL O PRAZO DE INSTALAÇÃO?', answer: 'Nosso grande diferencial é a agilidade! Garantimos a instalação do seu box ou espelho em até 24 horas após a confirmação do pedido para a cidade de Sinop-MT.' },
+            { question: 'QUAIS SÃO AS FORMAS DE PAGAMENTO?', answer: 'Oferecemos flexibilidade para você. Aceitamos os principais cartões de crédito com parcelamento em até 12x, PIX e transferência bancária. Consulte nossas condições especiais!' },
+            { question: 'O ORÇAMENTO TEM ALGUM CUSTO?', answer: 'Não! Oferecemos orçamento totalmente gratuito e sem compromisso. Entre em contato pelo nosso WhatsApp, nos envie as medidas e receba sua cotação rapidamente.' },
+            { question: 'OS PRODUTOS POSSUEM GARANTIA?', answer: 'Sim! Confiamos na qualidade dos nossos produtos e serviços. Por isso, oferecemos garantia de 1 ano contra defeitos de fabricação e problemas na instalação.' }
         ]
       };
 
@@ -1494,12 +1505,11 @@
               </button>
             </div>
             <div class="p-4 md:p-5 flex flex-col flex-grow text-center md:text-left">
-              <h3 class="text-[14px] md:text-lg font-bold mb-1 md:mb-2 text-gray-800 line-clamp-2 uppercase md:normal-case">${project.title}</h3>
-              <p class="hidden md:block text-gray-600 mb-0 flex-grow leading-relaxed">${project.description}</p>
+              <h3 class="card-title text-gray-800 mb-1 md:mb-2 uppercase md:normal-case">${project.title}</h3>
+              <p class="hidden md:block card-description flex-grow">${project.description}</p>
             </div>
-            <button onclick="openWhatsAppDirectly()" class="w-full bg-red-600 text-white font-bold py-5 px-4 rounded-none hover:bg-red-700 transition-all shadow-md cta-button text-[12px] md:text-sm flex items-center justify-center uppercase tracking-wide gap-1.5 group/btn">
-                <span>PEDIR ORÇAMENTO</span>
-                <i class="fa-brands fa-whatsapp text-[21px] transition-transform group-hover/btn:scale-110"></i>
+            <button onclick="openWhatsAppDirectly()" class="w-full bg-red-600 text-white font-bold py-5 px-4 rounded-none hover:bg-red-700 transition-all shadow-md cta-button text-[12px] md:text-sm text-center uppercase tracking-wide">
+                PEDIR ORÇAMENTO
             </button>
           </div>
           `;
@@ -1523,14 +1533,14 @@
                 </div>
               </div>
               <div class="overflow-hidden">
-                <h4 class="font-bold text-gray-900 text-[13px] md:text-sm leading-tight truncate uppercase">${testimonial.name}</h4>
+                <h4 class="card-title text-gray-900 leading-tight uppercase truncate">${testimonial.name}</h4>
                 <p class="text-[11px] md:text-xs text-gray-400 font-medium">${neighborhood}, Sinop-MT</p>
               </div>
             </div>
 
             <!-- Body: Text -->
             <div class="flex-grow mb-3">
-              <p class="text-gray-600 text-[13px] md:text-sm leading-relaxed line-clamp-4">
+              <p class="card-description line-clamp-4">
                 "${testimonial.text}"
               </p>
             </div>
@@ -1618,23 +1628,18 @@
           const container = document.getElementById('faq-container');
           if (!container) return;
           container.innerHTML = APP_DATA.faqItems.map((item, index) => `
-            <div class="faq-item bg-white overflow-hidden scroll-animate">
-              <button onclick="toggleFaq(this)" class="w-full text-left flex justify-between items-center focus:outline-none group px-4">
+            <div class="faq-item bg-white overflow-hidden scroll-animate" style="transition-delay: ${index * 100}ms;">
+              <div class="w-full text-left flex items-center px-4 py-4 md:py-6">
                 <div class="flex items-center gap-5">
                   <div class="faq-number-badge flex-shrink-0">
-                    ${String(index + 1).padStart(2, '0')}
+                    ${index + 1}
                   </div>
-                  <h3 class="text-base md:text-lg font-bold text-gray-800 group-hover:text-red-600 transition-colors leading-tight">${item.question}</h3>
+                  <h3 class="card-title text-gray-800 leading-tight uppercase">${item.question}</h3>
                 </div>
-                <div class="flex-shrink-0 ml-4">
-                  <div class="w-8 h-8 flex items-center justify-center rounded-full border border-gray-100 group-hover:border-red-200 transition-colors">
-                    <i class="faq-icon-plus fa-solid fa-plus text-gray-300 group-hover:text-red-600 transition-all duration-300 text-sm"></i>
-                  </div>
-                </div>
-              </button>
+              </div>
               <div class="faq-answer">
-                <div class="faq-answer-inner pb-6 pl-16 md:pl-20 pr-6">
-                  <p class="text-gray-600 leading-relaxed max-w-4xl">${item.answer}</p>
+                <div class="faq-answer-inner px-4 pb-6 pl-16 md:pl-24 pr-4">
+                  <p class="card-description">${item.answer}</p>
                 </div>
               </div>
             </div>
@@ -1747,47 +1752,12 @@
           button.closest('.faq-item').classList.toggle('open');
       }
       
-      // --- COUNT-UP ANIMATION ---
-      function animateCountUp(el, end, duration = 2000, prefix = '', suffix = '') {
-        let startTimestamp = null;
-        const finalValue = parseInt(end, 10);
-
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const easedProgress = progress * (2 - progress); // Ease-out quad
-            const currentValue = Math.floor(easedProgress * finalValue);
-
-            el.textContent = prefix + currentValue.toLocaleString('pt-BR');
-
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            } else {
-                el.textContent = prefix + finalValue.toLocaleString('pt-BR') + suffix;
-            }
-        };
-        window.requestAnimationFrame(step);
-      }
-
       // --- SCROLL ANIMATION ---
       function initScrollAnimations() {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('is-visible');
-
-              if (entry.target.id === 'stats-header-container' && !entry.target.dataset.animated) {
-                entry.target.dataset.animated = 'true'; // Prevent re-animation
-
-                const clientsEl = document.getElementById('stats-clients');
-                const projectsEl = document.getElementById('stats-projects');
-                const experienceEl = document.getElementById('stats-experience');
-
-                if (clientsEl) animateCountUp(clientsEl, 2747, 2000, '+DE ', '');
-                if (projectsEl) animateCountUp(projectsEl, 4318, 2000, '+DE ', '');
-                if (experienceEl) animateCountUp(experienceEl, 5, 1500, '+DE ', ' Anos');
-              }
-              
               observer.unobserve(entry.target);
             }
           });
