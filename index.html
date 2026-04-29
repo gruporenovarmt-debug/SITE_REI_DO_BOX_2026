@@ -661,7 +661,7 @@
           <a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="font-bold text-gray-800 hover:text-red-600 transition-colors text-[115%] uppercase">DEPOIMENTOS</a>
           <a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="font-bold text-gray-800 hover:text-red-600 transition-colors text-[115%] uppercase">FAQ</a>
           <button onclick="openWhatsAppDirectly()" class="animate-pulse-green inline-flex items-center justify-center text-white py-[7px] px-[22px] rounded-full shadow-md text-sm whitespace-nowrap">
-            <span class="font-bold text-[115%] uppercase whitespace-nowrap">ORÇAMENTO RÁPIDO</span>
+            <span class="font-bold text-[115%] uppercase whitespace-nowrap">PEDIR ORÇAMENTO</span>
             <i class="fa-brands fa-whatsapp ml-2 text-[22px]"></i>
           </button>
         </nav>
@@ -1497,8 +1497,9 @@
               <h3 class="text-[14px] md:text-lg font-bold mb-1 md:mb-2 text-gray-800 line-clamp-2 uppercase md:normal-case">${project.title}</h3>
               <p class="hidden md:block text-gray-600 mb-0 flex-grow leading-relaxed">${project.description}</p>
             </div>
-            <button onclick="openWhatsAppDirectly()" class="w-full bg-red-600 text-white font-bold py-5 px-4 rounded-none hover:bg-red-700 transition-all shadow-md cta-button text-[12px] md:text-sm text-center uppercase tracking-wide">
-                ORÇAMENTO RÁPIDO
+            <button onclick="openWhatsAppDirectly()" class="w-full bg-red-600 text-white font-bold py-5 px-4 rounded-none hover:bg-red-700 transition-all shadow-md cta-button text-[12px] md:text-sm flex items-center justify-center uppercase tracking-wide gap-1.5 group/btn">
+                <span>PEDIR ORÇAMENTO</span>
+                <i class="fa-brands fa-whatsapp text-[21px] transition-transform group-hover/btn:scale-110"></i>
             </button>
           </div>
           `;
