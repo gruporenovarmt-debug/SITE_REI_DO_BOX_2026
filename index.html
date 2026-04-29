@@ -435,7 +435,7 @@
     /* Improved Text Proportions - Better Scaling */
     p {
       line-height: 1.6;
-      font-size: 0.9375rem; /* 15px default body */
+      font-size: 1.078rem; /* +15% from ~15px to ~17.25px mobile */
     }
     
     .section-title {
@@ -447,7 +447,7 @@
     }
     
     .section-subtitle {
-      font-size: 0.75rem; /* 12px mobile */
+      font-size: 0.862rem; /* +15% from 12px to 13.8px mobile */
       font-weight: 700;
       color: #71717a; /* zinc-500 */
       text-transform: uppercase;
@@ -462,7 +462,7 @@
     }
 
     .card-description {
-      font-size: 0.8125rem; /* 13px mobile */
+      font-size: 0.934rem; /* +15% from ~13px to ~15px mobile */
       line-height: 1.5;
       color: #4b5563; /* gray-600 */
     }
@@ -472,16 +472,16 @@
         font-size: 2.25rem; /* 36px desktop */
       }
       .section-subtitle {
-        font-size: 0.9375rem; /* 15px desktop */
+        font-size: 1.294rem; /* +20% additional increase for desktop */
       }
       .card-title {
         font-size: 1.125rem; /* 18px desktop */
       }
       .card-description {
-        font-size: 0.9375rem; /* 15px desktop */
+        font-size: 1.294rem; /* +20% additional increase for desktop */
       }
       p {
-        font-size: 1.0625rem; /* 17px desktop */
+        font-size: 1.466rem; /* +20% additional increase for desktop body text */
       }
     }
 
@@ -761,20 +761,20 @@
             <!-- Desktop Hero Text Content -->
             <div class="absolute inset-0 z-20 flex flex-col justify-center">
                 <div class="container mx-auto px-6 md:px-6">
-                    <h1 id="desktop-hero-title" class="text-3xl lg:text-4xl font-bold text-white text-shadow slide-in max-w-2xl">REI DO BOX SINOP</h1>
-                    <p id="desktop-hero-subtitle" class="text-sm lg:text-base text-white text-shadow mt-4 slide-in max-w-xl">Especialista em Box para Banheiro, Espelhos e Vidros em Sinop-MT</p>
+                    <h1 id="desktop-hero-title" class="section-title !text-white text-shadow slide-in max-w-2xl !normal-case">REI DO BOX SINOP</h1>
+                    <p id="desktop-hero-subtitle" class="card-description !text-white text-shadow mt-4 slide-in max-w-xl">Especialista em Box para Banheiro, Espelhos e Vidros em Sinop-MT</p>
                     <div id="desktop-hero-stats" class="flex gap-8 mt-8">
                         <div class="hero-stat">
-                            <p class="text-red-600 font-bold text-xl">+2.700</p>
-                            <p class="text-[10px] uppercase tracking-widest text-gray-300">Clientes Satisfeitos</p>
+                            <p class="text-red-600 font-bold text-xl md:text-2xl">+2.700</p>
+                            <p class="section-subtitle !text-gray-300 !text-[12px] md:!text-[13px]">Clientes Satisfeitos</p>
                         </div>
                         <div class="hero-stat">
-                            <p class="text-red-600 font-bold text-xl">+4.300</p>
-                            <p class="text-[10px] uppercase tracking-widest text-gray-300">Projetos Instalados</p>
+                            <p class="text-red-600 font-bold text-xl md:text-2xl">+4.300</p>
+                            <p class="section-subtitle !text-gray-300 !text-[12px] md:!text-[13px]">Projetos Instalados</p>
                         </div>
                         <div class="hero-stat">
-                            <p class="text-red-600 font-bold text-xl">+5 Anos</p>
-                            <p class="text-[10px] uppercase tracking-widest text-gray-300">De Experiência</p>
+                            <p class="text-red-600 font-bold text-xl md:text-2xl">+5 Anos</p>
+                            <p class="section-subtitle !text-gray-300 !text-[12px] md:!text-[13px]">De Experiência</p>
                         </div>
                     </div>
                 </div>
@@ -919,7 +919,8 @@
                 <img 
                   src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" 
                   alt="Box de Vidro" 
-                  class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  class="object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  style="width: 568.995px; height: 713.453px;"
                   referrerPolicy="no-referrer"
                 />
               </div>
