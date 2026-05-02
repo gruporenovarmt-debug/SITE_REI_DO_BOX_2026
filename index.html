@@ -270,6 +270,21 @@
       animation: fadeIn 0.3s ease-out forwards;
     }
     
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1f2937; /* gray-800 - dark gray */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #dc2626; /* red-600 */
+      border-radius: 6px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ef4444; /* red-500 */
+    }
+
     /* FAQ Always Open Style */
     .faq-answer {
         max-height: 1000px !important;
@@ -980,7 +995,7 @@
         <!-- Quick Links -->
         <div>
           <h3 class="footer-title">NAVEGAÇÃO</h3>
-          <ul class="space-y-2 card-description font-bold">
+          <ul class="space-y-2 !text-[1.125rem] font-bold">
             <li><a href="#executed-services" onclick="event.preventDefault(); scrollToSection('executed-services')" class="hover:text-red-600 transition-colors uppercase">SERVIÇOS</a></li>
             <li><a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="hover:text-red-600 transition-colors uppercase">DEPOIMENTOS</a></li>
             <li><a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="hover:text-red-600 transition-colors uppercase">FAQ</a></li>
@@ -998,14 +1013,14 @@
         <!-- Social -->
         <div>
           <h3 class="footer-title">REDES SOCIAIS</h3>
-          <div class="flex space-x-4">
-            <a href="#" class="text-2xl md:text-xl hover:text-red-600 transition-colors"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-2xl md:text-xl hover:text-red-600 transition-colors"><i class="fab fa-facebook"></i></a>
+          <div class="flex space-x-6">
+            <a href="#" class="!text-[29px] md:!text-[33px] hover:text-red-600 transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="!text-[29px] md:!text-[33px] hover:text-red-600 transition-colors"><i class="fab fa-facebook"></i></a>
           </div>
         </div>
       </div>
       <div class="border-t border-gray-800 pt-6 md:pt-5 text-center text-gray-500">
-        <p class="text-[12px] md:text-[14px]">&copy; <span id="current-year"></span> Rei do Box Sinop. Todos os direitos reservados.</p>
+        <p class="!text-[15px] md:!text-[17.5px]">&copy; <span id="current-year"></span> Rei do Box Sinop. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
