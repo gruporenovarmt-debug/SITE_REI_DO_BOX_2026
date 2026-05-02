@@ -540,6 +540,20 @@
       100% { transform: scale(1.6); opacity: 0; filter: blur(8px); }
     }
 
+    @keyframes wa-vibrate {
+      0%, 92%, 100% { transform: scale(1) rotate(0); }
+      93% { transform: scale(1.2) rotate(-15deg); }
+      94% { transform: scale(1.2) rotate(15deg); }
+      95% { transform: scale(1.2) rotate(-15deg); }
+      96% { transform: scale(1.2) rotate(15deg); }
+      97% { transform: scale(1.2) rotate(0); }
+    }
+
+    .wa-float-fixed i {
+      animation: wa-vibrate 5s infinite;
+      display: inline-block;
+    }
+
     /* Service Box Hover Effects - Ultra Snappy & Smooth */
     .service-card {
       position: relative;
