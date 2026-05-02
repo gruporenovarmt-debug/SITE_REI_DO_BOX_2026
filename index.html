@@ -285,6 +285,19 @@
       background: #ef4444; /* red-500 */
     }
 
+    .faq-item {
+      border-radius: 0.5rem;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .faq-item:hover {
+      border-color: #dc2626; /* red-600 */
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
     /* FAQ Always Open Style */
     .faq-answer {
         max-height: 1000px !important;
@@ -846,7 +859,7 @@
                     <i class="fa-solid fa-ruler-combined text-red-600"></i>
                     <span>CONFIRA NOSSOS SERVIÇOS</span>
                 </h2>
-                <p class="section-subtitle mx-auto !text-[0.96rem] md:!text-[1.25rem] whitespace-nowrap">UMA LINHA COMPLETA DE MODELOS MODERNOS E PROFISSIONAIS PARA SUA CASA OU EMPRESA.</p>
+                <p class="section-subtitle mx-auto !text-[0.96rem] md:!text-[1.25rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20 w-fit">UMA LINHA COMPLETA DE MODELOS MODERNOS E PROFISSIONAIS PARA SUA CASA OU EMPRESA.</p>
             </div>
           <div id="executed-services-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
             <!-- Executed services will be injected here by JS -->
@@ -859,7 +872,7 @@
                     <i class="fa-solid fa-camera-retro text-red-600"></i>
                     <span>GALERIA DE DESTAQUES</span>
                 </h2>
-                <p class="section-subtitle mx-auto !text-[0.96rem] md:!text-[1.25rem] whitespace-nowrap">RESULTADOS REAIS DE PROJETOS EXECUTADOS EM TODA A REGIÃO.</p>
+                <p class="section-subtitle mx-auto !text-[0.96rem] md:!text-[1.25rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20 w-fit">RESULTADOS REAIS DE PROJETOS EXECUTADOS EM TODA A REGIÃO.</p>
             </div>
 
             <div class="mosaic-grid scroll-animate">
@@ -932,7 +945,7 @@
               <i class="fa-solid fa-users text-red-600"></i>
               <span>DEPOIMENTO DE CLIENTES</span>
             </h2>
-            <p class="section-subtitle mx-auto !text-[0.96rem] md:!text-[1.25rem] whitespace-nowrap">CONFIRA O QUE DIZEM NOSSOS CLIENTES SOBRE A QUALIDADE E AGILIDADE DA NOSSA EMPRESA.</p>
+            <p class="section-subtitle mx-auto !text-[0.96rem] md:!text-[1.25rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20 w-fit">CONFIRA O QUE DIZEM NOSSOS CLIENTES SOBRE A QUALIDADE E AGILIDADE DA NOSSA EMPRESA.</p>
           </div>
           <div id="static-testimonials-grid">
             <!-- Static testimonials will be injected here by JS -->
@@ -957,7 +970,7 @@
               <i class="fa-solid fa-circle-question text-red-600"></i>
               <span>PERGUNTAS FREQUENTES - FAQ</span>
             </h2>
-            <p class="section-subtitle mx-auto !text-[0.96rem] md:!text-[1.25rem] whitespace-nowrap">TIRE SUAS DÚVIDAS SOBRE NOSSOS SERVIÇOS, PRAZOS E CONDIÇÕES DE PAGAMENTO.</p>
+            <p class="section-subtitle mx-auto !text-[0.96rem] md:!text-[1.25rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20 w-fit">TIRE SUAS DÚVIDAS SOBRE NOSSOS SERVIÇOS, PRAZOS E CONDIÇÕES DE PAGAMENTO.</p>
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             <div id="faq-container" class="space-y-3">
@@ -1720,7 +1733,7 @@
           if (!container) return;
           container.innerHTML = APP_DATA.faqItems.map((item, index) => `
             <div class="faq-item bg-white overflow-hidden scroll-animate" style="transition-delay: ${index * 100}ms;">
-              <div class="w-full text-left flex items-center px-4 py-2 md:py-2">
+              <div class="w-full text-left flex items-center px-4 py-1.5 md:py-1.5">
                 <div class="flex items-center gap-4">
                   <div class="faq-number-badge flex-shrink-0">
                     ${index + 1}
@@ -1729,7 +1742,7 @@
                 </div>
               </div>
               <div class="faq-answer">
-                <div class="faq-answer-inner px-4 pb-2 pl-16 md:pl-20 pr-4">
+                <div class="faq-answer-inner px-4 pb-1 pl-16 md:pl-20 pr-4">
                   <p class="card-description !text-gray-600">${item.answer}</p>
                 </div>
               </div>
