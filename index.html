@@ -280,11 +280,13 @@
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         border: 1px solid #f3f4f6;
         border-radius: 12px;
-        margin-bottom: 1rem;
-        padding: 0.5rem;
+        margin-bottom: 0.75rem;
+        padding: 0.25rem;
+        transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .faq-item:hover {
-        background-color: #fff;
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
     .faq-icon-plus {
         display: none;
@@ -311,7 +313,7 @@
         background-color: #f3f4f6;
         color: #9ca3af;
         font-weight: 700;
-        font-size: 0.875rem;
+        font-size: 1.35rem;
         transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         position: relative;
     }
@@ -439,7 +441,7 @@
     }
     
     .section-title {
-      font-size: 1.25rem; /* 20px mobile */
+      font-size: 1.5rem; /* +20% from 1.25rem */
       font-weight: 800;
       letter-spacing: -0.01em;
       line-height: 1.2;
@@ -447,7 +449,7 @@
     }
     
     .section-subtitle {
-      font-size: 0.862rem; /* +15% from 12px to 13.8px mobile */
+      font-size: 1.034rem; /* +20% from 0.862rem */
       font-weight: 700;
       color: #71717a; /* zinc-500 */
       text-transform: uppercase;
@@ -469,10 +471,10 @@
     
     @media (min-width: 768px) {
       .section-title {
-        font-size: 2.25rem; /* 36px desktop */
+        font-size: 2.7rem; /* +20% from 2.25rem */
       }
       .section-subtitle {
-        font-size: 1.294rem; /* +20% additional increase for desktop */
+        font-size: 1.553rem; /* +20% from 1.294rem */
       }
       .card-title {
         font-size: 1.125rem; /* 18px desktop */
@@ -809,26 +811,26 @@
       <section class="relative z-10 -mt-2 md:-mt-1 pb-2 md:pb-4">
 
         <!-- Executed Services Section -->
-        <div id="executed-services" class="container mx-auto px-4 md:px-6 pt-4 md:pt-10">
-            <div id="stats-header-container" class="mb-10 text-center scroll-animate">
-                <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-3">
+        <div id="executed-services" class="container mx-auto px-4 md:px-6 pt-2 md:pt-6">
+            <div id="stats-header-container" class="mb-6 text-center scroll-animate">
+                <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-1 !text-[1.8rem] md:!text-[2.7rem]">
                     <i class="fa-solid fa-ruler-combined text-red-600"></i>
                     <span>CONFIRA NOSSOS TRABALHOS</span>
                 </h2>
-                <p class="section-subtitle max-w-2xl mx-auto">UMA LINHA COMPLETA EM SERVIÇOS DE VIDRAÇARIA PROFISSIONAL, PRIORIZANDO ENTREGA E QUALIDADE.</p>
+                <p class="section-subtitle mx-auto !text-[1.2rem] md:!text-[1.56rem] whitespace-nowrap">UMA LINHA COMPLETA EM SERVIÇOS DE VIDRAÇARIA PROFISSIONAL, PRIORIZANDO ENTREGA E QUALIDADE.</p>
             </div>
           <div id="executed-services-grid" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4">
             <!-- Executed services will be injected here by JS -->
           </div>
           
           <!-- Mosaic Gallery Highlights -->
-          <div class="mt-8 md:mt-16 mb-12">
-            <div class="text-center md:text-left mb-6 md:mb-8 scroll-animate">
-                <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-2">
+          <div class="mt-4 md:mt-8 mb-8">
+            <div class="text-center mb-4 md:mb-6 scroll-animate">
+                <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-1 !text-[1.8rem] md:!text-[2.7rem]">
                     <i class="fa-solid fa-camera-retro text-red-600"></i>
                     <span>GALERIA DE DESTAQUES</span>
                 </h2>
-                <p class="section-subtitle">RESULTADOS REAIS DE PROJETOS EXECUTADOS EM TODA A REGIÃO.</p>
+                <p class="section-subtitle mx-auto !text-[1.2rem] md:!text-[1.56rem] whitespace-nowrap">RESULTADOS REAIS DE PROJETOS EXECUTADOS EM TODA A REGIÃO.</p>
             </div>
 
             <div class="mosaic-grid scroll-animate">
@@ -894,14 +896,14 @@
 
 
       <!-- Static Testimonials Section -->
-      <section id="static-testimonials" class="pt-6 pb-4 md:pt-10 md:pb-6 bg-white">
+      <section id="static-testimonials" class="pt-4 pb-2 md:pt-6 md:pb-4 bg-white">
         <div class="max-w-[1500px] mx-auto px-4 md:px-8">
-          <div class="text-center md:text-left mb-6 md:mb-8 scroll-animate">
-            <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-2">
+          <div class="text-center mb-4 md:mb-6 scroll-animate">
+            <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-1 !text-[1.8rem] md:!text-[2.7rem]">
               <i class="fa-solid fa-users text-red-600"></i>
               <span>DEPOIMENTO DE CLIENTES</span>
             </h2>
-            <p class="section-subtitle">CONFIRA O QUE DIZEM NOSSOS CLIENTES SOBRE A QUALIDADE E AGILIDADE DA NOSSA EMPRESA.</p>
+            <p class="section-subtitle mx-auto !text-[1.2rem] md:!text-[1.56rem] whitespace-nowrap">CONFIRA O QUE DIZEM NOSSOS CLIENTES SOBRE A QUALIDADE E AGILIDADE DA NOSSA EMPRESA.</p>
           </div>
           <div id="static-testimonials-grid">
             <!-- Static testimonials will be injected here by JS -->
@@ -919,26 +921,25 @@
       </div>
 
       <!-- FAQ Section -->
-      <section id="faq" class="pt-8 pb-12 md:pt-12 md:pb-16 bg-white">
+      <section id="faq" class="pt-4 pb-8 md:pt-6 md:pb-10 bg-white">
         <div class="container mx-auto px-6">
-          <div class="text-center md:text-left mb-8 md:mb-12 scroll-animate">
-            <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-2">
+          <div class="text-center mb-2 md:mb-4 scroll-animate">
+            <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-1 !text-[1.8rem] md:!text-[2.7rem]">
               <i class="fa-solid fa-circle-question text-red-600"></i>
               <span>PERGUNTAS FREQUENTES - FAQ</span>
             </h2>
-            <p class="section-subtitle">TIRE SUAS DÚVIDAS SOBRE NOSSOS SERVIÇOS, PRAZOS E CONDIÇÕES DE PAGAMENTO.</p>
+            <p class="section-subtitle mx-auto !text-[1.2rem] md:!text-[1.56rem] whitespace-nowrap">TIRE SUAS DÚVIDAS SOBRE NOSSOS SERVIÇOS, PRAZOS E CONDIÇÕES DE PAGAMENTO.</p>
           </div>
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div id="faq-container" class="lg:col-span-2 space-y-4">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <div id="faq-container" class="space-y-3">
               <!-- FAQ items will be injected here by JS -->
             </div>
-            <div class="hidden lg:block lg:col-span-1">
+            <div class="hidden lg:block h-full">
               <div class="h-full rounded-2xl overflow-hidden shadow-xl border-4 border-gray-100">
                 <img 
                   src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800" 
                   alt="Box de Vidro" 
-                  class="object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                  style="width: 568.995px; height: 713.453px;"
+                  class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -1053,19 +1054,24 @@
 
       function generateTestimonialsData(count = 8) {
           const neighborhoods = ['Centro', 'Setor Industrial', 'Jardim Botânico', 'Residencial Cidade Jardim', 'Vila Lobos', 'Bairro Esperança', 'Monte Carlo', 'Jardim Imperial', 'Residencial Florença', 'Jardim Primaveras', 'Jardim das Palmeiras', 'Setor Comercial'];
+          
           const baseTexts = [
-              'O acabamento do box ficou impecável! Paguei no cartão de crédito só depois de instalado, o que me deu muita segurança. Entrega muito rápida e equipe nota dez!!!',
-              'Excelente trabalho e agilidade na entrega. Consegui um ótimo desconto pagando à vista. A qualidade dos acabamentos superou todas as minhas expectativas hoje!!!!',
-              'Atendimento profissional e resposta rápida. A opção de pagar no cartão após o serviço pronto é ótima. Acabamento de primeira linha e muita confiança sempre!!!!!',
-              'Fiquei impressionado com a rapidez. O desconto no pagamento à vista valeu muito a pena. O acabamento do vidro é perfeito, recomendo muito para todos em Sinop!!!',
-              'Serviço ágil e de muita qualidade. Pagar no cartão de crédito após a conclusão trouxe total confiança. Acabamentos muito bem feitos e equipe muito atenciosa!!!',
-              'Melhor preço e entrega recorde em Sinop. O desconto à vista foi o diferencial, e a qualidade dos acabamentos é visível. Nota dez para o Paulo e toda sua equipe!',
-              'Agilidade incrível na montagem e acabamento superior. A segurança de pagar no cartão só depois de pronto é excelente. Muito satisfeito com o resultado final!!!!',
-              'Tudo entregue no prazo e com acabamento perfeito. Aproveitei o desconto à vista. Empresa séria, ágil e com serviço de alta qualidade em todos os detalhes hoje!!',
-              'O box de canto ficou maravilhoso. A equipe foi super rápida e o acabamento é de alto padrão. Recomendo o Rei do Box para quem busca perfeição e preço justo!!!!!',
-              'Espelhos instalados com perfeição. O atendimento do Paulo foi excelente desde o primeiro contato. Qualidade nota mil e entrega super rápida em toda a cidade!!!',
-              'Vidros temperados de ótima qualidade. A entrega foi antes do prazo e o acabamento ficou muito limpo e profissional. Com certeza farei novos orçamentos aqui!!!!',
-              'Fizemos o fechamento da sacada e ficou perfeito. Agilidade e preço justo. O acabamento é realmente diferenciado e trouxe muita sofisticação para o meu imóvel!!'
+              "O box ficou perfeito! Instalação rápida e acabamento impecável.",
+              "Melhor preço de Sinop! Equipe ágil e atendimento nota dez.",
+              "Qualidade superior nos vidros. Entrega antes do prazo, recomendo!",
+              "Trabalho profissional e limpo. Valorizou muito meu banheiro.",
+              "Atendimento excelente do Paulo. Preço justo e rapidez total.",
+              "Espelhos instalados com perfeição. Qualidade que impressiona.",
+              "Rapidez incrível na entrega. O melhor custo-benefício da região!",
+              "Fiquei surpresa com a agilidade. Acabamento fino e preço ótimo.",
+              "Equipe nota mil! Box de alta qualidade e montagem relâmpago.",
+              "Melhor escolha em Sinop. Preço atrativo e serviço de primeira.",
+              "Total satisfação. Entrega em 24h e instalação impecável.",
+              "Vidraçaria de confiança. Rapidez, preço e excelência garantida.",
+              "Resultado nota dez! Atendimento rápido e preço muito justo.",
+              "Excelente serviço e agilidade. O acabamento superou expectativas.",
+              "Rapidez e segurança no pagamento. Melhor vidraçaria de Sinop!",
+              "Profissionais educados e entrega recorde. Recomendo muito!"
           ];
           
           const names = [
@@ -1074,24 +1080,40 @@
               { n: 'Patrícia Souza', g: 'female' }, { n: 'Ricardo Mendes', g: 'male' }, 
               { n: 'Carla Almeida', g: 'female' }, { n: 'Diego Martins', g: 'male' },
               { n: 'Juliana Ferreira', g: 'female' }, { n: 'Marcos Santos', g: 'male' },
-              { n: 'Beatriz Lima', g: 'female' }, { n: 'Lucas Pereira', g: 'male' }
+              { n: 'Beatriz Lima', g: 'female' }, { n: 'Lucas Pereira', g: 'male' },
+              { n: 'Fernanda Rocha', g: 'female' }, { n: 'Gabriel Souza', g: 'male' },
+              { n: 'Camila Duarte', g: 'female' }, { n: 'Thiago Nogueira', g: 'male' }
           ];
+
+          // Shuffle helper using Fisher-Yates
+          function shuffle(array) {
+              const newArr = [...array];
+              for (let i = newArr.length - 1; i > 0; i--) {
+                  const j = Math.floor(Math.random() * (i + 1));
+                  [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+              }
+              return newArr;
+          }
+
+          const shuffledNames = shuffle(names);
+          const shuffledTexts = shuffle(baseTexts);
+          const shuffledNeighborhoods = shuffle(neighborhoods);
 
           const testimonials = [];
           for (let i = 0; i < count; i++) {
-              const personIndex = Math.floor(Math.random() * names.length);
-              const person = names[personIndex];
-              const neighborhood = neighborhoods[Math.floor(Math.random() * neighborhoods.length)];
+              // Ensure we don't go out of bounds if count > pooled items
+              const person = shuffledNames[i % shuffledNames.length];
+              const text = shuffledTexts[i % shuffledTexts.length];
+              const neighborhood = shuffledNeighborhoods[i % shuffledNeighborhoods.length];
               const date = getRandomDate();
-              const text = baseTexts[Math.floor(Math.random() * baseTexts.length)];
-              const rating = (Math.random() * (10 - 9.5) + 9.5).toFixed(1); 
+              const rating = (Math.random() * (10 - 9.7) + 9.7).toFixed(1); 
 
               testimonials.push({
                   name: person.n,
                   neighborhood,
                   date,
                   text,
-                  avatarUrl: `https://xsgames.co/randomusers/assets/avatars/${person.g}/${(personIndex + i + 15) % 50}.jpg`,
+                  avatarUrl: `https://xsgames.co/randomusers/assets/avatars/${person.g}/${(i + 20) % 50}.jpg`,
                   rating: parseFloat(rating)
               });
           }
@@ -1545,7 +1567,7 @@
               </button>
             </div>
             <div class="p-4 md:p-5 flex flex-col flex-grow text-center md:text-left">
-              <h3 class="card-title text-gray-800 mb-1 md:mb-2 uppercase md:normal-case">${project.title}</h3>
+              <h3 class="text-[1.2rem] md:text-[1.35rem] text-red-600 mb-1 md:mb-2 uppercase font-bold leading-tight">${project.title}</h3>
               <p class="hidden md:block card-description flex-grow">${project.description}</p>
             </div>
             <button onclick="openWhatsAppDirectly()" class="w-full bg-red-600 text-white font-bold py-5 px-4 rounded-none hover:bg-red-700 transition-all shadow-md cta-button text-[12px] md:text-sm text-center uppercase tracking-wide">
@@ -1573,7 +1595,7 @@
                 </div>
               </div>
               <div class="overflow-hidden">
-                <h4 class="card-title text-gray-900 leading-tight uppercase truncate">${testimonial.name}</h4>
+                <h4 class="card-title text-red-600 leading-tight uppercase truncate">${testimonial.name}</h4>
                 <p class="text-[11px] md:text-xs text-gray-400 font-medium">${neighborhood}, Sinop-MT</p>
               </div>
             </div>
@@ -1661,7 +1683,7 @@
               const totalPages = Math.ceil(testimonialPool.length / itemsPerPage);
               const nextPage = (currentTestimonialPage + 1) % totalPages;
               changeTestimonialPage(nextPage);
-          }, 6000);
+          }, 8000);
       }
 
       function renderFaq() {
@@ -1669,17 +1691,17 @@
           if (!container) return;
           container.innerHTML = APP_DATA.faqItems.map((item, index) => `
             <div class="faq-item bg-white overflow-hidden scroll-animate" style="transition-delay: ${index * 100}ms;">
-              <div class="w-full text-left flex items-center px-4 py-4 md:py-6">
-                <div class="flex items-center gap-5">
+              <div class="w-full text-left flex items-center px-4 py-2 md:py-2">
+                <div class="flex items-center gap-4">
                   <div class="faq-number-badge flex-shrink-0">
                     ${index + 1}
                   </div>
-                  <h3 class="card-title text-gray-800 leading-tight uppercase">${item.question}</h3>
+                  <h3 class="text-[1.2rem] md:text-[1.35rem] text-red-600 leading-tight uppercase font-bold">${item.question}</h3>
                 </div>
               </div>
               <div class="faq-answer">
-                <div class="faq-answer-inner px-4 pb-6 pl-16 md:pl-24 pr-4">
-                  <p class="card-description">${item.answer}</p>
+                <div class="faq-answer-inner px-4 pb-2 pl-16 md:pl-20 pr-4">
+                  <p class="card-description !text-gray-600">${item.answer}</p>
                 </div>
               </div>
             </div>

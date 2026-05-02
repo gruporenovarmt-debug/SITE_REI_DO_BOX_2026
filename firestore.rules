@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidOrcamento(data) {
+      return data.clienteNome is string && data.clienteNome.size() <= 200 &&
+             data.linkArquivo is string && data.linkArquivo.size() <= 1048576 && // 1MB limit for base64
+             data.createdAt is timestamp;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.email == "gruporenovarmt@gmail.com";
+    }
+
+    match /orcamentos/{orcamentoId} {
+      allow create, read, update, delete: if isAdmin();
+    }
+  }
+}

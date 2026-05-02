@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Rei do Box - Painel de Orçamentos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #f3f4f6; }
+    .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+  </style>
+</head>
+<body class="min-h-screen text-gray-800">
+  <nav class="bg-gray-900 text-white p-4 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="text-xl font-bold flex items-center gap-2">
+        <i class="fa-solid fa-crown text-red-600"></i> REI DO BOX
+      </a>
+      <div id="auth-status" class="flex items-center gap-4">
+        <!-- Auth status injected here -->
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mx-auto p-4 md:p-8">
+    <div id="login-container" class="max-w-md mx-auto mt-20 glass p-8 rounded-2xl shadow-xl text-center hidden">
+      <h2 class="text-2xl font-bold mb-6">Acesso Restrito</h2>
+      <p class="text-gray-600 mb-8">Faça login para gerenciar os orçamentos e arquivos.</p>
+      <button id="login-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-3">
+        <i class="fab fa-google"></i> Entrar com Google
+      </button>
+    </div>
+
+    <div id="admin-container" class="hidden space-y-8">
+      <header class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h1 class="text-3xl font-bold text-gray-900">Painel de Orçamentos</h1>
+          <p class="text-gray-600">Gerencie uploads e solicitações de clientes.</p>
+        </div>
+        <button id="new-orcamento-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-xl transition-all flex items-center gap-2">
+          <i class="fa-solid fa-plus"></i> Novo Registro
+        </button>
+      </header>
+
+      <!-- Upload Modal -->
+      <div id="upload-modal" class="fixed inset-0 bg-black/50 hidden z-[60] flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl w-full max-w-lg p-6 shadow-2xl relative">
+          <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+            <i class="fa-solid fa-xmark text-xl"></i>
+          </button>
+          <h3 class="text-xl font-bold mb-6">Registrar Orçamento/Upload</h3>
+          <form id="orcamento-form" class="space-y-4">
+            <div>
+              <label class="block text-sm font-bold text-gray-700 mb-1">Nome do Cliente</label>
+              <input type="text" id="cliente-nome" required class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-red-500 outline-none">
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-gray-700 mb-1">Email (Opcional)</label>
+              <input type="email" id="cliente-email" class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-red-500 outline-none">
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-gray-700 mb-1">Arquivo (Max 1MB)</label>
+              <input type="file" id="file-input" required class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100">
+              <p class="text-[10px] text-gray-400 mt-1">Devido a restrições de armazenamento, limite os arquivos a 1MB (Base64).</p>
+            </div>
+            <button type="submit" id="submit-btn" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50">
+              Salvar Registro
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- List Section -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="p-6 border-b border-gray-200">
+          <h2 class="font-bold">Solicitações Recentes</h2>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead class="bg-gray-50 text-xs uppercase text-gray-500 font-bold">
+              <tr>
+                <th class="px-6 py-4">Data</th>
+                <th class="px-6 py-4">Cliente</th>
+                <th class="px-6 py-4">Arquivo</th>
+                <th class="px-6 py-4">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="orcamentos-list" class="divide-y divide-gray-100 italic text-gray-400">
+              <!-- Dynamically populated -->
+              <tr><td colspan="4" class="px-6 py-8 text-center text-sm">Carregando registros...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Firebase Scripts -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+    import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+    import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp, getDocFromServer, doc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+    // Load config from local file if needed, but here we'll use direct config as it's a fixed applet
+    const firebaseConfig = {
+      projectId: "gen-lang-client-0721157911",
+      appId: "1:302393400333:web:e9263977f28cff5cfdc944",
+      apiKey: "AIzaSyAcql7DWmDS_dBuCxr3-mJz7uCVwe_HXWw",
+      authDomain: "gen-lang-client-0721157911.firebaseapp.com",
+      firestoreDatabaseId: "ai-studio-b160221f-0231-4538-adcd-101c633a58f5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
+
+    const loginBtn = document.getElementById('login-btn');
+    const authStatus = document.getElementById('auth-status');
+    const loginContainer = document.getElementById('login-container');
+    const adminContainer = document.getElementById('admin-container');
+    const orcamentosList = document.getElementById('orcamentos-list');
+    const orcamentoForm = document.getElementById('orcamento-form');
+    const uploadModal = document.getElementById('upload-modal');
+    const newOrcamentoBtn = document.getElementById('new-orcamento-btn');
+    const closeModal = document.getElementById('close-modal');
+
+    // TEST CONNECTION
+    async function testConnection() {
+      try {
+        await getDocFromServer(doc(db, 'test', 'connection'));
+      } catch (error) {
+        if(error instanceof Error && error.message.includes('the client is offline')) {
+          console.error("Please check your Firebase configuration.");
+        }
+      }
+    }
+    testConnection();
+
+    // UI HELPER
+    function showLoading() {
+      orcamentosList.innerHTML = '<tr><td colspan="4" class="px-6 py-8 text-center text-sm">Carregando...</td></tr>';
+    }
+
+    // AUTH
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        loginContainer.classList.add('hidden');
+        adminContainer.classList.remove('hidden');
+        authStatus.innerHTML = `
+          <span class="text-sm hidden md:inline text-gray-300">${user.displayName}</span>
+          <button id="logout-btn" class="bg-gray-800 hover:bg-gray-700 px-3 py-1 rounded text-xs">Sair</button>
+        `;
+        document.getElementById('logout-btn').onclick = () => signOut(auth);
+        loadOrcamentos();
+      } else {
+        loginContainer.classList.remove('hidden');
+        adminContainer.classList.add('hidden');
+        authStatus.innerHTML = '';
+      }
+    });
+
+    loginBtn.onclick = async () => {
+      try {
+        const provider = new GoogleAuthProvider();
+        await signInWithPopup(auth, provider);
+      } catch (err) {
+        console.error(err);
+        alert('Erro ao fazer login.');
+      }
+    };
+
+    // MODAL
+    newOrcamentoBtn.onclick = () => uploadModal.classList.remove('hidden');
+    closeModal.onclick = () => uploadModal.classList.add('hidden');
+
+    // LOAD DATA
+    async function loadOrcamentos() {
+      showLoading();
+      try {
+        const q = query(collection(db, 'orcamentos'), orderBy('createdAt', 'desc'));
+        const querySnapshot = await getDocs(q);
+        
+        if (querySnapshot.empty) {
+          orcamentosList.innerHTML = '<tr><td colspan="4" class="px-6 py-8 text-center text-sm">Nenhum registro encontrado.</td></tr>';
+          return;
+        }
+
+        orcamentosList.innerHTML = '';
+        querySnapshot.forEach((docSnap) => {
+          const data = docSnap.data();
+          const date = data.createdAt?.toDate ? data.createdAt.toDate().toLocaleDateString('pt-BR') : 'Sem data';
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-gray-50 transition-colors text-gray-800 italic-none';
+          tr.innerHTML = `
+            <td class="px-6 py-4 text-sm">${date}</td>
+            <td class="px-6 py-4 font-bold">
+              <div>${data.clienteNome}</div>
+              <div class="text-[10px] text-gray-500 font-normal">${data.clienteEmail || ''}</div>
+            </td>
+            <td class="px-6 py-4 text-xs font-mono text-gray-500 max-w-[150px] truncate">${data.fileName || 'Arquivo'}</td>
+            <td class="px-6 py-4 text-sm">
+              <a href="${data.linkArquivo}" download="${data.fileName}" class="text-red-600 hover:text-red-800 font-bold underline">Download</a>
+            </td>
+          `;
+          orcamentosList.appendChild(tr);
+        });
+      } catch (err) {
+        console.error('Error loading:', err);
+        orcamentosList.innerHTML = '<tr><td colspan="4" class="px-6 py-8 text-center text-red-500">Erro ao carregar dados.</td></tr>';
+      }
+    }
+
+    // FORM SUBMIT
+    orcamentoForm.onsubmit = async (e) => {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Salvando...';
+
+      const nome = document.getElementById('cliente-nome').value;
+      const email = document.getElementById('cliente-email').value;
+      const fileInput = document.getElementById('file-input');
+      const file = fileInput.files[0];
+
+      if (!file) {
+        alert('Selecione um arquivo.');
+        submitBtn.disabled = false;
+        return;
+      }
+
+      if (file.size > 1024 * 1024) { // 1MB
+        alert('O arquivo deve ter no máximo 1MB.');
+        submitBtn.disabled = false;
+        return;
+      }
+
+      try {
+        const reader = new FileReader();
+        reader.onload = async (event) => {
+          const base64 = event.target.result;
+          
+          await addDoc(collection(db, 'orcamentos'), {
+            clienteNome: nome,
+            clienteEmail: email,
+            linkArquivo: base64,
+            fileName: file.name,
+            fileType: file.type,
+            createdAt: serverTimestamp()
+          });
+
+          alert('Registro salvo com sucesso!');
+          orcamentoForm.reset();
+          uploadModal.classList.add('hidden');
+          loadOrcamentos();
+        };
+        reader.readAsDataURL(file);
+      } catch (err) {
+        console.error(err);
+        alert('Erro ao salvar.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Salvar Registro';
+      }
+    };
+
+  </script>
+</body>
+</html>
