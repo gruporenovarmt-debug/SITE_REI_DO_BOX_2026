@@ -865,7 +865,7 @@
                     <i class="fa-solid fa-camera-retro text-red-600"></i>
                     <span>GALERIA DE DESTAQUES</span>
                 </h2>
-                <p class="section-subtitle mx-auto !text-[0.96rem] md:!text-[1.44rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20">RESULTADOS REAIS DE PROJETOS EXECUTADOS EM TODA A REGIÃO.</p>
+                <p class="section-subtitle mx-auto !text-[0.96rem] md:!text-[1.44rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20">RESULTADOS REAIS DE PROJETOS EXECUTADOS POR NOSSO TIME.</p>
             </div>
 
             <div class="mosaic-grid scroll-animate">
@@ -1797,6 +1797,10 @@
           lightbox.style.display = 'flex';
           document.body.style.overflow = 'hidden';
           
+          // Hide WhatsApp button when lightbox is open
+          const waButton = document.getElementById('whatsapp-float');
+          if (waButton) waButton.style.display = 'none';
+
           // Add keyboard listener when lightbox opens
           document.addEventListener('keydown', handleLightboxKeydown);
       }
@@ -1819,6 +1823,10 @@
           activeLightboxImageUrls = [];
           document.body.style.overflow = '';
           
+          // Show WhatsApp button when lightbox is closed
+          const waButton = document.getElementById('whatsapp-float');
+          if (waButton) waButton.style.display = 'flex';
+
           // Remove keyboard listener when lightbox closes
           document.removeEventListener('keydown', handleLightboxKeydown);
       }
@@ -1954,7 +1962,8 @@
 
 
   <!-- Floating WhatsApp Button -->
-  <a href="javascript:void(0)" 
+  <a id="whatsapp-float" 
+     href="javascript:void(0)" 
      onclick="openWhatsAppDirectly()"
      class="wa-float-fixed" 
      aria-label="Fale conosco no WhatsApp">
