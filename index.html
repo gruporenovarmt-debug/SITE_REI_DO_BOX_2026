@@ -79,7 +79,8 @@
       height: 100%;
       object-fit: cover;
       opacity: 0;
-      transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: opacity 1.2s ease-in-out;
+      will-change: opacity;
     }
     .hero-slide-img.active {
       opacity: 1;
@@ -95,6 +96,12 @@
       cursor: pointer;
       transition: all 0.3s ease;
       padding: 0;
+    }
+    @media (min-width: 1024px) {
+      .hero-dot {
+        width: 16px;
+        height: 16px;
+      }
     }
     .hero-dot.active {
       background-color: #ef4444; /* red-500 */
@@ -159,7 +166,8 @@
 
     /* Lightbox Image Transition */
     #lightbox-image {
-      transition: opacity 0.4s ease-in-out;
+      transition: opacity 0.5s ease-in-out;
+      will-change: opacity;
     }
 
     /* Scroll Animation */
@@ -212,8 +220,9 @@
     }
     
     /* Card Slideshow */
-     .card-slide-image {
-        transition: opacity 0.4s ease-in-out;
+    .card-slide-image {
+        transition: opacity 0.8s ease-in-out;
+        will-change: opacity;
     }
     .card-slide-nav {
         background-color: rgba(0,0,0,0.3);
@@ -270,20 +279,6 @@
       animation: fadeIn 0.3s ease-out forwards;
     }
     
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 12px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #1f2937; /* gray-800 - dark gray */
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #dc2626; /* red-600 */
-      border-radius: 6px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #ef4444; /* red-500 */
-    }
 
     .faq-item {
       border-radius: 0.5rem;
@@ -620,8 +615,8 @@
     }
     
     .service-card-img {
-      transition: filter 0.15s ease-out;
-      will-change: filter;
+      transition: filter 0.15s ease-out, opacity 0.8s ease-in-out;
+      will-change: filter, opacity;
     }
     
     .service-card:hover .service-card-img {
@@ -802,7 +797,7 @@
                 </div>
             </div>
             
-            <div id="mobile-hero-dots" class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col space-y-2 z-20">
+            <div id="mobile-hero-dots" class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col space-y-2 z-30">
                 <!-- Dots will be injected here by JS -->
             </div>
         </div>
@@ -840,7 +835,7 @@
                 </div>
             </div>
 
-            <div id="desktop-hero-dots" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
+            <div id="desktop-hero-dots" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-3 z-30">
                 <!-- Dots will be injected here by JS -->
             </div>
         </div>
@@ -875,7 +870,7 @@
 
             <div class="mosaic-grid scroll-animate">
                 <div class="mosaic-item mosaic-item-large" onclick="openMosaicGallery(0)">
-                    <img src="https://i.postimg.cc/1RM6XvXy/Box-Frontal-Reido-Box-Sinop-1.jpg" alt="Destaque 1">
+                    <img src="https://i.postimg.cc/1RM6XvXy/Box-Frontal-Reido-Box-Sinop-1.jpg" alt="Destaque 1" loading="lazy">
                     <div class="mosaic-overlay">
                         <div class="flex flex-col">
                             <span class="card-title text-white uppercase">Box Frontal Premium</span>
@@ -884,25 +879,25 @@
                     </div>
                 </div>
                 <div class="mosaic-item" onclick="openMosaicGallery(1)">
-                    <img src="https://i.postimg.cc/05ZmjVjN/Box-Frontal-Reido-Box-Sinop-2.jpg" alt="Destaque 2">
+                    <img src="https://i.postimg.cc/05ZmjVjN/Box-Frontal-Reido-Box-Sinop-2.jpg" alt="Destaque 2" loading="lazy">
                     <div class="mosaic-overlay">
                         <span class="card-title text-white uppercase">Elegância</span>
                     </div>
                 </div>
                 <div class="mosaic-item mosaic-item-tall" onclick="openMosaicGallery(2)">
-                    <img src="https://i.postimg.cc/v8X9T0TT/Box-Frontal-Reido-Box-Sinop-3.jpg" alt="Destaque 3">
+                    <img src="https://i.postimg.cc/v8X9T0TT/Box-Frontal-Reido-Box-Sinop-3.jpg" alt="Destaque 3" loading="lazy">
                     <div class="mosaic-overlay">
                         <span class="card-title text-white uppercase">Vidro Temperado</span>
                     </div>
                 </div>
                 <div class="mosaic-item" onclick="openMosaicGallery(3)">
-                    <img src="https://i.postimg.cc/gc4RjgjJ/Box-Frontal-Reido-Box-Sinop-4.jpg" alt="Destaque 4">
+                    <img src="https://i.postimg.cc/gc4RjgjJ/Box-Frontal-Reido-Box-Sinop-4.jpg" alt="Destaque 4" loading="lazy">
                     <div class="mosaic-overlay">
                         <span class="card-title text-white uppercase">Acabamento</span>
                     </div>
                 </div>
                 <div class="mosaic-item" onclick="openMosaicGallery(4)">
-                    <img src="https://i.postimg.cc/HWyrQyDr/Caminhao-Reidobox-Sinop-2026-2.jpg" alt="Destaque 5">
+                    <img src="https://i.postimg.cc/HWyrQyDr/Caminhao-Reidobox-Sinop-2026-2.jpg" alt="Destaque 5" loading="lazy">
                     <div class="mosaic-overlay">
                         <div class="flex flex-col">
                             <span class="card-title text-white uppercase">Agilidade na Entrega</span>
@@ -1040,24 +1035,22 @@
 
   <!-- Lightbox Modal -->
   <div id="lightbox" class="fixed inset-0 bg-black/95 flex flex-col items-center justify-center z-50 p-4 animate-fade-in" style="display: none;" onclick="closeLightbox()">
-    <!-- Close button above -->
-    <div class="w-full max-w-[90vw] flex justify-end mb-2">
-       <button onclick="closeLightbox()" class="bg-white/10 hover:bg-white/20 text-white w-10 h-10 flex items-center justify-center transition-colors border border-white/20">
-          <i class="fa-solid fa-times text-xl"></i>
-      </button>
-    </div>
-
-    <div class="relative flex items-center justify-center w-full max-w-[95vw]">
-        <!-- Navigation Arrows -->
-        <button onclick="event.stopPropagation(); prevLightboxImage()" class="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors z-20">
+    <div class="relative flex items-center justify-center w-full max-w-4xl h-full pointer-events-none">
+        
+        <!-- Navigation Arrows - Positioned close to image boundaries -->
+        <button onclick="event.stopPropagation(); prevLightboxImage()" class="pointer-events-auto absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-10 h-10 md:w-14 md:h-14 flex items-center justify-center transition-all z-20 rounded-full">
           <i class="fa-solid fa-chevron-left text-xl md:text-2xl"></i>
         </button>
         
-        <div id="lightbox-content" onclick="event.stopPropagation()" class="relative flex items-center justify-center overflow-hidden">
-          <img id="lightbox-image" src="" alt="Imagem em destaque" class="block max-w-full max-h-[75vh] md:max-h-[85vh] shadow-2xl transition-opacity duration-300 ease-in-out">
+        <div id="lightbox-content" onclick="event.stopPropagation()" class="pointer-events-auto relative flex items-center justify-center max-w-full">
+          <!-- Close button - Positioned above and to the right of the image -->
+          <button onclick="closeLightbox()" class="absolute -top-6 -right-6 md:-top-10 md:-right-10 bg-black text-white w-10 h-10 md:w-12 md:h-12 flex items-center justify-center z-[70] rounded-full shadow-2xl border border-white/20 transition-all duration-300 hover:scale-125 hover:rotate-6 active:scale-90">
+              <i class="fa-solid fa-times text-lg md:text-xl"></i>
+          </button>
+          <img id="lightbox-image" src="" alt="Imagem em destaque" class="block max-w-[90vw] md:max-w-full max-h-[80vh] md:max-h-[90vh] shadow-[0_0_50px_rgba(0,0,0,0.5)]">
         </div>
 
-        <button onclick="event.stopPropagation(); nextLightboxImage()" class="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-colors z-20">
+        <button onclick="event.stopPropagation(); nextLightboxImage()" class="pointer-events-auto absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-10 h-10 md:w-14 md:h-14 flex items-center justify-center transition-all z-20 rounded-full">
           <i class="fa-solid fa-chevron-right text-xl md:text-2xl"></i>
         </button>
     </div>
@@ -1313,12 +1306,16 @@
             const currentImageEl = heroImageElements[activeHeroImageIndex];
             const nextImageEl = heroImageElements[nextActiveImageElIndex];
             
-            nextImageEl.src = APP_DATA.mobileHeroImages[index];
-            
-            currentImageEl.classList.remove('active');
-            nextImageEl.classList.add('active');
-
-            activeHeroImageIndex = nextActiveImageElIndex;
+            // Preload the next image
+            const tempImg = new Image();
+            tempImg.src = APP_DATA.mobileHeroImages[index];
+            tempImg.onload = () => {
+                if (currentMobileHeroIndex !== index) return;
+                nextImageEl.src = tempImg.src;
+                currentImageEl.classList.remove('active');
+                nextImageEl.classList.add('active');
+                activeHeroImageIndex = nextActiveImageElIndex;
+            };
             
             if (dots.length) {
                 dots.forEach((dot, dotIndex) => {
@@ -1423,14 +1420,20 @@
           const currentImageEl = desktopHeroImageElements[activeDesktopHeroIndex];
           const nextImageEl = desktopHeroImageElements[nextActiveImageElIndex];
           
-          nextImageEl.src = APP_DATA.desktopHeroImages[index];
+          // Preload the next image
+          const tempImg = new Image();
+          tempImg.src = APP_DATA.desktopHeroImages[index];
+          tempImg.onload = () => {
+              // Only proceed if index matches current target (avoids race conditions)
+              if (currentDesktopHeroIndex !== index) return;
+              
+              nextImageEl.src = tempImg.src;
+              currentImageEl.classList.remove('active');
+              nextImageEl.classList.add('active');
+              activeDesktopHeroIndex = nextActiveImageElIndex;
+          };
           
-          currentImageEl.classList.remove('active');
-          nextImageEl.classList.add('active');
-
-          activeDesktopHeroIndex = nextActiveImageElIndex;
-          
-          // Restart animations
+          // Animations for text
           const elementsToAnimate = [heroTitle, heroSubtitle];
           if (heroStats) {
               const stats = heroStats.querySelectorAll('.hero-stat');
@@ -1443,6 +1446,12 @@
               void el.offsetWidth; // Force reflow
               el.style.animation = '';
           });
+
+          if (dots.length) {
+              dots.forEach((dot, dotIndex) => {
+                  dot.classList.toggle('active', dotIndex === index);
+              });
+          }
           
           heroTitle.classList.add('slide-in');
           heroSubtitle.classList.add('slide-in');
@@ -1453,10 +1462,6 @@
                   s.style.animationDelay = `${0.4 + (i * 0.1)}s`;
               });
           }
-
-          dots.forEach((dot, dotIndex) => {
-              dot.classList.toggle('active', dotIndex === index);
-          });
       }
 
       function startDesktopHeroInterval() {
@@ -1495,7 +1500,7 @@
           currentDesktopHeroIndex = 0;
 
           dotsContainer.innerHTML = APP_DATA.desktopHeroImages.map((_, index) => 
-              `<button class="hero-dot w-3 h-3 ${index === 0 ? 'active' : ''}" data-index="${index}"></button>`
+              `<button class="hero-dot w-3 h-3 md:w-4 md:h-4 ${index === 0 ? 'active' : ''}" data-index="${index}"></button>`
           ).join('');
 
           dotsContainer.addEventListener('click', (event) => {
@@ -1791,6 +1796,9 @@
           updateLightboxImage();
           lightbox.style.display = 'flex';
           document.body.style.overflow = 'hidden';
+          
+          // Add keyboard listener when lightbox opens
+          document.addEventListener('keydown', handleLightboxKeydown);
       }
 
       window.openLightboxFromCard = (projectId, index) => {
@@ -1810,20 +1818,47 @@
           lightbox.style.display = 'none';
           activeLightboxImageUrls = [];
           document.body.style.overflow = '';
+          
+          // Remove keyboard listener when lightbox closes
+          document.removeEventListener('keydown', handleLightboxKeydown);
+      }
+
+      function handleLightboxKeydown(e) {
+          if (lightbox.style.display === 'none') return;
+          
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowRight') nextLightboxImage();
+          if (e.key === 'ArrowLeft') prevLightboxImage();
       }
 
       function updateLightboxImage() {
           const lightboxImageEl = document.getElementById('lightbox-image');
           if (activeLightboxImageUrls.length === 0) return;
           
+          const imageUrl = activeLightboxImageUrls[currentLightboxIndex];
+          const targetIndex = currentLightboxIndex;
+          
+          // Iniciar fade out (0%)
           lightboxImageEl.style.opacity = '0';
 
-          setTimeout(() => {
-              lightboxImageEl.src = activeLightboxImageUrls[currentLightboxIndex];
-              lightboxImageEl.onload = () => {
-                  lightboxImageEl.style.opacity = '1';
-              };
-          }, 200); 
+          // Precarregar a próxima imagem
+          const tempImg = new Image();
+          tempImg.src = imageUrl;
+          tempImg.onload = () => {
+              // Pequeno atraso para garantir que o fade-out seja visível
+              setTimeout(() => {
+                  if (currentLightboxIndex !== targetIndex) return;
+                  
+                  lightboxImageEl.src = tempImg.src;
+                  
+                  // Iniciar fade in (100%) após a troca do src
+                  requestAnimationFrame(() => {
+                      requestAnimationFrame(() => {
+                          lightboxImageEl.style.opacity = '1';
+                      });
+                  });
+              }, 200); 
+          };
       }
 
       window.nextLightboxImage = () => {
