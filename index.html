@@ -383,8 +383,8 @@
 
     /* FAQ Number Badge */
     .faq-number-badge {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -392,9 +392,16 @@
         background-color: #f3f4f6;
         color: #9ca3af;
         font-weight: 700;
-        font-size: 1.35rem;
+        font-size: 1rem;
         transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         position: relative;
+    }
+    @media (min-width: 768px) {
+        .faq-number-badge {
+            width: 40px;
+            height: 40px;
+            font-size: 1.35rem;
+        }
     }
     .faq-item.open .faq-number-badge {
         background-color: #dc2626;
@@ -930,7 +937,7 @@
                 </h2>
                 <p class="section-subtitle mx-auto !text-[0.8rem] md:!text-[1.44rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20">
                     <span class="hidden md:inline">RESULTADOS REAIS DE PROJETOS EXECUTADOS POR NOSSO TIME DE ESPECIALISTAS.</span>
-                    <span class="md:hidden">RESULTADOS REAIS DE PROJETOS EXECUTADOS POR NOSSO TIME.</span>
+                    <span class="md:hidden">PROJETOS EXECUTADOS POR NOSSO TIME.</span>
                 </p>
             </div>
 
@@ -1163,40 +1170,84 @@
           
           const baseTexts = [
               {
-                  long: "O Rei do Box foi sensacional! Desde o primeiro contato pelo WhatsApp até a instalação final no Jardim Botânico. O box de vidro temperado tem uma transparência incrível e a equipe deixou tudo impecavelmente limpo. Recomendo pela agilidade e pelo preço justo!",
+                  long: "Recomendo o Rei do Box pela agilidade incrível! Precisava do box urgente para minha reforma, o preço foi o melhor de Sinop e ainda parcelei tudo sem juros. Qualidade impecável!",
                   short: "O Rei do Box foi sensacional! Instalação rápida do box de vidro temperado no Jardim Botânico. Tudo limpo e preço justo. Recomendo muito!"
               },
               {
-                  long: "Estava em dúvida sobre qual espelho colocar no meu novo escritório e o pessoal do Rei do Box me deu uma consultoria completa. A instalação foi recorde, em menos de 24 horas já estava tudo pronto. A qualidade do acabamento é de alto padrão em Sinop-MT.",
+                  long: "Atendimento rápido e eficiente. O Paulo me ajudou com o melhor modelo de espelho, o valor ficou ótimo e a instalação foi feita no dia seguinte com perfeição absoluta. Nota dez!",
                   short: "Consultoria completa para meus novos espelhos. Instalação recorde em Sinop: menos de 24h tudo pronto. Acabamento de alto padrão!"
               },
               {
-                  long: "Excelente experiência! Procurei várias vidraçarias em Sinop e só aqui encontrei o modelo de Box Premium com entrega imediata. O instalador foi muito cuidadoso e educado. Realmente são especialistas no que fazem, vale cada centavo pela segurança do serviço.",
+                  long: "Fiquei impressionada com a qualidade dos vidros. Procurei rapidez e encontrei no Rei do Box, além de um parcelamento facilitado que ajudou muito no orçamento da minha casa nova.",
                   short: "Melhor vidraçaria de Sinop. Box Premium com entrega imediata e profissionais muito cuidadosos. Vale cada centavo pela segurança."
               },
               {
-                  long: "Minha reforma em Sinop ganhou um novo brilho com os espelhos bisotados do Rei do Box. O acabamento é impecável e a equipe foi extremamente ágil na entrega e montagem. Sem dúvida, é a melhor vidraçaria da região para quem busca qualidade real.",
+                  long: "Serviço de mestre! O box frontal desliza suavemente, a montagem foi limpa e o preço muito competitivo. É a melhor opção em Sinop para os projetos de quem não quer perder tempo.",
                   short: "Minha reforma ganhou outro brilho com os espelhos bisotados. Equipe ágil, montagem impecável e o melhor prazo de entrega."
               },
               {
-                  long: "Fiquei impressionado com a rapidez da instalação do meu box frontal. Liguei de manhã e no fim da tarde já estava pronto para uso. O material é de primeira linha e o atendimento do Paulo foi nota dez. Com certeza voltarei a contratar os serviços!",
+                  long: "Excelente custo-benefício e montagem profissional. Estava com pressa e eles entregaram antes do prazo esperado. O parcelamento facilitou a compra do meu box premium. Recomendo muito!",
                   short: "Liguei de manhã e no fim da tarde meu box frontal já estava instalado. Material de primeira e atendimento nota dez do Paulo."
               },
               {
-                  long: "Serviço de altíssima qualidade! Os vidros temperados que instalei na minha varanda ficaram perfeitos. A equipe é muito profissional, pontual e o preço é o melhor de Sinop. É raro encontrar uma empresa tão comprometida com o prazo de entrega hoje em dia.",
+                  long: "A agilidade da equipe é o diferencial. Em menos de 24h meu banheiro estava pronto, com acabamento fino e material resistente. Preço justo e atendimento de primeira em Sinop-MT.",
                   short: "Vidros temperados perfeitos para minha varanda. Profissionais pontuais e o preço mais competitivo de Sinop. Empresa comprometida."
               },
               {
-                  long: "O Rei do Box superou minhas expectativas na instalação dos espelhos do meu salão. O ambiente ficou muito mais moderno e luxuoso. A agilidade com que resolveram meu pedido foi o grande diferencial. Recomendo para todos os moradores de Sinop-MT.",
+                  long: "Melhor experiência com vidraçaria que já tive. O atendimento foi imediato, instaladores muito educados e o resultado final superou minhas expectativas. Qualidade e rapidez garantidas.",
                   short: "Ambiente moderno e luxuoso com os novos espelhos. A rapidez no atendimento foi o diferencial. Melhor escolha em Sinop-MT."
               },
               {
-                  long: "Box de vidro com acabamento premium e instalação sem sujeira. O que mais me chamou a atenção foi a cortesia dos técnicos e a garantia oferecida. É uma vidraçaria de confiança que realmente entende do assunto e entrega o que promete no prazo esperado.",
+                  long: "Buscava um bom preço e qualidade, e o Rei do Box entregou ambos. O parcelamento foi flexível e a instalação muito rápida no Jardim Botânico. Empresa séria e comprometida com o cliente.",
                   short: "Box premium com instalação sem sujeira. Técnicos educados, garantia real e entrega no prazo. Vidraçaria de total confiança."
               },
               {
-                  long: "Precisava de rapidez para o banheiro da minha nova casa e o Rei do Box entregou tudo em tempo recorde. O acabamento é fino e o sistema do box desliza perfeitamente. Melhor custo-benefício que encontrei em Sinop para vidros e espelhos personalizados.",
+                  long: "Espelhos perfeitos com instalação recorde! O valor foi excelente e o atendimento pelo WhatsApp facilitou tudo. Qualidade superior que transformou meu ambiente. Recomendo em Sinop.",
                   short: "Rapidez incrível! O banheiro ficou pronto em tempo recorde com acabamento fino. Melhor custo-benefício que encontrei em Sinop."
+              },
+              {
+                  long: "Box de vidro temperado premium com preço de fábrica. A agilidade na entrega me surpreendeu, e a facilidade de pagamento foi o diferencial. Nota máxima para toda a equipe Rei do Box!",
+                  short: "Box de vidro temperado instalado em tempo recorde. Preço justo e facilidade de pagamento. Recomendo o Rei do Box!"
+              },
+              {
+                  long: "Profissionais ágeis e atenciosos. O acabamento dos espelhos ficou maravilhoso, o serviço foi entregue no prazo e o valor foi o mais justo. Total satisfação com a compra realizada.",
+                  short: "Acabamento maravilhoso nos espelhos. Entrega no prazo e valor justo. Satisfação total com a Rei do Box em Sinop."
+              },
+              {
+                  long: "A melhor vidraçaria de Sinop, sem dúvida. Agilidade máxima no atendimento, preço imbatível e instalação limpa. O parcelamento me permitiu comprar os vidros para a casa toda. Excelente!",
+                  short: "Agilidade no atendimento e preço imbatível. Instalação limpa e rápida. A melhor vidraçaria da região de Sinop."
+              },
+              {
+                  long: "Encontrei no Rei do Box a entrega rápida que eu precisava. Atendimento ágil, instalação perfeita e um preço que coube no bolso com parcelamento facilitado. Qualidade que se vê longe.",
+                  short: "Entrega rápida e instalação perfeita. Preço bom e parcelamento facilitado. Qualidade superior em cada detalhe do serviço."
+              },
+              {
+                  long: "Box de alto padrão com entrega relâmpago. Recomendo pela honestidade no orçamento e pela rapidez na montagem completa. O produto é de primeira e o atendimento do pessoal é nota mil.",
+                  short: "Box de alto padrão e entrega relâmpago. Orçamento honesto e montagem rápida. Nota mil para o atendimento do Rei do Box."
+              },
+              {
+                  long: "Fiquei surpresa com a eficiência. Comprei o box e o espelho, parcelei no cartão e no outro dia já estava tudo instalado com perfeição total. Qualidade e bom preço em um só lugar.",
+                  short: "Eficiência total! Box e espelhos instalados no dia seguinte à compra. Qualidade e ótimo preço com parcelamento facilitado."
+              },
+              {
+                  long: "Trabalho de qualidade superior e entrega garantida. O Rei do Box tem o melhor atendimento de Sinop, orçamento rápido e execução impecável. O parcelamento facilitado foi um bônus.",
+                  short: "Qualidade superior e entrega garantida. Orçamento rápido e execução impecável. Parcelamento que ajuda muito na obra."
+              },
+              {
+                  long: "Agilidade e competência definem essa empresa. O box ficou lindo, o preço foi muito bom e a forma de pagamento super flexível. Parabéns à equipe Rei do Box pelo excelente trabalho.",
+                  short: "Agilidade e competência. Box lindo e preço justo com pagamento flexível. Parabéns à equipe pelo trabalho excelente em Sinop."
+              },
+              {
+                  long: "O melhor preço de Sinop com uma rapidez incrível. Precisava de espelhos para minha loja e eles entregaram com acabamento premium e montagem limpa. Recomendo para todos em Sinop.",
+                  short: "Melhor preço e rapidez incrível. Espelhos com acabamento premium para minha loja. Montagem limpa e rápida profissional."
+              },
+              {
+                  long: "Satisfação total com o serviço prestado. Atendimento rápido pelo Paulo, preço competitivo e instalação feita por especialistas. O parcelamento ajudou a finalizar minha obra com qualidade.",
+                  short: "Satisfação total! Atendimento rápido e preço competitivo. Instalação profissional que valorizou muito minha obra final."
+              },
+              {
+                  long: "Box resistente e bonito instalado em tempo recorde. O atendimento é ágil, o valor é justo e a qualidade do material é inquestionável. Rei do Box é a melhor vidraçaria de Sinop-MT!",
+                  short: "Box resistente e instalação recorde. Atendimento ágil e valor justo. Sem dúvida a melhor vidraçaria para sua casa."
               }
           ];
           
@@ -1741,7 +1792,7 @@
 
             <!-- Body: Text -->
             <div class="flex-grow mb-3">
-              <p class="card-description line-clamp-4">
+              <p class="card-description line-clamp-3">
                 <span class="hidden md:inline">"${testimonial.longText}"</span>
                 <span class="md:hidden">"${testimonial.shortText}"</span>
               </p>
@@ -1768,13 +1819,20 @@
 
           // Initialize pool if empty
           if (testimonialPool.length === 0) {
-              testimonialPool = generateTestimonialsData(9); // 9 for exactly 3 pages on mobile (3 per page)
+              testimonialPool = generateTestimonialsData(20); // Generate 20 for Desktop (5 pages of 4)
           }
 
           currentTestimonialPage = page;
           const isDesktop = window.innerWidth >= 1024;
           const itemsPerPage = isDesktop ? 4 : 3;
-          const totalPages = Math.ceil(testimonialPool.length / itemsPerPage);
+          let totalPages = Math.ceil(testimonialPool.length / itemsPerPage);
+          
+          // Enforce user requested limits per mode
+          if (!isDesktop) {
+              totalPages = 3; // Mobile: 3 pages (items 0-8)
+          } else {
+              totalPages = 5; // Desktop: 5 pages (items 0-19)
+          }
           
           const start = page * itemsPerPage;
           const end = start + itemsPerPage;
@@ -1820,7 +1878,15 @@
           testimonialInterval = setInterval(() => {
               const isDesktop = window.innerWidth >= 1024;
               const itemsPerPage = isDesktop ? 4 : 3;
-              const totalPages = Math.ceil(testimonialPool.length / itemsPerPage);
+              let totalPages = Math.ceil(testimonialPool.length / itemsPerPage);
+              
+              // Match enforcement in changeTestimonialPage
+              if (!isDesktop) {
+                  totalPages = 3;
+              } else {
+                  totalPages = 5;
+              }
+              
               const nextPage = (currentTestimonialPage + 1) % totalPages;
               changeTestimonialPage(nextPage);
           }, 8000);
@@ -1830,18 +1896,18 @@
           const container = document.getElementById('faq-container');
           if (!container) return;
           container.innerHTML = APP_DATA.faqItems.map((item, index) => `
-            <div class="faq-item bg-white overflow-hidden scroll-animate" style="transition-delay: ${index * 100}ms;">
-              <div class="w-full text-left flex items-center px-4 py-1.5 md:py-1.5">
-                <div class="flex items-center gap-4">
+            <div class="faq-item bg-white overflow-hidden scroll-animate border-b border-gray-100 last:border-0" style="transition-delay: ${index * 100}ms;">
+              <div class="w-full text-left flex items-center px-2 py-2 md:px-4 md:py-1.5">
+                <div class="flex items-center gap-3 md:gap-4">
                   <div class="faq-number-badge flex-shrink-0">
                     ${index + 1}
                   </div>
-                  <h3 class="text-[1.2rem] md:text-[1.35rem] text-red-600 leading-tight uppercase font-bold">${item.question}</h3>
+                  <h3 class="text-[1.1rem] md:text-[1.35rem] text-red-600 leading-tight uppercase font-bold">${item.question}</h3>
                 </div>
               </div>
               <div class="faq-answer">
-                <div class="faq-answer-inner px-4 pb-1 pl-16 md:pl-20 pr-4">
-                  <p class="card-description !text-gray-600">${item.answer}</p>
+                <div class="faq-answer-inner px-2 pb-2 pl-12 md:pl-20 pr-4">
+                  <p class="card-description !text-gray-600 !text-[0.9rem] md:!text-[1rem]">${item.answer}</p>
                 </div>
               </div>
             </div>
