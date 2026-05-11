@@ -598,6 +598,10 @@
       font-size: 32px;
       z-index: 9999;
       text-decoration: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      outline: none;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
@@ -811,7 +815,7 @@
           <a href="#executed-services" onclick="event.preventDefault(); scrollToSection('executed-services')" class="font-bold text-gray-800 hover:text-red-600 transition-colors text-[115%] uppercase">SERVIÇOS</a>
           <a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="font-bold text-gray-800 hover:text-red-600 transition-colors text-[115%] uppercase">DEPOIMENTOS</a>
           <a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="font-bold text-gray-800 hover:text-red-600 transition-colors text-[115%] uppercase">FAQ</a>
-            <button onclick="openWhatsAppDirectly()" class="animate-pulse-green inline-flex items-center justify-center text-white py-[11px] px-[22px] rounded-full shadow-md text-sm whitespace-nowrap">
+            <button onclick="openWhatsAppDirectly()" class="animate-pulse-green inline-flex items-center justify-center text-white py-[11px] px-[22px] rounded-full shadow-md text-sm whitespace-nowrap font-bold">
             <span class="text-[115%] uppercase whitespace-nowrap">PEDIR ORÇAMENTO</span>
             <i class="fa-brands fa-whatsapp ml-2 text-[22px]"></i>
           </button>
@@ -871,7 +875,7 @@
         <!-- Desktop Slideshow -->
         <div id="desktop-hero-section" class="hidden md:block relative">
             <div id="desktop-hero-container" class="w-full relative overflow-hidden bg-black">
-                <!-- JS will inject spacer and images here -->
+                <!-- JS will inject images here -->
             </div>
             <!-- Gradient Overlay -->
             <div class="absolute inset-0 z-10">
@@ -919,8 +923,8 @@
                     <span class="hidden md:inline">CONFIRA NOSSOS SERVIÇOS EM SINOP</span>
                     <span class="md:hidden">CONFIRA NOSSOS SERVIÇOS</span>
                 </h2>
-                <p class="section-subtitle mx-auto !text-[13px] md:!text-[1.44rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20 uppercase font-bold">
-                    <span class="hidden md:inline">UMA LINHA COMPLETA DE MODELOS MODERNOS E PROFISSIONAIS PARA SUA CASA OU EMPRESA.</span>
+                <p class="section-subtitle mx-auto !text-[13px] md:!text-[1.44rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20 uppercase font-bold md:font-normal">
+                    <span class="hidden md:inline">UMA LINHA COMPLETA DE MODELOS MODERNOS E PROFISSIONAIS PARA SUA CASA OU EMPRESA</span>
                     <span class="md:hidden">MODELOS MODERNOS E PROFISSIONAIS</span>
                 </p>
             </div>
@@ -929,15 +933,15 @@
           </div>
           
           <!-- Mosaic Gallery Highlights -->
-          <div class="mt-4 md:mt-12 mb-8">
+          <div class="mt-4 md:mt-4 mb-2">
             <div class="text-center mb-4 md:mb-10 scroll-animate">
                 <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-1 !text-[18px] md:!text-[2.16rem]">
                     <i class="fa-solid fa-camera-retro text-red-600"></i>
                     <span class="hidden md:inline">GALERIA DE DESTAQUES EM SINOP</span>
                     <span class="md:hidden">GALERIA DE DESTAQUES</span>
                 </h2>
-                <p class="section-subtitle mx-auto !text-[13px] md:!text-[1.44rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20 font-bold">
-                    <span class="hidden md:inline">RESULTADOS REAIS DE PROJETOS EXECUTADOS POR NOSSO TIME DE ESPECIALISTAS.</span>
+                <p class="section-subtitle mx-auto !text-[13px] md:!text-[1.44rem] whitespace-nowrap pb-2 border-b-[3px] border-red-500/20 font-bold md:font-normal">
+                    <span class="hidden md:inline">RESULTADOS REAIS DE PROJETOS EXECUTADOS POR NOSSO TIME DE ESPECIALISTAS</span>
                     <span class="md:hidden">PROJETOS EXECUTADOS POR NÓS</span>
                 </p>
             </div>
@@ -1005,16 +1009,16 @@
 
 
       <!-- Static Testimonials Section -->
-      <section id="static-testimonials" class="pt-1 pb-4 md:pt-12 md:pb-10 bg-white">
+      <section id="static-testimonials" class="pt-1 pb-4 md:pt-0 md:pb-10 bg-white">
         <div class="max-w-[1500px] mx-auto px-4 md:px-8">
-          <div class="text-center mb-2 md:mb-10 scroll-animate">
+          <div class="text-center mb-2 md:mb-6 scroll-animate">
             <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-1 !text-[18px] md:!text-[2.16rem]">
               <i class="fa-solid fa-users text-red-600"></i>
               <span class="hidden md:inline">DEPOIMENTO DE CLIENTES EM SINOP</span>
               <span class="md:hidden">DEPOIMENTO DE CLIENTES</span>
             </h2>
-            <p class="section-subtitle mx-auto !text-[13px] md:!text-[1.44rem] whitespace-nowrap pb-1 border-b-[3px] border-red-500/20 uppercase font-bold">
-                <span class="hidden md:inline">CONFIRA O QUE DIZEM NOSSOS CLIENTES SOBRE A QUALIDADE E AGILIDADE DA NOSSA EMPRESA.</span>
+            <p class="section-subtitle mx-auto !text-[13px] md:!text-[1.44rem] whitespace-nowrap pb-1 border-b-[3px] border-red-500/20 uppercase font-bold md:font-normal">
+                <span class="hidden md:inline">CONFIRA O QUE DIZEM NOSSOS CLIENTES SOBRE A QUALIDADE E AGILIDADE DA NOSSA EMPRESA</span>
                 <span class="md:hidden">O QUE DIZEM, QUEM JÁ COMPROU</span>
             </p>
           </div>
@@ -1022,32 +1026,32 @@
             <!-- Static testimonials will be injected here by JS -->
           </div>
           <!-- Pagination Dots -->
-          <div id="testimonial-pagination" class="flex justify-center gap-2 mt-4">
+          <div id="testimonial-pagination" class="flex justify-center gap-2 mt-10">
             <!-- Dots injected by JS -->
           </div>
         </div>
       </section>
 
-      <!-- Divider -->
-      <div class="container mx-auto px-6 py-4">
-        <div class="border-t border-transparent w-full"></div>
+      <!-- Divider (Linha Cinza) -->
+      <div class="container mx-auto px-6 pt-0 pb-2">
+        <div class="border-t border-gray-100 w-full"></div>
       </div>
 
       <!-- FAQ Section -->
-      <section id="faq" class="pt-2 pb-8 md:pt-12 md:pb-16 bg-white">
+      <section id="faq" class="pt-2 pb-8 md:pt-0 md:pb-16 bg-white">
         <div class="container mx-auto px-6">
-          <div class="text-center mb-0 md:mb-10 scroll-animate">
+          <div class="text-center mb-0 md:mb-6 scroll-animate">
             <h2 class="section-title text-red-600 inline-flex items-center gap-x-3 mb-0 !text-[18px] md:!text-[2.16rem]">
               <i class="fa-solid fa-circle-question text-red-600"></i>
               <span class="hidden md:inline">PERGUNTAS FREQUENTES (FAQ) - REI DO BOX</span>
               <span class="md:hidden">FAQ - PERGUNTAS COMUM</span>
             </h2>
-            <p class="section-subtitle mx-auto !text-[13px] md:!text-[1.44rem] whitespace-nowrap pb-1 border-b-[3px] border-red-500/20 uppercase font-bold">
-                <span class="hidden md:inline">TIRE SUAS DÚVIDAS SOBRE NOSSOS SERVIÇOS, PRAZOS E CONDIÇÕES DE PAGAMENTO.</span>
+            <p class="section-subtitle mx-auto !text-[13px] md:!text-[1.44rem] whitespace-nowrap pb-1 border-b-[3px] border-red-500/20 uppercase font-bold md:font-normal">
+                <span class="hidden md:inline">TIRE SUAS DÚVIDAS SOBRE NOSSOS SERVIÇOS, PRAZOS E CONDIÇÕES DE PAGAMENTO</span>
                 <span class="md:hidden">O QUE DIZEM NOSSOS CLIENTES</span>
             </p>
           </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-2 md:mt-12">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-2 md:mt-4">
             <div id="faq-container" class="space-y-3">
               <!-- FAQ items will be injected here by JS -->
             </div>
@@ -1083,7 +1087,7 @@
         <!-- Quick Links -->
         <div class="md:col-span-2">
           <h3 class="footer-title">NAVEGAÇÃO</h3>
-          <ul class="space-y-2 !text-[14px] font-bold">
+          <ul class="space-y-2 !text-[18px] font-bold">
             <li><a href="#executed-services" onclick="event.preventDefault(); scrollToSection('executed-services')" class="hover:text-red-600 transition-colors uppercase">SERVIÇOS</a></li>
             <li><a href="#static-testimonials" onclick="event.preventDefault(); scrollToSection('static-testimonials')" class="hover:text-red-600 transition-colors uppercase">DEPOIMENTOS</a></li>
             <li><a href="#faq" onclick="event.preventDefault(); scrollToSection('faq')" class="hover:text-red-600 transition-colors uppercase">FAQ</a></li>
@@ -1337,8 +1341,8 @@
         ],
         desktopHeroImages: [
           'https://i.postimg.cc/k7stdYyg/Untitled-3-copy.jpg',
-          'https://i.postimg.cc/k7stdYyg/Untitled-3-copy.jpg',
-          'https://i.postimg.cc/k7stdYyg/Untitled-3-copy.jpg'
+          'https://i.postimg.cc/vBHHC4Dr/Estoque-Reidobox-Sinop-2026.png',
+          'https://i.postimg.cc/HWyrQyDr/Caminhao-Reidobox-Sinop-2026-2.jpg'
         ],
         executedServices: [
           {
@@ -1568,26 +1572,10 @@
           
           if (!desktopHeroImageElements.length || !heroTitle || !heroSubtitle) return;
 
+          const isInitialCall = index === 0 && currentDesktopHeroIndex === 0 && desktopHeroImageElements[0].classList.contains('active');
           currentDesktopHeroIndex = index;
 
-          const nextActiveImageElIndex = 1 - activeDesktopHeroIndex;
-          const currentImageEl = desktopHeroImageElements[activeDesktopHeroIndex];
-          const nextImageEl = desktopHeroImageElements[nextActiveImageElIndex];
-          
-          // Preload the next image
-          const tempImg = new Image();
-          tempImg.src = APP_DATA.desktopHeroImages[index];
-          tempImg.onload = () => {
-              // Only proceed if index matches current target (avoids race conditions)
-              if (currentDesktopHeroIndex !== index) return;
-              
-              nextImageEl.src = tempImg.src;
-              currentImageEl.classList.remove('active');
-              nextImageEl.classList.add('active');
-              activeDesktopHeroIndex = nextActiveImageElIndex;
-          };
-          
-          // Animations for text
+          // Animations for text happen immediately
           const elementsToAnimate = [heroTitle, heroSubtitle];
           if (heroStats) {
               const stats = heroStats.querySelectorAll('.hero-stat');
@@ -1599,23 +1587,39 @@
               el.style.animation = 'none';
               void el.offsetWidth; // Force reflow
               el.style.animation = '';
+              el.classList.add('slide-in');
           });
+
+          if (heroStats) {
+              const stats = heroStats.querySelectorAll('.hero-stat');
+              stats.forEach((s, i) => {
+                  s.style.animationDelay = `${0.2 + (i * 0.1)}s`;
+              });
+          }
 
           if (dots.length) {
               dots.forEach((dot, dotIndex) => {
                   dot.classList.toggle('active', dotIndex === index);
               });
           }
+
+          // If it's the first call (initialization), the image is already set
+          if (isInitialCall) return;
+
+          const nextActiveImageElIndex = 1 - activeDesktopHeroIndex;
+          const currentImageEl = desktopHeroImageElements[activeDesktopHeroIndex];
+          const nextImageEl = desktopHeroImageElements[nextActiveImageElIndex];
           
-          heroTitle.classList.add('slide-in');
-          heroSubtitle.classList.add('slide-in');
-          if (heroStats) {
-              const stats = heroStats.querySelectorAll('.hero-stat');
-              stats.forEach((s, i) => {
-                  s.classList.add('slide-in');
-                  s.style.animationDelay = `${0.4 + (i * 0.1)}s`;
-              });
-          }
+          const tempImg = new Image();
+          tempImg.src = APP_DATA.desktopHeroImages[index];
+          tempImg.onload = () => {
+              if (currentDesktopHeroIndex !== index) return;
+              
+              nextImageEl.src = tempImg.src;
+              currentImageEl.classList.remove('active');
+              nextImageEl.classList.add('active');
+              activeDesktopHeroIndex = nextActiveImageElIndex;
+          };
       }
 
       function startDesktopHeroInterval() {
@@ -1633,7 +1637,8 @@
 
           container.innerHTML = '';
           const firstImageUrl = APP_DATA.desktopHeroImages[0];
-          
+
+          // Re-instating spacer image to maintain height automatically
           const spacer = document.createElement('img');
           spacer.src = firstImageUrl;
           spacer.alt = "";
@@ -1916,7 +1921,7 @@
               </div>
               <div class="faq-answer">
                 <div class="faq-answer-inner px-2 pb-2 pl-12 md:pl-20 pr-4">
-                  <p class="card-description !text-gray-600 !text-[0.9rem] md:!text-[1rem]">${item.answer}</p>
+                  <p class="card-description !text-gray-600">${item.answer}</p>
                 </div>
               </div>
             </div>
@@ -2132,13 +2137,12 @@
 
 
   <!-- Floating WhatsApp Button -->
-  <a id="whatsapp-float" 
-     href="javascript:void(0)" 
+  <button id="whatsapp-float" 
      onclick="openWhatsAppDirectly()"
      class="wa-float-fixed" 
      aria-label="Fale conosco no WhatsApp">
     <i class="fab fa-whatsapp"></i>
-  </a>
+  </button>
 
 </body>
 </html>
